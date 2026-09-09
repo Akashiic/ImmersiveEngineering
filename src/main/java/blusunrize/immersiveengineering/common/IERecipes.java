@@ -301,6 +301,7 @@ public class IERecipes
 		addShapelessOredictRecipe(new ItemStack(IEContent.itemMetal,1,33), new ItemStack(IEContent.blockMetalDecoration2, 1,BlockMetalDecoration2.META_sheetMetalLead));
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDecoration2, 4,BlockMetalDecoration2.META_sheetMetalSteel), " I ","I I"," I ", 'I',"plateSteel");
 		addShapelessOredictRecipe(new ItemStack(IEContent.itemMetal,1,38), new ItemStack(IEContent.blockMetalDecoration2, 1,BlockMetalDecoration2.META_sheetMetalSteel));
+		addOredictRecipe(new ItemStack(IEContent.blockMetalDecoration2, 2,BlockMetalDecoration2.META_redstoneEngineering), "IRI","RCR","IRI", 'I',"ingotIron",'C',"ingotCopper",'R',"dustRedstone");
 
 		addOredictRecipe(new ItemStack(IEContent.blockClothDevice, 2,0), " F ","FTF"," S ", 'F',"fabricHemp", 'T',Blocks.torch, 'S',"slabTreatedWood");
 

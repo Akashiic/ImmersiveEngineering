@@ -17,16 +17,18 @@ public class BlockMetalDecoration2 extends BlockIEBase
 	public static final int META_sheetMetalAlu=0;
 	public static final int META_sheetMetalLead=1;
 	public static final int META_sheetMetalSteel=2;
+	public static final int META_redstoneEngineering=3;
 
 	public BlockMetalDecoration2()
 	{
-		super("metalDecoration2", Material.iron,1, ItemBlockMetalDecorations.class, 
-				"sheetMetalAlu","sheetMetalLead","sheetMetalSteel");
+		super("metalDecoration2", Material.iron,1, ItemBlockMetalDecorations.class,
+				"sheetMetalAlu","sheetMetalLead","sheetMetalSteel","redstoneEngineering");
 		setHardness(3.0F);
 		setResistance(15.0F);
 		this.setMetaLightOpacity(META_sheetMetalAlu, 255);
 		this.setMetaLightOpacity(META_sheetMetalLead, 255);
 		this.setMetaLightOpacity(META_sheetMetalSteel, 255);
+		this.setMetaLightOpacity(META_redstoneEngineering, 255);
 	}
 
 	@Override
@@ -59,6 +61,7 @@ public class BlockMetalDecoration2 extends BlockIEBase
 		icons[META_sheetMetalAlu][0] = iconRegister.registerIcon("immersiveengineering:metalDeco2_sheetMetalAlu");
 		icons[META_sheetMetalLead][0] = iconRegister.registerIcon("immersiveengineering:metalDeco2_sheetMetalLead");
 		icons[META_sheetMetalSteel][0] = iconRegister.registerIcon("immersiveengineering:metalDeco2_sheetMetalSteel");
+		icons[META_redstoneEngineering][0] = iconRegister.registerIcon("immersiveengineering:metalDecoration0_redstoneEngineering");
 	}
 
 	@Override
