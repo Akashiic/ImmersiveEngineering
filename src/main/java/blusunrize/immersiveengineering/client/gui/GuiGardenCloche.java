@@ -38,6 +38,8 @@ public class GuiGardenCloche extends GuiContainer
 			int percent = Math.round(100*tile.fertilizerAmount/(float)duration);
 			tooltip.add(StatCollector.translateToLocalFormatted(Lib.DESC_INFO+"gardenClocheFertilizer", percent));
 			tooltip.add(StatCollector.translateToLocalFormatted(Lib.DESC_INFO+"gardenClocheFertilizerMod", String.format("%.2f", tile.fertilizerMod)));
+			tooltip.add(StatCollector.translateToLocalFormatted(Lib.DESC_INFO+"gardenClocheSoilMod", String.format("%.2f", tile.getSoilGrowthMultiplier())));
+			tooltip.add(StatCollector.translateToLocalFormatted(Lib.DESC_INFO+"gardenClocheGrowthMod", String.format("%.2f", tile.getEffectiveGrowthMultiplier())));
 		}
 		if(mouseX>guiLeft+158 && mouseX<guiLeft+165 && mouseY>guiTop+22 && mouseY<guiTop+68)
 			tooltip.add(tile.energyStorage.getEnergyStored()+"/"+tile.energyStorage.getMaxEnergyStored()+" RF");

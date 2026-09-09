@@ -1003,4 +1003,6 @@ ie.manual.entry.computer.capacitor0=Any capacitor can be connected to a computer
 tile.ImmersiveEngineering.metalDevice2.gardenCloche.name=Garden Cloche
 gui.ImmersiveEngineering.gardenCloche=Garden Cloche
 desc.ImmersiveEngineering.info.gardenClocheFertilizer=Fertilizer: %s%%
-desc.ImmersiveEngineering.info.gardenClocheFertilizerMod=Growth multiplier: %sx
+desc.ImmersiveEngineering.info.gardenClocheFertilizerMod=Fertilizer multiplier: %sx
+desc.ImmersiveEngineering.info.gardenClocheSoilMod=Soil multiplier: %sx
+desc.ImmersiveEngineering.info.gardenClocheGrowthMod=Total growth multiplier: %sx

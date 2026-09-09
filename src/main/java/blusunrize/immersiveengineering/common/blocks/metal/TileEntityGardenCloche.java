@@ -107,7 +107,7 @@ public class TileEntityGardenCloche extends TileEntityIEBase implements IEnergyR
 				}
 				else
 				{
-					growth += getGrowthModifier()*handler.getGrowthStep(seed, soil, growth, this, fertilizerMod);
+					growth += getGrowthModifier()*BelljarHandler.getSoilGrowthMultiplier(seed, soil, this)*handler.getGrowthStep(seed, soil, growth, this, fertilizerMod);
 					if(growth>1f)
 						growth = 1f;
 					consumedTick = true;
@@ -155,7 +155,7 @@ public class TileEntityGardenCloche extends TileEntityIEBase implements IEnergyR
 		}
 		if(renderGrowth<1f)
 		{
-			renderGrowth += getGrowthModifier()*handler.getGrowthStep(seed, soil, renderGrowth, this, fertilizerMod);
+			renderGrowth += getGrowthModifier()*BelljarHandler.getSoilGrowthMultiplier(seed, soil, this)*handler.getGrowthStep(seed, soil, renderGrowth, this, fertilizerMod);
 			if(renderGrowth>1f)
 				renderGrowth = 1f;
 		}
@@ -414,6 +414,16 @@ public class TileEntityGardenCloche extends TileEntityIEBase implements IEnergyR
 	{
 		int configured = Config.getInt("gardenCloche_fluidPerDose");
 		return configured>0?configured:250;
+	}
+
+	public float getSoilGrowthMultiplier()
+	{
+		return BelljarHandler.getSoilGrowthMultiplier(inventory[SLOT_SEED], inventory[SLOT_SOIL], this);
+	}
+
+	public float getEffectiveGrowthMultiplier()
+	{
+		return getGrowthModifier()*fertilizerMod*getSoilGrowthMultiplier();
 	}
 
 	private static float getGrowthModifier()

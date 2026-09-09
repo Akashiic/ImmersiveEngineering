@@ -28,6 +28,7 @@ public final class BelljarHandler
 	private static final List<IPlantHandler> plantHandlers = new ArrayList<IPlantHandler>();
 	private static final List<FluidFertilizerHandler> fluidFertilizers = new ArrayList<FluidFertilizerHandler>();
 	private static final List<ItemFertilizerHandler> itemFertilizers = new ArrayList<ItemFertilizerHandler>();
+	private static final List<SoilHandler> soilHandlers = new ArrayList<SoilHandler>();
 	private static final Map<SeedKey, ResourceLocation> soilTextures = new LinkedHashMap<SeedKey, ResourceLocation>();
 	private static boolean initialized;
 
@@ -140,6 +141,38 @@ public final class BelljarHandler
 		return null;
 	}
 
+	/**
+	 * Registers a server-safe soil extension. This is intentionally independent
+	 * from client rendering and allows compat modules to provide dirt substitutes
+	 * and evidence-backed growth modifiers.
+	 */
+	public static void registerSoilHandler(SoilHandler handler)
+	{
+		if(handler!=null && !soilHandlers.contains(handler))
+			soilHandlers.add(handler);
+	}
+
+	public static boolean isDirtSoil(ItemStack soil)
+	{
+		if(soil==null)
+			return false;
+		if(OreDictionary.itemMatches(new ItemStack(Blocks.dirt), soil, false))
+			return true;
+		for(SoilHandler handler : soilHandlers)
+			if(handler.isDirtReplacement(soil))
+				return true;
+		return false;
+	}
+
+	public static float getSoilGrowthMultiplier(ItemStack seed, ItemStack soil, TileEntity tile)
+	{
+		float multiplier = 1f;
+		for(SoilHandler handler : soilHandlers)
+			if(handler.isValid(soil))
+				multiplier *= Math.max(0f, handler.getGrowthMultiplier(seed, soil, tile));
+		return multiplier;
+	}
+
 	public static void registerBasicItemFertilizer(final ItemStack fertilizer, final float multiplier)
 	{
 		registerItemFertilizer(new ItemFertilizerHandler()
@@ -220,6 +253,15 @@ public final class BelljarHandler
 		float getGrowthMultiplier(ItemStack fertilizer, ItemStack seed, ItemStack soil, TileEntity tile);
 	}
 
+	public interface SoilHandler
+	{
+		boolean isValid(ItemStack soil);
+
+		boolean isDirtReplacement(ItemStack soil);
+
+		float getGrowthMultiplier(ItemStack seed, ItemStack soil, TileEntity tile);
+	}
+
 	public static final class PlantRenderInfo
 	{
 		public final Block block;
@@ -288,6 +330,18 @@ public final class BelljarHandler
 	private interface SoilMatcher
 	{
 		boolean matches(ItemStack soil);
+	}
+
+	private static SoilMatcher dirtSoil()
+	{
+		return new SoilMatcher()
+		{
+			@Override
+			public boolean matches(ItemStack soil)
+			{
+				return isDirtSoil(soil);
+			}
+		};
 	}
 
 	private static SoilMatcher exactSoil(final ItemStack required)
@@ -371,9 +425,9 @@ public final class BelljarHandler
 	{
 		BasicCropHandler()
 		{
-			register(new ItemStack(Items.wheat_seeds), new ItemStack[]{new ItemStack(Items.wheat, 2), new ItemStack(Items.wheat_seeds)}, exactSoil(new ItemStack(Blocks.dirt)), Blocks.wheat, 7);
-			register(new ItemStack(Items.potato), new ItemStack[]{new ItemStack(Items.potato, 2)}, exactSoil(new ItemStack(Blocks.dirt)), Blocks.potatoes, 7);
-			register(new ItemStack(Items.carrot), new ItemStack[]{new ItemStack(Items.carrot, 2)}, exactSoil(new ItemStack(Blocks.dirt)), Blocks.carrots, 7);
+			register(new ItemStack(Items.wheat_seeds), new ItemStack[]{new ItemStack(Items.wheat, 2), new ItemStack(Items.wheat_seeds)}, dirtSoil(), Blocks.wheat, 7);
+			register(new ItemStack(Items.potato), new ItemStack[]{new ItemStack(Items.potato, 2)}, dirtSoil(), Blocks.potatoes, 7);
+			register(new ItemStack(Items.carrot), new ItemStack[]{new ItemStack(Items.carrot, 2)}, dirtSoil(), Blocks.carrots, 7);
 			register(new ItemStack(Items.nether_wart), new ItemStack[]{new ItemStack(Items.nether_wart, 2)}, exactSoil(new ItemStack(Blocks.soul_sand)), Blocks.nether_wart, 3);
 			register(new ItemStack(Blocks.red_mushroom), new ItemStack[]{new ItemStack(Blocks.red_mushroom, 2)}, eitherSoil(new ItemStack(Blocks.mycelium), new ItemStack(Blocks.dirt, 1, 2)), Blocks.red_mushroom, 0);
 			register(new ItemStack(Blocks.brown_mushroom), new ItemStack[]{new ItemStack(Blocks.brown_mushroom, 2)}, eitherSoil(new ItemStack(Blocks.mycelium), new ItemStack(Blocks.dirt, 1, 2)), Blocks.brown_mushroom, 0);
@@ -408,7 +462,7 @@ public final class BelljarHandler
 
 		private void registerStem(ItemStack seed, ItemStack[] outputs, Block stem, Block fruit)
 		{
-			register(seed, outputs, exactSoil(new ItemStack(Blocks.dirt)), stem, 7);
+			register(seed, outputs, dirtSoil(), stem, 7);
 			fruits.put(new SeedKey(seed), fruit);
 		}
 
