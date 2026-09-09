@@ -7,6 +7,7 @@ import java.util.Set;
 
 import blusunrize.immersiveengineering.common.Config;
 import blusunrize.immersiveengineering.common.util.IELogger;
+import blusunrize.immersiveengineering.common.util.compat.agricraft.AgriCraftHelper;
 import blusunrize.immersiveengineering.common.util.compat.computercraft.ComputercraftHelper;
 import blusunrize.immersiveengineering.common.util.compat.hydcraft.HydCraftHelper;
 import blusunrize.immersiveengineering.common.util.compat.magicalcrops.MagicalCropsHelper;
@@ -24,6 +25,7 @@ public abstract class IECompatModule
 	static
 	{
 		moduleClasses.put("appliedenergistics2", AppliedEnergisticsHelper.class);
+		moduleClasses.put("AgriCraft", AgriCraftHelper.class);
 		moduleClasses.put("MineFactoryReloaded", MFRHelper.class);
 		moduleClasses.put("magicalcrops", MagicalCropsHelper.class);
 		moduleClasses.put("MineTweaker3", MTHelper.class);
