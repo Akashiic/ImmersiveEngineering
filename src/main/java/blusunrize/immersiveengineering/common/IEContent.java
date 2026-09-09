@@ -692,7 +692,7 @@ public class IEContent
 			@Override
 			public boolean isCorrectSoil(ItemStack seed, ItemStack soil)
 			{
-				return soil!=null && OreDictionary.itemMatches(new ItemStack(Blocks.dirt), soil, false);
+				return BelljarHandler.isDirtSoil(soil);
 			}
 
 			@Override

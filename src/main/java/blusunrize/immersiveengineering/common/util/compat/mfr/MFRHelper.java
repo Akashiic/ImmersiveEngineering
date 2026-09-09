@@ -9,7 +9,11 @@ import blusunrize.immersiveengineering.common.util.IEPotions;
 import blusunrize.immersiveengineering.common.util.compat.IECompatModule;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
+import net.minecraft.block.BlockStem;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -45,6 +49,33 @@ public class MFRHelper extends IECompatModule
 				return effectiveMetadata>0;
 			}
 
+			private boolean hasAgriStats(ItemStack seed)
+			{
+				return seed!=null && seed.hasTagCompound()
+						&& seed.getTagCompound().hasKey("growth")
+						&& seed.getTagCompound().hasKey("gain")
+						&& seed.getTagCompound().hasKey("strength");
+			}
+
+			private Block getSeedPlant(ItemStack seed)
+			{
+				if(seed==null || !(seed.getItem() instanceof ItemSeeds))
+					return null;
+				return ((ItemSeeds)seed.getItem()).getPlant(null, 0, 0, 0);
+			}
+
+			private boolean isMagicalCrop(Block plant)
+			{
+				Class<?> type = plant==null?null:plant.getClass();
+				while(type!=null)
+				{
+					if("com.mark719.magicalcrops.blocks.BlockMagicalCrops".equals(type.getName()))
+						return true;
+					type = type.getSuperclass();
+				}
+				return false;
+			}
+
 			@Override
 			public boolean isValid(ItemStack soil)
 			{
@@ -60,15 +91,21 @@ public class MFRHelper extends IECompatModule
 			@Override
 			public float getGrowthMultiplier(ItemStack seed, ItemStack soil, TileEntity tile)
 			{
-				/*
-				 * Forge 1.7.10 BlockCrops gives a sustaining non-fertile center soil a
-				 * contribution of 1 and an isFertile() soil a contribution of 3. With
-				 * the base growth factor of 1 this is 2 versus 4, exactly a 2x ratio.
-				 */
-				return 2f;
+				if(hasAgriStats(seed))
+					return 1f;
+
+				Block plant = getSeedPlant(seed);
+				if(isMagicalCrop(plant))
+					return 31f/11f;
+				if(seed!=null && seed.getItem()==IEContent.itemSeeds)
+					return 1.5f;
+				if(plant instanceof BlockCrops || plant instanceof BlockStem
+						|| seed!=null && (seed.getItem()==Items.carrot || seed.getItem()==Items.potato))
+					return 2f;
+				return 1f;
 			}
 		});
-		IELogger.info("Garden Cloche MFR compat: registered Fertile Soil as a 2.0x dirt substitute.");
+		IELogger.info("Garden Cloche MFR compat: registered Fertile Soil with crop-aware growth multipliers.");
 	}
 
 	@Override
