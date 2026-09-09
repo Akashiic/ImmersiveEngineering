@@ -30,6 +30,7 @@ public final class BelljarHandler
 	private static final List<ItemFertilizerHandler> itemFertilizers = new ArrayList<ItemFertilizerHandler>();
 	private static final List<SoilHandler> soilHandlers = new ArrayList<SoilHandler>();
 	private static final Map<SeedKey, ResourceLocation> soilTextures = new LinkedHashMap<SeedKey, ResourceLocation>();
+	private static final CompatCropHandler compatCropHandler = new CompatCropHandler();
 	private static boolean initialized;
 
 	public static float solidFertilizerModifier = 1f;
@@ -50,6 +51,7 @@ public final class BelljarHandler
 		registerHandler(new BasicCropHandler());
 		registerHandler(new StemHandler());
 		registerHandler(new StackingHandler());
+		registerHandler(compatCropHandler);
 
 		registerFluidFertilizer(new FluidFertilizerHandler()
 		{
@@ -205,6 +207,19 @@ public final class BelljarHandler
 	{
 		if(soil!=null && texture!=null)
 			soilTextures.put(new SeedKey(soil), texture);
+	}
+
+	/**
+	 * Registers a conventional single-block crop discovered by a soft compat
+	 * module. The seed remains in the machine and is never emitted by this
+	 * definition; callers must provide only the actual harvest outputs.
+	 */
+	public static void registerCompatCrop(ItemStack seed, ItemStack[] outputs, Block renderBlock, int maxMetadata)
+	{
+		if(seed==null || seed.getItem()==null || renderBlock==null)
+			return;
+		init();
+		compatCropHandler.register(seed, outputs, dirtSoil(), renderBlock, maxMetadata);
 	}
 
 	public interface IPlantHandler
@@ -418,6 +433,25 @@ public final class BelljarHandler
 		{
 			PlantDefinition def = get(seed);
 			return def==null?new ItemStack[0]:copyOutputs(def.outputs);
+		}
+	}
+
+	private static final class CompatCropHandler extends RegisteredPlantHandler
+	{
+		@Override
+		public float getGrowthStep(ItemStack seed, ItemStack soil, float growth, TileEntity tile, float fertilizer)
+		{
+			return .003125f*fertilizer;
+		}
+
+		@Override
+		public PlantRenderInfo[] getRenderInfo(ItemStack seed, ItemStack soil, float growth, TileEntity tile)
+		{
+			PlantDefinition def = get(seed);
+			if(def==null)
+				return new PlantRenderInfo[0];
+			int meta = Math.min(def.maxMetadata, Math.max(0, Math.round(def.maxMetadata*growth)));
+			return new PlantRenderInfo[]{new PlantRenderInfo(def.renderBlock, meta, .875f, 0f, 0f, 0f)};
 		}
 	}
 

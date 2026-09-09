@@ -9,6 +9,7 @@ import blusunrize.immersiveengineering.common.Config;
 import blusunrize.immersiveengineering.common.util.IELogger;
 import blusunrize.immersiveengineering.common.util.compat.computercraft.ComputercraftHelper;
 import blusunrize.immersiveengineering.common.util.compat.hydcraft.HydCraftHelper;
+import blusunrize.immersiveengineering.common.util.compat.magicalcrops.MagicalCropsHelper;
 import blusunrize.immersiveengineering.common.util.compat.mfr.MFRHelper;
 import blusunrize.immersiveengineering.common.util.compat.minetweaker.MTHelper;
 import blusunrize.immersiveengineering.common.util.compat.opencomputers.OCHelper;
@@ -24,6 +25,7 @@ public abstract class IECompatModule
 	{
 		moduleClasses.put("appliedenergistics2", AppliedEnergisticsHelper.class);
 		moduleClasses.put("MineFactoryReloaded", MFRHelper.class);
+		moduleClasses.put("magicalcrops", MagicalCropsHelper.class);
 		moduleClasses.put("MineTweaker3", MTHelper.class);
 		moduleClasses.put("denseores", DenseOresHelper.class);
 		moduleClasses.put("EE3", EE3Helper.class);
