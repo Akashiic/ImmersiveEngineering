@@ -170,6 +170,8 @@ public class Config
 		setInt("bottlingMachine_consumption", config.get("machines", "Bottling: Consumed", 8, "The RF the Bottling Machine will consume per tick, when filling items").getInt());
 		setInt("charger_consumption", config.get("machines", "ChargingStation: Charge", 4000, "The RF per tick the Charging Station can insert into an item").getInt());
 		setInt("preheater_consumption", config.get("machines", "BlastFurnacePreheater: Charge", 32, "The RF per tick the Blast Furnace Preheater will consume to speed up the Blast Furnace").getInt());
+		setDouble("autoWorkbench_energyModifier", config.get("machines", "Auto Workbench: Energy Modifier", 1d, "Multiplier applied to the Automated Workbench's default 23040 RF energy cost per craft").getDouble());
+		setDouble("autoWorkbench_timeModifier", config.get("machines", "Auto Workbench: Time Modifier", 1d, "Multiplier applied to the Automated Workbench's default 180 tick process time per craft").getDouble());
 		setInt("gardenCloche_consumption", config.get("machines", "Garden Cloche: Consumed", 8, "The RF per tick consumed by the Garden Cloche while growing plants").getInt());
 		setInt("gardenCloche_fertilizerDuration", config.get("machines", "Garden Cloche: Fertilizer Duration", 6000, "The amount of ticks one dose of fertilizer lasts in the Garden Cloche").getInt());
 		setInt("gardenCloche_fluidPerDose", config.get("machines", "Garden Cloche: Fluid per Dose", 250, "The amount of fertilizer fluid consumed per Garden Cloche dose in mB").getInt());

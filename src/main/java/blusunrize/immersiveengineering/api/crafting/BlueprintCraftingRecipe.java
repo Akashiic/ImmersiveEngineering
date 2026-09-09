@@ -180,6 +180,44 @@ public class BlueprintCraftingRecipe
 					}
 		}
 	}
+	/**
+	 * Consumes inputs for automated crafting while preserving container items.
+	 * The supplied array is mutated; callers should pass a defensive copy until
+	 * all admission checks have succeeded. Returns null if the full recipe could
+	 * not be consumed, otherwise the exact stacks removed for process rendering.
+	 */
+	public ItemStack[] consumeInputsForAutomation(ItemStack[] query, int crafted)
+	{
+		if(query==null || crafted<=0)
+			return null;
+		ArrayList<ItemStack> consumed = new ArrayList<ItemStack>();
+		for(Object input : inputs)
+			if(input!=null)
+			{
+				int remaining = (input instanceof ItemStack?((ItemStack)input).stackSize:1)*crafted;
+				for(int i=0; i<query.length && remaining>0; i++)
+				{
+					ItemStack stack = query[i];
+					if(stack==null || !ApiUtils.stackMatchesObject(stack, input))
+						continue;
+					int taken = Math.min(stack.stackSize, remaining);
+					consumed.add(Utils.copyStackWithAmount(stack, taken));
+					if(taken>=stack.stackSize && stack.getItem().hasContainerItem(stack))
+						query[i] = stack.getItem().getContainerItem(stack);
+					else
+					{
+						stack.stackSize -= taken;
+						if(stack.stackSize<=0)
+							query[i] = null;
+					}
+					remaining -= taken;
+				}
+				if(remaining>0)
+					return null;
+			}
+		return consumed.toArray(new ItemStack[consumed.size()]);
+	}
+
 	public ArrayList<Object> getFormattedInputs()
 	{
 		LinkedHashMap<Object, Integer> sumMap = new LinkedHashMap<Object, Integer>();
