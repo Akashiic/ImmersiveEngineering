@@ -205,14 +205,18 @@ public class TileEntityGardenCloche extends TileEntityIEBase implements IEnergyR
 		for(int i=0; i<4; i++)
 			staged[i] = inventory[SLOT_OUTPUT_START+i]==null?null:inventory[SLOT_OUTPUT_START+i].copy();
 
+		boolean hasOutput = false;
 		for(ItemStack output : outputs)
 		{
 			if(output==null || output.stackSize<=0)
 				continue;
+			hasOutput = true;
 			ItemStack remainder = insertIntoStaged(staged, output.copy());
 			if(remainder!=null && remainder.stackSize>0)
 				return false;
 		}
+		if(!hasOutput)
+			return false;
 
 		for(int i=0; i<4; i++)
 			inventory[SLOT_OUTPUT_START+i] = staged[i];

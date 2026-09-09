@@ -26,7 +26,7 @@ public class AgriCraftHelper extends IECompatModule
 
 	private Object apiV2;
 	private Method apiIsHandled;
-	private Method apiGetSeedStats;
+	private Method plantStatsFromStack;
 	private Method statsGetGrowth;
 	private Method statsGetGain;
 	private Method statsGetStrength;
@@ -70,12 +70,12 @@ public class AgriCraftHelper extends IECompatModule
 		Class<?> apiEntry = Class.forName("com.InfinityRaider.AgriCraft.api.API");
 		apiV2 = apiEntry.getMethod("getAPI", int.class).invoke(null, 2);
 		apiIsHandled = apiV2.getClass().getMethod("isHandledByAgricraft", ItemStack.class);
-		apiGetSeedStats = apiV2.getClass().getMethod("getSeedStats", ItemStack.class);
 
-		Class<?> seedStats = Class.forName("com.InfinityRaider.AgriCraft.api.v2.ISeedStats");
-		statsGetGrowth = seedStats.getMethod("getGrowth");
-		statsGetGain = seedStats.getMethod("getGain");
-		statsGetStrength = seedStats.getMethod("getStrength");
+		Class<?> plantStats = Class.forName("com.InfinityRaider.AgriCraft.farming.PlantStats");
+		plantStatsFromStack = plantStats.getMethod("getStatsFromStack", ItemStack.class);
+		statsGetGrowth = plantStats.getMethod("getGrowth");
+		statsGetGain = plantStats.getMethod("getGain");
+		statsGetStrength = plantStats.getMethod("getStrength");
 
 		Class<?> cropPlantHandler = Class.forName("com.InfinityRaider.AgriCraft.farming.CropPlantHandler");
 		Class<?> cropPlant = Class.forName("com.InfinityRaider.AgriCraft.farming.cropplant.CropPlant");
@@ -112,7 +112,7 @@ public class AgriCraftHelper extends IECompatModule
 		{
 			return Boolean.TRUE.equals(isValidSeed.invoke(null, seed))
 					&& Boolean.TRUE.equals(apiIsHandled.invoke(apiV2, seed))
-					&& apiGetSeedStats.invoke(apiV2, seed)!=null;
+					&& plantStatsFromStack.invoke(null, seed)!=null;
 		}
 		catch(Exception e)
 		{
@@ -136,7 +136,7 @@ public class AgriCraftHelper extends IECompatModule
 	{
 		try
 		{
-			return apiGetSeedStats.invoke(apiV2, seed);
+			return plantStatsFromStack.invoke(null, seed);
 		}
 		catch(Exception e)
 		{
@@ -255,6 +255,23 @@ public class AgriCraftHelper extends IECompatModule
 				return new PlantRenderInfo[0];
 			int stage = Math.max(0, Math.min(7, Math.round(7f*growth)));
 			int meta = getRenderMetadata(plant, block, stage);
+
+			if(stage>=7)
+				try
+				{
+					Method fruitMethod = plant.getClass().getMethod("getFruitBlock");
+					Object fruitObj = fruitMethod.invoke(plant);
+					if(fruitObj instanceof Block)
+						return new PlantRenderInfo[]{
+								new PlantRenderInfo(block, meta, .875f, 0f, 0f, 0f),
+								new PlantRenderInfo((Block)fruitObj, 0, .5f, 0f, .15f, .15f)};
+				}
+				catch(NoSuchMethodException ignored)
+				{
+				}
+				catch(Exception ignored)
+				{
+				}
 
 			try
 			{
