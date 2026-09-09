@@ -13,6 +13,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFloodlight;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPump;
+import blusunrize.immersiveengineering.common.blocks.metal.TileEntityGardenCloche;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRedstoneBreaker;
 import blusunrize.immersiveengineering.common.util.chickenbones.Matrix4;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -38,6 +39,7 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 	private static final TileEntityFluidPump pump = new TileEntityFluidPump();
 	private static final TileEntityRedstoneBreaker redBreaker = new TileEntityRedstoneBreaker();
 	private static final TileEntityEnergyMeter meter = new TileEntityEnergyMeter();
+	private static final TileEntityGardenCloche cloche = new TileEntityGardenCloche();
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
 	{
@@ -154,6 +156,22 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 				ClientUtils.handleStaticTileRenderer(heat);
 				Tessellator.instance.draw();
 			}
+			else if(metadata==BlockMetalDevices2.META_gardenCloche)
+			{
+				GL11.glScalef(.35f, .35f, .35f);
+				GL11.glTranslatef(-.5f,-1.5f,-.5f);
+				renderPass = 0;
+				Tessellator.instance.startDrawingQuads();
+				ClientUtils.handleStaticTileRenderer(cloche);
+				Tessellator.instance.draw();
+				GL11.glEnable(GL11.GL_BLEND);
+				GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+				renderPass = 1;
+				Tessellator.instance.startDrawingQuads();
+				ClientUtils.handleStaticTileRenderer(cloche);
+				Tessellator.instance.draw();
+				GL11.glDisable(GL11.GL_BLEND);
+			}
 
 		}catch(Exception e)
 		{
@@ -166,7 +184,7 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
 		int metadata = world.getBlockMetadata(x, y, z);
-		if(renderPass==0||metadata==BlockMetalDevices2.META_floodlight||metadata==BlockMetalDevices2.META_chargingStation)
+		if(renderPass==0||metadata==BlockMetalDevices2.META_floodlight||metadata==BlockMetalDevices2.META_chargingStation||metadata==BlockMetalDevices2.META_gardenCloche)
 			if(metadata==BlockMetalDevices2.META_breakerSwitch)
 			{
 				TileEntityBreakerSwitch tile = (TileEntityBreakerSwitch)world.getTileEntity(x, y, z);
@@ -262,6 +280,15 @@ public class BlockRenderMetalDevices2 implements ISimpleBlockRenderingHandler
 				if(tile.dummy==0)
 				{
 					ClientUtils.handleStaticTileRenderer(tile);
+					return true;
+				}
+			}
+			else if(metadata==BlockMetalDevices2.META_gardenCloche)
+			{
+				net.minecraft.tileentity.TileEntity te = world.getTileEntity(x, y, z);
+				if(te instanceof TileEntityGardenCloche && ((TileEntityGardenCloche)te).dummy==0)
+				{
+					ClientUtils.handleStaticTileRenderer(te);
 					return true;
 				}
 			}

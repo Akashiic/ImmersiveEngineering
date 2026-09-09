@@ -18,6 +18,7 @@ import blusunrize.immersiveengineering.api.tool.ChemthrowerHandler;
 import blusunrize.immersiveengineering.api.tool.ChemthrowerHandler.ChemthrowerEffect_Extinguish;
 import blusunrize.immersiveengineering.api.tool.ChemthrowerHandler.ChemthrowerEffect_Potion;
 import blusunrize.immersiveengineering.api.tool.ExcavatorHandler;
+import blusunrize.immersiveengineering.api.tool.BelljarHandler;
 import blusunrize.immersiveengineering.api.tool.ExternalHeaterHandler;
 import blusunrize.immersiveengineering.api.tool.RailgunHandler;
 import blusunrize.immersiveengineering.common.blocks.BlockFakeLight;
@@ -64,6 +65,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFloodlight;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPump;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFurnaceHeater;
+import blusunrize.immersiveengineering.common.blocks.metal.TileEntityGardenCloche;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLantern;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityLightningRod;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityMetalBarrel;
@@ -469,6 +471,7 @@ public class IEContent
 		registerTile(TileEntityRedstoneBreaker.class);
 		registerTile(TileEntityChargingStation.class);
 		registerTile(TileEntityBlastFurnacePreheater.class);
+		registerTile(TileEntityGardenCloche.class);
 
 		registerTile(TileEntityFakeLight.class);
 
@@ -664,12 +667,57 @@ public class IEContent
 
 	public static void postInit()
 	{
+		BelljarHandler.init();
+		registerGardenClocheHemp();
 		IERecipes.postInitCrusherAndArcRecipes();
 		//Villager Trades
 		//These are done so late to account for Blueprints added by addons
 		int villagerId = Config.getInt("villager_engineer");
 		IEVillagerTradeHandler.instance = new IEVillagerTradeHandler();
 		VillagerRegistry.instance().registerVillageTradeHandler(villagerId, IEVillagerTradeHandler.instance);
+	}
+
+	private static void registerGardenClocheHemp()
+	{
+		BelljarHandler.registerHandler(new BelljarHandler.PlantHandlerBase()
+		{
+			private final ItemStack hempSeed = new ItemStack(itemSeeds);
+
+			@Override
+			public boolean isValid(ItemStack seed)
+			{
+				return seed!=null && OreDictionary.itemMatches(hempSeed, seed, false);
+			}
+
+			@Override
+			public boolean isCorrectSoil(ItemStack seed, ItemStack soil)
+			{
+				return soil!=null && OreDictionary.itemMatches(new ItemStack(Blocks.dirt), soil, false);
+			}
+
+			@Override
+			public float getGrowthStep(ItemStack seed, ItemStack soil, float growth, TileEntity tile, float fertilizer)
+			{
+				return .003125f*fertilizer;
+			}
+
+			@Override
+			public ItemStack[] getOutput(ItemStack seed, ItemStack soil, TileEntity tile)
+			{
+				return new ItemStack[]{new ItemStack(itemMaterial, 4, 4), new ItemStack(itemSeeds, 2)};
+			}
+
+			@Override
+			public BelljarHandler.PlantRenderInfo[] getRenderInfo(ItemStack seed, ItemStack soil, float growth, TileEntity tile)
+			{
+				int age = Math.min(4, Math.max(0, Math.round(growth*4f)));
+				if(age==4)
+					return new BelljarHandler.PlantRenderInfo[]{
+						new BelljarHandler.PlantRenderInfo(blockCrop, 4, .6875f, 0f, 0f, 0f),
+						new BelljarHandler.PlantRenderInfo(blockCrop, 5, .6875f, 0f, .6875f, 0f)};
+				return new BelljarHandler.PlantRenderInfo[]{new BelljarHandler.PlantRenderInfo(blockCrop, age, .6875f, 0f, 0f, 0f)};
+			}
+		});
 	}
 
 	public static void registerToOreDict(String type, ItemIEBase item, int... metas)

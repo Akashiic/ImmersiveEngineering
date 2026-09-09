@@ -1000,3 +1000,7 @@ ie.manual.entry.computer.bottlingMachine2=the amount of energy stored in the bot
 ie.manual.entry.computer.capacitor.name=Capacitors (computers)
 ie.manual.entry.computer.capacitor.subtext=Many Farads at a lot of Volts
 ie.manual.entry.computer.capacitor0=Any capacitor can be connected to a computer on any side.<br>§lgetEnergyStored()§r: returns the amount of energy that is stored<br>§lgetMaxEnergyStored()§r: returns the amount of energy that can be stored
+tile.ImmersiveEngineering.metalDevice2.gardenCloche.name=Garden Cloche
+gui.ImmersiveEngineering.gardenCloche=Garden Cloche
+desc.ImmersiveEngineering.info.gardenClocheFertilizer=Fertilizer: %s%%
+desc.ImmersiveEngineering.info.gardenClocheFertilizerMod=Growth multiplier: %sx

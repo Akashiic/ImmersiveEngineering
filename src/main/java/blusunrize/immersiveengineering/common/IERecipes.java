@@ -269,6 +269,7 @@ public class IERecipes
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,1, BlockMetalDevices2.META_redstoneBreaker), "H H","ICI","IRI", 'H',new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_connectorHV), 'I',"ingotIron", 'C',Items.repeater, 'R',"dustRedstone");
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,1, BlockMetalDevices2.META_chargingStation), "IMI","GGG","WCW", 'M',new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_connectorMV), 'I',"ingotIron", 'G',"blockGlass", 'C',copperCoil, 'W',"plankTreatedWood");
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,1, BlockMetalDevices2.META_blastFurnacePreheater), "S ","S ","HP", 'S',new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_sheetMetal), 'H',new ItemStack(IEContent.blockMetalDevice,1,BlockMetalDevices.META_furnaceHeater), 'P',new ItemStack(IEContent.blockMetalDevice2,1,BlockMetalDevices2.META_fluidPipe));
+		addOredictRecipe(new ItemStack(IEContent.blockMetalDevice2,1, BlockMetalDevices2.META_gardenCloche), " L ","G G","WCW", 'L',new ItemStack(IEContent.blockMetalDecoration,1,BlockMetalDecoration.META_lantern), 'G',"blockGlass", 'W',"plankTreatedWood", 'C',componentIron);
 
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDecoration, 2,BlockMetalDecoration.META_fence), "III","III", 'I',"stickSteel");
 		addOredictRecipe(new ItemStack(IEContent.blockMetalDecoration, 6,BlockMetalDecoration.META_scaffolding), "III"," S ","S S", 'I',"ingotSteel",'S',new ItemStack(IEContent.blockMetalDecoration,1,0));

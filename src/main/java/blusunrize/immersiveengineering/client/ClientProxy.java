@@ -28,6 +28,7 @@ import blusunrize.immersiveengineering.client.gui.GuiBlastFurnace;
 import blusunrize.immersiveengineering.client.gui.GuiCokeOven;
 import blusunrize.immersiveengineering.client.gui.GuiCrate;
 import blusunrize.immersiveengineering.client.gui.GuiFermenter;
+import blusunrize.immersiveengineering.client.gui.GuiGardenCloche;
 import blusunrize.immersiveengineering.client.gui.GuiModWorkbench;
 import blusunrize.immersiveengineering.client.gui.GuiRefinery;
 import blusunrize.immersiveengineering.client.gui.GuiRevolver;
@@ -72,6 +73,7 @@ import blusunrize.immersiveengineering.client.render.TileRenderElectricLantern;
 import blusunrize.immersiveengineering.client.render.TileRenderEnergyMeter;
 import blusunrize.immersiveengineering.client.render.TileRenderExcavator;
 import blusunrize.immersiveengineering.client.render.TileRenderFloodlight;
+import blusunrize.immersiveengineering.client.render.TileRenderGardenCloche;
 import blusunrize.immersiveengineering.client.render.TileRenderFluidPipe;
 import blusunrize.immersiveengineering.client.render.TileRenderFluidPump;
 import blusunrize.immersiveengineering.client.render.TileRenderLantern;
@@ -116,6 +118,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityElectricLan
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityEnergyMeter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityExcavator;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
+import blusunrize.immersiveengineering.common.blocks.metal.TileEntityGardenCloche;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFloodlight;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPipe;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFluidPump;
@@ -241,6 +244,7 @@ public class ClientProxy extends CommonProxy
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRedstoneBreaker.class, new TileRenderRedstoneBreaker());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChargingStation.class, new TileRenderChargingStation());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBlastFurnacePreheater.class, new TileRenderBlastFurnacePreheater());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGardenCloche.class, new TileRenderGardenCloche());
 		// MULTIBLOCKS
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDieselGenerator.class, new TileRenderDieselGenerator());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRefinery.class, new TileRenderRefinery());
@@ -630,6 +634,8 @@ public class ClientProxy extends CommonProxy
 			return new GuiAssembler(player.inventory, (TileEntityAssembler) te);
 		if(ID==Lib.GUIID_Toolbox && player.getCurrentEquippedItem()!=null && player.getCurrentEquippedItem().getItem() instanceof ItemToolbox)
 			return new GuiToolbox(player.inventory, world);
+		if(ID==Lib.GUIID_GardenCloche && te instanceof TileEntityGardenCloche)
+			return new GuiGardenCloche(player.inventory, (TileEntityGardenCloche)te);
 		return null;
 	}
 

@@ -10,6 +10,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBucketWheel
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorSorter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
+import blusunrize.immersiveengineering.common.blocks.metal.TileEntityGardenCloche;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRefinery;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
 import blusunrize.immersiveengineering.common.blocks.stone.TileEntityBlastFurnace;
@@ -22,6 +23,7 @@ import blusunrize.immersiveengineering.common.gui.ContainerBlastFurnace;
 import blusunrize.immersiveengineering.common.gui.ContainerCokeOven;
 import blusunrize.immersiveengineering.common.gui.ContainerCrate;
 import blusunrize.immersiveengineering.common.gui.ContainerFermenter;
+import blusunrize.immersiveengineering.common.gui.ContainerGardenCloche;
 import blusunrize.immersiveengineering.common.gui.ContainerModWorkbench;
 import blusunrize.immersiveengineering.common.gui.ContainerRefinery;
 import blusunrize.immersiveengineering.common.gui.ContainerRevolver;
@@ -72,6 +74,8 @@ public class CommonProxy implements IGuiHandler
 			return new ContainerAssembler(player.inventory, (TileEntityAssembler) te);
 		if(ID==Lib.GUIID_Toolbox && player.getCurrentEquippedItem()!=null && player.getCurrentEquippedItem().getItem() instanceof ItemToolbox)
 			return new ContainerToolbox(player.inventory, world);
+		if(ID==Lib.GUIID_GardenCloche && te instanceof TileEntityGardenCloche)
+			return new ContainerGardenCloche(player.inventory, (TileEntityGardenCloche)te);
 		return null;
 	}
 

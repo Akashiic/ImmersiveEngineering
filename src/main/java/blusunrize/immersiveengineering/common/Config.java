@@ -9,6 +9,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import blusunrize.immersiveengineering.ImmersiveEngineering;
 import blusunrize.immersiveengineering.api.IEApi;
+import blusunrize.immersiveengineering.api.tool.BelljarHandler;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConnectorLV;
 import blusunrize.immersiveengineering.common.items.ItemJerrycan;
 import blusunrize.immersiveengineering.common.util.IELogger;
@@ -169,6 +170,14 @@ public class Config
 		setInt("bottlingMachine_consumption", config.get("machines", "Bottling: Consumed", 8, "The RF the Bottling Machine will consume per tick, when filling items").getInt());
 		setInt("charger_consumption", config.get("machines", "ChargingStation: Charge", 4000, "The RF per tick the Charging Station can insert into an item").getInt());
 		setInt("preheater_consumption", config.get("machines", "BlastFurnacePreheater: Charge", 32, "The RF per tick the Blast Furnace Preheater will consume to speed up the Blast Furnace").getInt());
+		setInt("gardenCloche_consumption", config.get("machines", "Garden Cloche: Consumed", 8, "The RF per tick consumed by the Garden Cloche while growing plants").getInt());
+		setInt("gardenCloche_fertilizerDuration", config.get("machines", "Garden Cloche: Fertilizer Duration", 6000, "The amount of ticks one dose of fertilizer lasts in the Garden Cloche").getInt());
+		setInt("gardenCloche_fluidPerDose", config.get("machines", "Garden Cloche: Fluid per Dose", 250, "The amount of fertilizer fluid consumed per Garden Cloche dose in mB").getInt());
+		setDouble("gardenCloche_growthModifier", config.get("machines", "Garden Cloche: Growth Modifier", 1d, "Global modifier applied to Garden Cloche growth speed").getDouble());
+		setDouble("gardenCloche_solidFertilizerModifier", config.get("machines", "Garden Cloche: Solid Fertilizer Modifier", 1d, "Base modifier applied to solid Garden Cloche fertilizers").getDouble());
+		setDouble("gardenCloche_fluidFertilizerModifier", config.get("machines", "Garden Cloche: Fluid Fertilizer Modifier", 1d, "Base modifier applied to fluid Garden Cloche fertilizers").getDouble());
+		BelljarHandler.solidFertilizerModifier = (float)getDouble("gardenCloche_solidFertilizerModifier");
+		BelljarHandler.fluidFertilizerModifier = (float)getDouble("gardenCloche_fluidFertilizerModifier");
 		
 
 		setIntArray("ore_copper", config.get("oregen", "Copper", new int[]{8, 40,72, 8,100}, "Generation config for Copper Ore. Parameters: Blocks per vein, lowest possible Y, highest possible Y, veins per chunk, chance for vein to spawn (out of 100). Set vein size to 0 to disable the generation").getIntList());

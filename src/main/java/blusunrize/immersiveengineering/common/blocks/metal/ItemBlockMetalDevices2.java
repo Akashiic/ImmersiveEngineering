@@ -55,8 +55,8 @@ public class ItemBlockMetalDevices2 extends ItemBlockIEBase
 		if(meta==BlockMetalDevices2.META_fluidPump || meta==BlockMetalDevices2.META_energyMeter)
 			if(!world.isAirBlock(x, y+1, z))
 				return false;
-		if(meta==BlockMetalDevices2.META_blastFurnacePreheater)
-			if(!world.isAirBlock(x, y+1, z) || !world.isAirBlock(x, y+2, z))
+		if(meta==BlockMetalDevices2.META_blastFurnacePreheater || meta==BlockMetalDevices2.META_gardenCloche)
+			if(y<0 || y+2>=world.getHeight() || !world.isAirBlock(x, y+1, z) || !world.isAirBlock(x, y+2, z))
 				return false;
 
 		boolean ret = super.placeBlockAt(stack, player, world, x, y, z, side, hitX, hitY, hitZ, meta);
@@ -101,6 +101,24 @@ public class ItemBlockMetalDevices2 extends ItemBlockIEBase
 		else if(tileEntity instanceof TileEntityChargingStation)
 		{
 			((TileEntityChargingStation)tileEntity).facing = f;
+		}
+		else if(tileEntity instanceof TileEntityGardenCloche)
+		{
+			TileEntityGardenCloche master = (TileEntityGardenCloche)tileEntity;
+			master.facing = f;
+			master.dummy = 0;
+			for(int i=1; i<=2; i++)
+			{
+				world.setBlock(x, y+i, z, IEContent.blockMetalDevice2, BlockMetalDevices2.META_gardenCloche, 3);
+				TileEntity other = world.getTileEntity(x, y+i, z);
+				if(other instanceof TileEntityGardenCloche)
+				{
+					((TileEntityGardenCloche)other).dummy = i;
+					((TileEntityGardenCloche)other).facing = f;
+					other.markDirty();
+				}
+			}
+			master.markDirty();
 		}
 		else if(tileEntity instanceof TileEntityBlastFurnacePreheater)
 		{

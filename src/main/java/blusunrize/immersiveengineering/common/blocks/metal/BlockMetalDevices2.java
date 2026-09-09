@@ -3,6 +3,7 @@ package blusunrize.immersiveengineering.common.blocks.metal;
 import java.util.ArrayList;
 import java.util.List;
 
+import blusunrize.immersiveengineering.ImmersiveEngineering;
 import blusunrize.immersiveengineering.api.AdvancedAABB;
 import blusunrize.immersiveengineering.api.energy.ImmersiveNetHandler;
 import blusunrize.immersiveengineering.client.render.BlockRenderMetalDevices2;
@@ -60,6 +61,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public static final int META_redstoneBreaker = 9;
 	public static final int META_chargingStation = 10;
 	public static final int META_blastFurnacePreheater = 11;
+	public static final int META_gardenCloche = 12;
 
 	IIcon[] iconPump = new IIcon[7];
 	IIcon iconFloodlightGlass;
@@ -69,7 +71,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public BlockMetalDevices2()
 	{
 		super("metalDevice2", Material.iron, 1, ItemBlockMetalDevices2.class,
-				"breakerSwitch","skycrateDispenser","energyMeter","electricLantern","floodlight","fluidPipe", "fluidPump", "barrel", "capacitorCreative", "redstoneBreaker","chargingStation","blastFurnacePreheater");
+				"breakerSwitch","skycrateDispenser","energyMeter","electricLantern","floodlight","fluidPipe", "fluidPump", "barrel", "capacitorCreative", "redstoneBreaker","chargingStation","blastFurnacePreheater","gardenCloche");
 		setHardness(3.0F);
 		setResistance(15.0F);
 		this.setMetaLightOpacity(META_barrel, 255);
@@ -95,6 +97,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 		list.add(new ItemStack(item, 1, 9));
 		list.add(new ItemStack(item, 1,10));
 		list.add(new ItemStack(item, 1,11));
+		list.add(new ItemStack(item, 1,12));
 
 		//		for(int i=0; i<subNames.length; i++)
 		//		{
@@ -414,6 +417,27 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 			}
 			return true;
 		}
+		else if(te instanceof TileEntityGardenCloche)
+		{
+			TileEntityGardenCloche cloche = ((TileEntityGardenCloche)te).getMaster();
+			if(cloche!=null)
+			{
+				if(Utils.isHammer(player.getCurrentEquippedItem()))
+				{
+					if(!world.isRemote)
+						cloche.rotateFacing(player.isSneaking());
+					return true;
+				}
+				if(!player.isSneaking())
+				{
+					if(Utils.fillFluidHandlerWithPlayerItem(world, cloche, player))
+						return true;
+					if(!world.isRemote)
+						player.openGui(ImmersiveEngineering.instance, Lib.GUIID_GardenCloche, world, cloche.xCoord, cloche.yCoord, cloche.zCoord);
+					return true;
+				}
+			}
+		}
 		else if(te instanceof TileEntityChargingStation)
 		{
 			ItemStack equipped = player.getCurrentEquippedItem();
@@ -482,6 +506,8 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 			else
 				this.setBlockBounds(f>=4?.125f:0,0,f<=3?.125f:0, f>=4?.875f:1,1,f<=3?.875f:1);
 		}
+		else if(te instanceof TileEntityGardenCloche)
+			this.setBlockBounds(.0625f,0,.0625f, .9375f,1,.9375f);
 		else if(te instanceof TileEntityChargingStation)
 		{
 			int f = ((TileEntityChargingStation)te).facing;
@@ -728,6 +754,8 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 			return new TileEntityChargingStation();
 		case META_blastFurnacePreheater:
 			return new TileEntityBlastFurnacePreheater();
+		case META_gardenCloche:
+			return new TileEntityGardenCloche();
 		}
 		return null;
 	}
@@ -751,6 +779,36 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
 	{
 		TileEntity te = world.getTileEntity(x, y, z);
+		if(te instanceof TileEntityGardenCloche)
+		{
+			TileEntityGardenCloche part = (TileEntityGardenCloche)te;
+			TileEntityGardenCloche master = part.getMaster();
+			if(master==null)
+				master = part;
+			if(!master.breaking)
+			{
+				master.breaking = true;
+				int baseY = y-part.dummy;
+				if(!world.isRemote && world.getGameRules().getGameRuleBooleanValue("doTileDrops"))
+				{
+					if(!master.suppressMachineDrop)
+						spawnClocheDrop(world, x, baseY, z, new ItemStack(this, 1, META_gardenCloche));
+					for(ItemStack stack : master.getInventoryDrops())
+						spawnClocheDrop(world, x, baseY, z, stack);
+				}
+				master.clearInventory();
+				for(int i=0; i<3; i++)
+					if(baseY+i!=y)
+					{
+						TileEntity other = world.getTileEntity(x, baseY+i, z);
+						if(other instanceof TileEntityGardenCloche)
+						{
+							((TileEntityGardenCloche)other).breaking = true;
+							world.setBlockToAir(x, baseY+i, z);
+						}
+					}
+			}
+		}
 		if(te instanceof TileEntityEnergyMeter)
 		{
 			if(((TileEntityEnergyMeter) te).dummy)
@@ -804,10 +862,27 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 		}
 		super.breakBlock(world, x, y, z, par5, par6);
 	}
+	private static void spawnClocheDrop(World world, int x, int y, int z, ItemStack stack)
+	{
+		if(stack==null || stack.stackSize<=0)
+			return;
+		EntityItem entity = new EntityItem(world, x+.5, y+.5, z+.5, stack.copy());
+		entity.motionX = world.rand.nextGaussian()*.05;
+		entity.motionY = world.rand.nextGaussian()*.05+.2;
+		entity.motionZ = world.rand.nextGaussian()*.05;
+		world.spawnEntityInWorld(entity);
+	}
+
 	@Override
 	public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player)
 	{
 		TileEntity te = world.getTileEntity(x, y, z);
+		if(meta==META_gardenCloche && player.capabilities.isCreativeMode && te instanceof TileEntityGardenCloche)
+		{
+			TileEntityGardenCloche master = ((TileEntityGardenCloche)te).getMaster();
+			if(master!=null)
+				master.suppressMachineDrop = true;
+		}
 		if(!world.isRemote)
 		{
 			if(te instanceof TileEntityWoodenBarrel)
@@ -845,7 +920,7 @@ public class BlockMetalDevices2 extends BlockIEBase implements ICustomBoundingbo
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-		if(metadata==META_barrel)
+		if(metadata==META_barrel || metadata==META_gardenCloche)
 			return ret;
 
 		int count = quantityDropped(metadata, fortune, world.rand);
