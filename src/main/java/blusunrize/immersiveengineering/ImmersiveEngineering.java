@@ -58,7 +58,7 @@ public class ImmersiveEngineering
 {
 	public static final String MODID = "ImmersiveEngineering";
 	public static final String MODNAME = "Immersive Engineering";
-	public static final String VERSION = "${version}";
+	public static final String VERSION = "0.7.9";
 	public static final double VERSION_D = .72;
 
 	@Mod.Instance(MODID)

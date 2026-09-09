@@ -41,9 +41,9 @@ public class ItemRenderChemthrower implements IItemRenderer
 			EntityLivingBase user = (EntityLivingBase) data[1];
 			if(user instanceof EntityPlayer && ((EntityPlayer)user).getItemInUseCount()>0)
 			{
-				GL11.glRotatef(65f, 0f, 1f, 0f);
-				GL11.glRotatef(15f, 0f, 0f, 1f);
-				GL11.glRotatef(-10f, 1f, 0f, 0f);
+				GL11.glRotatef(65, 0, 1, 0);
+				GL11.glRotatef(15, 0, 0, 1);
+				GL11.glRotatef(-10, 1, 0, 0);
 				GL11.glTranslatef(-.25f,.625f,1f);
 				GL11.glScalef(.5f,.5f,.625f);
 			}

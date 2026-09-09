@@ -141,13 +141,13 @@ public class NEICrusherHandler extends TemplateRecipeHandler
 			ClientUtils.font().drawString(s, 120-ClientUtils.font().getStringWidth(s)/2,20, 0x777777, false);
 			GL11.glColor4f(1, 1, 1, 1);
 			changeTexture("textures/gui/container/furnace.png");
-			GL11.glRotatef(90f, 0f, 0f, 1f);
+			GL11.glRotatef(90, 0, 0, 1);
 			drawTexturedModalRect(18,-85, 82,35, 20,15);
-			GL11.glRotatef(-90f, 0f, 0f, 1f);
+			GL11.glRotatef(-90, 0, 0, 1);
 
 			GL11.glTranslatef(40, 40, 100);
-			GL11.glRotatef(-15f, 1f, 0f, 0f);
-			GL11.glRotatef(200f, 0f, 1f, 0f);
+			GL11.glRotatef(-15, 1, 0, 0);
+			GL11.glRotatef(200, 0, 1, 0);
 			GL11.glScalef(10, -10, 10);
 
 			TileEntityCrusher gen = new TileEntityCrusher();
@@ -163,7 +163,7 @@ public class NEICrusherHandler extends TemplateRecipeHandler
 	}
 
 	@Override
-	public List<String> handleItemTooltip(GuiRecipe gui, ItemStack stack, List<String> currenttip, int recipe)
+	public List<String> handleItemTooltip(GuiRecipe<?> gui, ItemStack stack, List<String> currenttip, int recipe)
 	{
 		Point mouse = getMousePosition();
 		Point offset = gui.getRecipePosition(recipe);

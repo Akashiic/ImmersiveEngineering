@@ -31,14 +31,14 @@ public class ItemRenderToolbox implements IItemRenderer
 		GL11.glPushMatrix();
 		if(type==ItemRenderType.EQUIPPED_FIRST_PERSON)
 		{
-			GL11.glRotatef(180f, 0f, 1f, 0f);
+			GL11.glRotatef(180, 0, 1, 0);
 			GL11.glTranslatef(-.5f,1f,-.5f);
 		}
 		else if(type==ItemRenderType.EQUIPPED)
 		{
 			GL11.glScalef(1.25f,1.25f,1.25f);
 			GL11.glRotatef(45, 0, 1, 0);
-			GL11.glRotatef(20f, 1f, 0f, 0f);
+			GL11.glRotatef(20, 1, 0, 0);
 			GL11.glTranslatef(0f,.5f,1f);
 		}
 		else if(type==ItemRenderType.ENTITY)
@@ -46,7 +46,7 @@ public class ItemRenderToolbox implements IItemRenderer
 			float scale = .75f;
 			if(RenderItem.renderInFrame)
 			{
-				GL11.glRotatef(90f, 1f, 0f, 0f);
+				GL11.glRotatef(90, 1, 0, 0);
 				GL11.glTranslatef(0f,.25f,0f);
 				scale = .5f;
 			}

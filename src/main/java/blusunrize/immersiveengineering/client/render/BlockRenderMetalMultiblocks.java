@@ -134,7 +134,7 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 			{
 				GL11.glTranslatef(1.25f, 1.125F, 1.625f);
 				GL11.glScalef(.3125f, .3125f, .3125f);
-				GL11.glRotatef(180f, 0f, 1f, 0f);
+				GL11.glRotatef(180, 0, 1, 0);
 				MultiblockRefinery.instance.renderFormedStructure();
 				GL11.glEnable(32826);
 			}
@@ -142,7 +142,7 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 			{
 				GL11.glTranslatef(1.25f, 1.125F, 1.625f);
 				GL11.glScalef(.3125f, .3125f, .3125f);
-				GL11.glRotatef(180f, 0f, 1f, 0f);
+				GL11.glRotatef(180, 0, 1, 0);
 				MultiblockCrusher.instance.renderFormedStructure();
 				GL11.glEnable(32826);
 			}
@@ -150,7 +150,7 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 			{
 				GL11.glTranslatef(1.5f, 1.125F, 1.5f);
 				GL11.glScalef(.25f, .25f, .25f);
-				GL11.glRotatef(180f, 0f, 1f, 0f);
+				GL11.glRotatef(180, 0, 1, 0);
 				MultiblockBucketWheel.instance.renderFormedStructure();
 				GL11.glEnable(32826);
 			}
@@ -158,7 +158,7 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 			{
 				GL11.glTranslatef(1.25f, 1.125F, 1.625f);
 				GL11.glScalef(.25f, .25f, .25f);
-				GL11.glRotatef(180f, 0f, 1f, 0f);
+				GL11.glRotatef(180, 0, 1, 0);
 				MultiblockExcavatorDemo.instance.renderFormedStructure();
 				GL11.glEnable(32826);
 			}
@@ -166,7 +166,7 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 			{
 				GL11.glTranslatef(1.5f, 1.1875F, 1.5f);
 				GL11.glScalef(.25f, .25f, .25f);
-				GL11.glRotatef(90f, 0f, 1f, 0f);
+				GL11.glRotatef(90, 0, 1, 0);
 				MultiblockArcFurnace.instance.renderFormedStructure();
 				GL11.glEnable(32826);
 			}
@@ -174,7 +174,7 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 			{
 				GL11.glTranslatef(1.5f, 1.25F, 1.5f);
 				GL11.glScalef(.3125f, .3125f, .3125f);
-				GL11.glRotatef(180f, 0f, 1f, 0f);
+				GL11.glRotatef(180, 0, 1, 0);
 				MultiblockSheetmetalTank.instance.renderFormedStructure();
 				GL11.glEnable(32826);
 			}
@@ -182,14 +182,14 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 			{
 				GL11.glTranslatef(1.5f, 1.25F, 1.5f);
 				GL11.glScalef(.25f, .25f, .25f);
-				GL11.glRotatef(180f, 0f, 1f, 0f);
+				GL11.glRotatef(180, 0, 1, 0);
 				MultiblockSilo.instance.renderFormedStructure();
 				GL11.glEnable(32826);
 			}
 			else if(metadata==BlockMetalMultiblocks.META_metalPress)
 			{
 				GL11.glScalef(.5f, .5f, .5f);
-				GL11.glRotatef(180f, 0f, 1f, 0f);
+				GL11.glRotatef(180, 0, 1, 0);
 				MultiblockMetalPress.instance.renderFormedStructure();
 				GL11.glEnable(32826);
 			}

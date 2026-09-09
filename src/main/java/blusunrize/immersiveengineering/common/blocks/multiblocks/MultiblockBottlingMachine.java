@@ -65,7 +65,7 @@ public class MultiblockBottlingMachine implements IMultiblock
 	public boolean overwriteBlockRender(ItemStack stack, int iterator)
 	{
 		if(iterator==6||iterator==9)
-			GL11.glRotatef(90f, 0f, 1f, 0f);
+			GL11.glRotatef(90, 0, 1, 0);
 		if(iterator==8)
 			GL11.glRotatef(-90, 0, 1, 0);
 		return false;
@@ -81,7 +81,7 @@ public class MultiblockBottlingMachine implements IMultiblock
 	public void renderFormedStructure()
 	{
 		ClientUtils.bindAtlas(0);
-		GL11.glRotatef(180f, 0f, 1f, 0f);
+		GL11.glRotatef(180, 0, 1, 0);
 		ClientUtils.tes().startDrawingQuads();
 		ClientUtils.tes().setTranslation(-.5f,-1.5f,-.5f);
 		ClientUtils.handleStaticTileRenderer(bottle, false);

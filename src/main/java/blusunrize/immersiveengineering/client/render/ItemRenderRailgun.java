@@ -269,9 +269,9 @@ public class ItemRenderRailgun implements IItemRenderer
 		//		chargeLevel = 69;
 		GL11.glPushMatrix();
 		GL11.glTranslatef(-2.5f,.7f,.03f);
-		GL11.glRotatef(90f, 0f, 1f, 0f);
+		GL11.glRotatef(90, 0, 1, 0);
 		GL11.glRotatef(180, 0, 0, 1);
-		GL11.glRotatef(-45f, 1f, 0f, 0f);
+		GL11.glRotatef(-45, 1, 0, 0);
 		float scale = .03125f;
 		GL11.glScalef(scale,scale,scale);
 		GL11.glDepthMask(false);

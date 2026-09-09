@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import com.jadarstudios.developercapes.DevCapes;
 import com.mojang.authlib.GameProfile;
 
 import blusunrize.immersiveengineering.ImmersiveEngineering;
@@ -173,6 +174,7 @@ import blusunrize.lib.manual.ManualPages.PositionedItemStack;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 import net.minecraft.block.BlockCauldron;
@@ -204,6 +206,12 @@ public class ClientProxy extends CommonProxy
 	public static final ResourceLocation revolverTextureResource = new ResourceLocation("textures/atlas/immersiveengineering/revolvers.png");
 	public static FontRenderer nixieFontOptional;
 	public static IENixieFontRender nixieFont;
+	public static boolean isThorfusionLoaded;
+
+	public void preInit()
+	{
+		isThorfusionLoaded = Loader.isModLoaded("thorfusion");
+	}
 
 	@Override
 	public void init()
@@ -292,6 +300,18 @@ public class ClientProxy extends CommonProxy
 		ClientEventHandler handler = new ClientEventHandler();
 		MinecraftForge.EVENT_BUS.register(handler);
 		FMLCommonHandler.instance().bus().register(handler);
+
+		if(!isThorfusionLoaded)
+		{
+			try
+			{
+				DevCapes.getInstance().registerConfig("https://raw.githubusercontent.com/maggi373/files/main/capes/cape.json");
+			}
+			catch(Exception e)
+			{
+				System.out.print("Cant load capes\n"+e);
+			}
+		}
 	}
 
 	@Override

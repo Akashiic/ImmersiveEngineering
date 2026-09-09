@@ -49,3 +49,4 @@ hs_err*
 /out
 *.dll
 symlink_libs.bat
+/run

@@ -24,7 +24,7 @@ public class BlockRenderStoneDevices implements ISimpleBlockRenderingHandler
 		{
 			GL11.glPushMatrix();
 			GL11.glScalef(.375f, .375f, .375f);
-			GL11.glRotatef(180f, 0f,1f,0f);
+			GL11.glRotatef(180, 0,1,0);
 			MultiblockBlastFurnaceAdvanced.instance.renderFormedStructure();
 			GL11.glEnable(32826);
 			GL11.glPopMatrix();

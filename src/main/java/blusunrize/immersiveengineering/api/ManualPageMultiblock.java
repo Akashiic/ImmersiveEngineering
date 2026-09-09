@@ -128,8 +128,8 @@ public class ManualPageMultiblock extends ManualPages
 			GL11.glTranslatef(x+60,y+f*scale/2, Math.max(structureHeight, Math.max(structureWidth,structureLength)));
 			//						GL11.glScalef(12,-12,1);
 			GL11.glScalef(scale,-scale,1);
-			GL11.glRotatef(rotX, 1f, 0f, 0f);
-			GL11.glRotatef(rotY, 0f, 1f, 0f);
+			GL11.glRotatef(rotX, 1, 0, 0);
+			GL11.glRotatef(rotY, 0, 1, 0);
 			if(showCompleted)
 				multiblock.renderFormedStructure();
 			else
@@ -149,7 +149,7 @@ public class ManualPageMultiblock extends ManualPages
 								int xx = 60 +xHalf -10*w +10*l -7;
 								int yy = yOffPartial - 5*w - 5*l -12*h;
 
-								//							GL11.glTranslatef(0, 0, 1);
+								//							GL11.glTranslated(0, 0, 1);
 								if(row[w]!=null && i<=limiter)
 								{
 									i++;
@@ -172,7 +172,7 @@ public class ManualPageMultiblock extends ManualPages
 						}
 					}
 			}
-			//			GL11.glTranslatef(0, 0, -i);
+			//			GL11.glTranslated(0, 0, -i);
 			GL11.glPopMatrix();
 
 			RenderHelper.disableStandardItemLighting();

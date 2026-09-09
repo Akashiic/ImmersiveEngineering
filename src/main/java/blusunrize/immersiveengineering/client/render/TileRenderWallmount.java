@@ -61,7 +61,7 @@ public class TileRenderWallmount extends TileRenderIE
 	//		TileEntityWallMount arm = (TileEntityWallMount)tile;
 	//
 	//		GL11.glPushMatrix();
-	//		GL11.glTranslatef((float)x, (float)y, (float)z);
+	//		GL11.glTranslated(x, y, z);
 	//
 	//		String s = arm instanceof TileEntityWallMountSteel?"steel":"wood";
 	//		ClientUtils.bindTexture("immersiveengineering:textures/models/wallmount_"+s+".png");

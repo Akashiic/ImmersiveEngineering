@@ -127,8 +127,8 @@ public class NEIMetalPressHandler extends TemplateRecipeHandler
 
 				GL11.glPushMatrix();
 				GL11.glTranslatef(32, 25, 100);
-				GL11.glRotatef(-25f, 1f, 0f, 0f);
-				GL11.glRotatef(-120f, 0f, 1f, 0f);
+				GL11.glRotatef(-25, 1, 0, 0);
+				GL11.glRotatef(-120, 0, 1, 0);
 				GL11.glScalef(12, -12, 12);
 				TileEntityMetalPress tile = new TileEntityMetalPress();
 				tile.pos=4;

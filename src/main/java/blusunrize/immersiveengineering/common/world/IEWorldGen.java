@@ -10,8 +10,6 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import cpw.mods.fml.common.IWorldGenerator;
 
-import org.eclipse.collections.impl.set.mutable.primitive.IntHashSet;
-
 public class IEWorldGen implements IWorldGenerator
 {
 	public static class OreGen
@@ -44,7 +42,7 @@ public class IEWorldGen implements IWorldGenerator
 		}
 	}
 	public static ArrayList<OreGen> orespawnList = new ArrayList();
-	public static IntHashSet oreDimBlacklist = new IntHashSet();//list? dimId no duplicate? move to set?
+	public static ArrayList<Integer> oreDimBlacklist = new ArrayList();
 	public static OreGen addOreGen(Block block,int meta,int maxVeinSize,int minY, int maxY,int chunkOccurence,int weight)
 	{
 		OreGen gen = new OreGen(block, meta, maxVeinSize, Blocks.stone, minY, maxY, chunkOccurence, weight);

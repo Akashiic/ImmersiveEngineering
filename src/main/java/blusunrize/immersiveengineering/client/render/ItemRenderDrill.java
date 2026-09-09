@@ -51,7 +51,7 @@ public class ItemRenderDrill implements IItemRenderer
 		float angle = ClientUtils.mc().thePlayer.ticksExisted%ticks/ticks;
 		if(type==ItemRenderType.EQUIPPED_FIRST_PERSON)
 		{
-			GL11.glRotatef(65f, 0f, 1f, 0f);
+			GL11.glRotatef(65, 0, 1, 0);
 			GL11.glTranslatef(-.35f,1,.2f);
 			EntityLivingBase user = null;
 			try{
@@ -80,7 +80,7 @@ public class ItemRenderDrill implements IItemRenderer
 		else if(type==ItemRenderType.EQUIPPED)
 		{
 			GL11.glRotatef(-110, 0, 0, 1);
-			GL11.glRotatef(180f, 1f, 0f, 0f);
+			GL11.glRotatef(180, 1, 0, 0);
 			GL11.glRotatef(5, 0, 1, 0);
 			GL11.glTranslatef(-.125f,-1f,-.3f);
 			GL11.glScalef(1.5f,1.5f,1.5f);

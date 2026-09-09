@@ -51,9 +51,9 @@ public class MultiblockMetalPress implements IMultiblock
 	public boolean overwriteBlockRender(ItemStack stack, int iterator)
 	{
 		if(iterator==4)
-			GL11.glRotatef(-180f, 1f, 0f, 0f);
+			GL11.glRotatef(-180, 1, 0, 0);
 		if(iterator==3||iterator==5)
-			GL11.glRotatef(90f, 0f, 1f, 0f);
+			GL11.glRotatef(90, 0, 1, 0);
 		return false;
 	}
 	@Override

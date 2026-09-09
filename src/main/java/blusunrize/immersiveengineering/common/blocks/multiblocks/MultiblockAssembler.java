@@ -65,7 +65,7 @@ public class MultiblockAssembler implements IMultiblock
 		if(iterator==20||iterator==23||iterator==26)
 			GL11.glRotatef(-90, 0, 1, 0);
 		if(iterator==18||iterator==21||iterator==24)
-			GL11.glRotatef(90f, 0f, 1f, 0f);
+			GL11.glRotatef(90, 0, 1, 0);
 
 		return false;
 	}
