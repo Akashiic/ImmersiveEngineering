@@ -39,6 +39,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDevices2;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalMultiblocks;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAssembler;
+import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAutoWorkbench;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBlastFurnacePreheater;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBottlingMachine;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBreakerSwitch;
@@ -85,6 +86,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityTransformer
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityWallmountMetal;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAssembler;
+import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAutoWorkbench;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBlastFurnace;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBlastFurnaceAdvanced;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBottlingMachine;
@@ -453,6 +455,7 @@ public class IEContent
 		registerTile(TileEntityAssembler.class);
 		registerTile(TileEntityBottlingMachine.class);
 		registerTile(TileEntityMetalPress.class);
+		registerTile(TileEntityAutoWorkbench.class);
 
 		registerTile(TileEntityStructuralArm.class);
 		registerTile(TileEntityConnectorStructural.class);
@@ -637,6 +640,7 @@ public class IEContent
 		MultiblockHandler.registerMultiblock(MultiblockAssembler.instance);
 		MultiblockHandler.registerMultiblock(MultiblockBottlingMachine.instance);
 		MultiblockHandler.registerMultiblock(MultiblockMetalPress.instance);
+		MultiblockHandler.registerMultiblock(MultiblockAutoWorkbench.instance);
 
 		IEAchievements.init();
 

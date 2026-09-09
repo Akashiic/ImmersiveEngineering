@@ -51,13 +51,14 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 	public static final int META_assembler=11;
 	public static final int META_bottlingMachine=12;
 	public static final int META_metalPress=13;
+	public static final int META_autoWorkbench=14;
 	public BlockMetalMultiblocks()
 	{
 		super("metalMultiblock", Material.iron, 4, ItemBlockIEBase.class,
 				"lightningRod","dieselGenerator",
 				"industrialSqueezer","fermenter","refinery",
 				"crusher","bucketWheel","excavator","arcFurnace",
-				"tank","silo","assembler","bottlingMachine","metalPress");
+				"tank","silo","assembler","bottlingMachine","metalPress","autoWorkbench");
 		setHardness(3.0F);
 		setResistance(15.0F);
 	}
@@ -106,6 +107,7 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 		icons[META_assembler][0] = iconRegister.registerIcon("immersiveengineering:metal_multiblock_assembler");
 		icons[META_bottlingMachine][0] = iconRegister.registerIcon("immersiveengineering:metal_multiblock_bottlingMachine");
 		icons[META_metalPress][0] = iconRegister.registerIcon("immersiveengineering:metal_multiblock_metalPress");
+		icons[META_autoWorkbench][0] = iconRegister.registerIcon("immersiveengineering:metal_multiblock_autoworkbench");
 		for(int i=0;i<4;i++)
 		{
 			icons[6][i] = iconRegister.registerIcon("immersiveengineering:storage_Steel");
@@ -191,6 +193,8 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 				}
 			}
 		}
+		if(tileEntity instanceof TileEntityAutoWorkbench)
+			((TileEntityAutoWorkbench)tileEntity).disassemble(x, y, z);
 		super.breakBlock(world, x, y, z, par5, par6);
 	}
 	@Override
@@ -463,6 +467,8 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 			return ((TileEntityExcavator)te).pos==3 || ((TileEntityExcavator)te).pos==5;
 		if(te instanceof TileEntityArcFurnace)
 			return ((TileEntityArcFurnace)te).pos==25;
+		if(te instanceof TileEntityAutoWorkbench)
+			return ((TileEntityAutoWorkbench)te).pos==TileEntityAutoWorkbench.REDSTONE_POS;
 		return false;
 	}
 
@@ -646,6 +652,8 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 			return new TileEntityBottlingMachine();
 		case META_metalPress:
 			return new TileEntityMetalPress();
+		case META_autoWorkbench:
+			return new TileEntityAutoWorkbench();
 		}
 		return null;
 	}
