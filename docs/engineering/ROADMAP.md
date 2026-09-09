@@ -24,7 +24,10 @@ flowchart TD
     N --> O[Vanilla + IE Hemp]
     O --> P[Magical Crops BETA 5 adapter]
     P --> Q[AgriCraft 1.5.2 adapter]
-    Q --> R[Pack integration + performance]
+    Q --> V[Garden Cloche Test 2 runtime approval]
+    V --> W[Modern Feature Gap Audit]
+    W --> X[Feature #2 Auto Workbench]
+    X --> R[Pack integration + performance]
     R --> S{Final auditor pass?}
     S -- No --> T[Fix/rework/reject]
     T --> R
@@ -41,7 +44,7 @@ Acceptance:
 - official + community source references cloned separately.
 
 ## Gate G1 — Source provenance / baseline recovery
-Status: IN PROGRESS, high confidence ancestry established.
+Status: PASS — baseline ancestry and semantic recovery accepted.
 
 Known chain:
 - official BluSunrize 1.7.10 commit c45a3a2;
@@ -54,7 +57,7 @@ Exit criteria:
 - unresolved core-runtime deltas = 0.
 
 ## Gate G2 — Modern build parity
-Status: IN PROGRESS.
+Status: PASS — clean RFG/reobf build and baseline gate accepted.
 
 Target:
 - RetroFuturaGradle-based build;
@@ -73,7 +76,7 @@ Exit criteria:
 - no accidental shaded libraries unless explicitly approved.
 
 ## Gate G3 — Runtime parity
-Status: BLOCKED by G2.
+Status: ACTIVE / PARTIAL — feature-development runtime proven; full release-parity matrix remains open.
 
 Tests:
 - baseline config loads;
@@ -103,7 +106,7 @@ Rule: no bulk merge. Each patch receives:
 5. approval or explicit rejection record.
 
 ## Gate G5 — Backport API framework
-Status: PLANNED.
+Status: PARTIAL PASS — minimum framework proven by Garden Cloche; generic expansion remains ongoing.
 
 Deliverables:
 - feature registration layer;
@@ -115,7 +118,7 @@ Deliverables:
 - NEI hooks.
 
 ## Gate G6 — Garden Cloche core
-Status: PLANNED.
+Status: PASS — `garden-cloche-test-2`, runtime approved 2026-09-09.
 
 Initial scope:
 - machine block/TileEntity;
@@ -133,7 +136,7 @@ Explicit non-goals for first Cloche build:
 - world-block farming simulation.
 
 ## Gate G7 — Magical Crops BETA 5
-Status: PLANNED.
+Status: PASS — exact installed BETA5 adapter validated in approved Test 2.
 
 Prerequisite audit:
 - identify crop classes/metadata;
@@ -144,7 +147,7 @@ Prerequisite audit:
 - validate no dupes through simulated repeated harvests.
 
 ## Gate G8 — AgriCraft 1.5.2-evernife-v1
-Status: PLANNED.
+Status: PASS — exact evernife-v1 genetic adapter validated in approved Test 2.
 
 Prerequisite audit:
 - identify exact API surface and NBT schema from installed JAR/source lineage;
@@ -155,7 +158,27 @@ Prerequisite audit:
 Constraint:
 - machine must not silently improve genetics.
 
+## Gate G8.5 — Modern Feature Gap Audit
+Status: PASS — 2026-09-09.
+
+Decision:
+- genuine later-feature gaps classified semantically, not by filename alone;
+- 1.12 `0.12-89` used as reproducible mature snapshot with later 1.12 fixes audited per feature;
+- Automated Engineer's Workbench ranked first at 92/100;
+- Alloy Kiln and Mixer ranked next at 83/100;
+- high-blast-radius wire/conveyor families deferred.
+
+Evidence: `MODERN-FEATURE-GAP-AUDIT.md`.
+
+## Gate G8.6 — Feature #2: Automated Engineer's Workbench
+Status: APPROVED FOR IMPLEMENTATION PLANNING.
+
+Execution gates A0–A8 are defined in `AUTO-WORKBENCH-FEATURE-CHARTER.md`.
+No implementation branch opens until audit/charter checkpoint is committed.
+
 ## Gate G9 — Wider ecosystem
+Status: DEFERRED / NON-BLOCKING while Feature #2 proceeds.
+
 Candidates, only after exact-version audit:
 - Pam's HarvestCraft;
 - Forestry;
