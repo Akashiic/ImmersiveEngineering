@@ -6,6 +6,7 @@ import blusunrize.immersiveengineering.client.ClientUtils;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalMultiblocks;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAssembler;
+import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAutoWorkbench;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBottlingMachine;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityDieselGenerator;
@@ -292,6 +293,12 @@ public class BlockRenderMetalMultiblocks implements ISimpleBlockRenderingHandler
 			return true;
 		}
 		else if(te instanceof TileEntityMetalPress && ((TileEntityMetalPress)te).pos==4)
+		{
+			ClientUtils.handleStaticTileRenderer(te);
+			return true;
+		}
+		else if(te instanceof TileEntityAutoWorkbench
+				&& ((TileEntityAutoWorkbench)te).pos==TileEntityAutoWorkbench.MASTER_POS)
 		{
 			ClientUtils.handleStaticTileRenderer(te);
 			return true;

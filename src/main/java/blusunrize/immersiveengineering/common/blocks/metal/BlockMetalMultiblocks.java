@@ -37,6 +37,7 @@ import net.minecraftforge.fluids.IFluidContainerItem;
 
 public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundingboxes
 {
+	public IIcon autoWorkbenchBlueprintIcon;
 	public static final int META_lightningRod=0;
 	public static final int META_dieselGenerator=1;
 	public static final int META_squeezer=2;
@@ -108,6 +109,7 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 		icons[META_bottlingMachine][0] = iconRegister.registerIcon("immersiveengineering:metal_multiblock_bottlingMachine");
 		icons[META_metalPress][0] = iconRegister.registerIcon("immersiveengineering:metal_multiblock_metalPress");
 		icons[META_autoWorkbench][0] = iconRegister.registerIcon("immersiveengineering:metal_multiblock_autoworkbench");
+		autoWorkbenchBlueprintIcon = iconRegister.registerIcon("immersiveengineering:metal_multiblock_autoworkbench_blueprint");
 		for(int i=0;i<4;i++)
 		{
 			icons[6][i] = iconRegister.registerIcon("immersiveengineering:storage_Steel");

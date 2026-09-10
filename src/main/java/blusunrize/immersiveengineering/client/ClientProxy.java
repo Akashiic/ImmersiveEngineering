@@ -57,6 +57,7 @@ import blusunrize.immersiveengineering.client.render.ItemRenderToolbox;
 import blusunrize.immersiveengineering.client.render.ItemRenderVoltmeter;
 import blusunrize.immersiveengineering.client.render.TileRenderArcFurnace;
 import blusunrize.immersiveengineering.client.render.TileRenderAssembler;
+import blusunrize.immersiveengineering.client.render.TileRenderAutoWorkbench;
 import blusunrize.immersiveengineering.client.render.TileRenderBalloon;
 import blusunrize.immersiveengineering.client.render.TileRenderBlastFurnaceAdvanced;
 import blusunrize.immersiveengineering.client.render.TileRenderBlastFurnacePreheater;
@@ -259,6 +260,7 @@ public class ClientProxy extends CommonProxy
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAssembler.class, new TileRenderAssembler());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBottlingMachine.class, new TileRenderBottlingMachine());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMetalPress.class, new TileRenderMetalPress());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAutoWorkbench.class, new TileRenderAutoWorkbench());
 		//WOOD
 		RenderingRegistry.registerBlockHandler(new BlockRenderWoodenDevices());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodenPost.class, new TileRenderPost());
