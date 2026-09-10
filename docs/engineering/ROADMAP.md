@@ -171,11 +171,20 @@ Decision:
 Evidence: `MODERN-FEATURE-GAP-AUDIT.md`.
 
 ## Gate G8.6 — Feature #2: Automated Engineer's Workbench
-Status: APPROVED FOR IMPLEMENTATION PLANNING.
+Status: A0–A5 PASS; A6 READY FOR RUNTIME TEST 1.
 
 Execution gates A0–A8 are defined in `AUTO-WORKBENCH-FEATURE-CHARTER.md`.
-No implementation branch opens until audit/charter checkpoint is committed.
+- A0 source/asset archaeology: PASS.
+- A1 registry/meta/TileEntity/GUI-ID design: PASS.
+- A2 legacy architecture, NBT and process transaction design: PASS.
+- A3 core implementation/compile/static audit: PASS.
+- A4 GUI/render/assets/dedicated-side audit: PASS.
+- A5 clean reobf/artifact audit: PASS for pre-tag candidate; exact tagged artifact must repeat the gate.
+- A6 runtime Test 1: READY, not yet executed.
+- A7 adversarial fix/Test 2: BLOCKED by A6 evidence.
+- A8 runtime approval/tag/freeze: BLOCKED by A6/A7.
 
+Evidence: `AUTO-WORKBENCH-A0-A2-DESIGN.md`, `AUTO-WORKBENCH-A4-RENDER-GATE.md`, `AUTO-WORKBENCH-A5-ARTIFACT-GATE.md`, and `../AUTO_WORKBENCH_TEST_1.md`.
 ## Gate G9 — Wider ecosystem
 Status: DEFERRED / NON-BLOCKING while Feature #2 proceeds.
 
