@@ -226,6 +226,7 @@ public class TileRenderAutoWorkbench extends TileRenderIE
 				else
 					renderProcessItems(tile, display, itemDisplays[i]);
 			}
+		AutoWorkbenchBlueprintRenderer.draw(workbench);
 		GL11.glPopMatrix();
 	}
 
