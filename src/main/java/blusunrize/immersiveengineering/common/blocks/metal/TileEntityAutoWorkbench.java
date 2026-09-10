@@ -629,7 +629,8 @@ public class TileEntityAutoWorkbench extends TileEntityMultiblockPart implements
 			original = original.copy();
 			if(brokenPart)
 			{
-				worldObj.spawnEntityInWorld(new EntityItem(worldObj, brokenX+.5, brokenY+.5, brokenZ+.5, original));
+				if(worldObj.getGameRules().getGameRuleBooleanValue("doTileDrops"))
+					worldObj.spawnEntityInWorld(new EntityItem(worldObj, brokenX+.5, brokenY+.5, brokenZ+.5, original));
 				continue;
 			}
 			restoreStructurePart(master, targetPos, coords, original);

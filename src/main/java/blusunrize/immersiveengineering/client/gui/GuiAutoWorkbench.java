@@ -136,7 +136,7 @@ public class GuiAutoWorkbench extends GuiContainer
 		{
 			if(!visible)
 				return;
-			ClientUtils.bindTexture("immersiveengineering:textures/gui/hudElements.png");
+			ClientUtils.bindTexture("immersiveengineering:textures/gui/auto_workbench_buttons.png");
 			GL11.glColor4f(1f, 1f, 1f, 1f);
 			field_146123_n = mouseX>=xPosition && mouseY>=yPosition
 					&& mouseX<xPosition+width && mouseY<yPosition+height;

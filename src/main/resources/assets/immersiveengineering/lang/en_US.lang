@@ -1006,3 +1006,11 @@ desc.ImmersiveEngineering.info.gardenClocheFertilizer=Fertilizer: %s%%
 desc.ImmersiveEngineering.info.gardenClocheFertilizerMod=Fertilizer multiplier: %sx
 desc.ImmersiveEngineering.info.gardenClocheSoilMod=Soil multiplier: %sx
 desc.ImmersiveEngineering.info.gardenClocheGrowthMod=Total growth multiplier: %sx
+
+# Automated Engineer's Workbench backport
+tile.ImmersiveEngineering.metalDecoration2.redstoneEngineering.name=Redstone Engineering Block
+tile.ImmersiveEngineering.metalMultiblock.autoWorkbench.name=Automated Engineer's Workbench
+ie.manual.entry.autoworkbench.name=Automated Workbench
+ie.manual.entry.autoworkbench.subtext=For those who can't drive stick
+ie.manual.entry.autoworkbench0=The Automatic Workbench is one of the first major successes of small-scale engineering.<br>The machine is able to follow a set of instructions described by a <link;blueprints;§o§nBlueprint§r> to assemble the items detailed by it.
+ie.manual.entry.autoworkbench1=Upon assembling the multiblocks, a Blueprint can be placed on its drawing table. After selecting the item that should be created, it will begin the assembly process. In order for the machine to work, it will need to be supplied with materials and power of course.<br>Item inputs are the two hatches marked with blue dots, the power input lies above them. Finished items are dropped at the end of the conveyor belt.<br>A redstone signal below the drawing table can be used for control.

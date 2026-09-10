@@ -117,6 +117,12 @@ public class CommonProxy implements IGuiHandler
 	public void draw3DBlockCauldron()
 	{
 	}
+	public void transformAutoWorkbenchManualComponent(int iterator)
+	{
+	}
+	public void renderAutoWorkbenchManual()
+	{
+	}
 	public String[] splitStringOnWidth(String s, int w)
 	{
 		return new String[]{s};

@@ -8,6 +8,7 @@ import java.util.UUID;
 
 import com.jadarstudios.developercapes.DevCapes;
 import com.mojang.authlib.GameProfile;
+import org.lwjgl.opengl.GL11;
 
 import blusunrize.immersiveengineering.ImmersiveEngineering;
 import blusunrize.immersiveengineering.api.ApiUtils;
@@ -138,6 +139,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityTransformer
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityTransformerHV;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAssembler;
+import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAutoWorkbench;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBlastFurnace;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBlastFurnaceAdvanced;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockBottlingMachine;
@@ -213,6 +215,7 @@ public class ClientProxy extends CommonProxy
 	public static FontRenderer nixieFontOptional;
 	public static IENixieFontRender nixieFont;
 	public static boolean isThorfusionLoaded;
+	private static final TileEntityAutoWorkbench AUTO_WORKBENCH_MANUAL_RENDER = new TileEntityAutoWorkbench();
 
 	public void preInit()
 	{
@@ -575,6 +578,9 @@ public class ClientProxy extends CommonProxy
 		ManualHelper.addEntry("bottlingMachine", ManualHelper.CAT_HEAVYMACHINES,
 				new ManualPageMultiblock(ManualHelper.getManual(), "bottlingMachine0", MultiblockBottlingMachine.instance),
 				new ManualPages.Text(ManualHelper.getManual(), "bottlingMachine1"));
+		ManualHelper.addEntry("autoworkbench", ManualHelper.CAT_MACHINES,
+				new ManualPageMultiblock(ManualHelper.getManual(), "autoworkbench0", MultiblockAutoWorkbench.instance),
+				new ManualPages.Text(ManualHelper.getManual(), "autoworkbench1"));
 		sortedMap = DieselHandler.getPlantoilValuesSorted(true);
 		table = formatToTable_ItemIntHashmap(sortedMap,"mB");	
 		sortedMap = DieselHandler.getEthanolValuesSorted(true);
@@ -752,6 +758,30 @@ public class ClientProxy extends CommonProxy
 		particle.setRBGColorF(r,g,b);
 		ClientUtils.mc().effectRenderer.addEffect(particle);
 		Minecraft.getMinecraft().effectRenderer.addEffect(particle);
+	}
+
+	@Override
+	public void transformAutoWorkbenchManualComponent(int iterator)
+	{
+		if(iterator==13 || iterator==14 || iterator==15)
+			GL11.glRotatef(180, 0, 1, 0);
+		else if(iterator==16)
+			GL11.glRotatef(90, 0, 1, 0);
+	}
+
+	@Override
+	public void renderAutoWorkbenchManual()
+	{
+		AUTO_WORKBENCH_MANUAL_RENDER.formed = true;
+		AUTO_WORKBENCH_MANUAL_RENDER.pos = TileEntityAutoWorkbench.MASTER_POS;
+		AUTO_WORKBENCH_MANUAL_RENDER.facing = 2;
+		AUTO_WORKBENCH_MANUAL_RENDER.mirrored = false;
+		ClientUtils.bindAtlas(0);
+		Tessellator.instance.startDrawingQuads();
+		Tessellator.instance.setTranslation(-.5, -.5, -.5);
+		ClientUtils.handleStaticTileRenderer(AUTO_WORKBENCH_MANUAL_RENDER, false);
+		Tessellator.instance.draw();
+		Tessellator.instance.setTranslation(0, 0, 0);
 	}
 
 	@Override

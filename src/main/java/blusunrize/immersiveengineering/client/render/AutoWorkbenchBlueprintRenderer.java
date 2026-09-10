@@ -1,6 +1,5 @@
 package blusunrize.immersiveengineering.client.render;
 
-import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -125,7 +124,7 @@ final class AutoWorkbenchBlueprintRenderer
 				return Double.compare(getLuminance(first), getLuminance(second));
 			}
 		});
-		HashMultimap<ShadeStyle, Point> scaledAreas = HashMultimap.create();
+		HashMultimap<ShadeStyle, BlueprintPoint> scaledAreas = HashMultimap.create();
 		int stripeAmount = 2;
 		int stripeDirection = 0;
 		for(Integer colour : luminanceOrder)
@@ -322,10 +321,10 @@ final class AutoWorkbenchBlueprintRenderer
 	{
 		private final int textureScale;
 		private final Set<Edge> lines;
-		private final HashMultimap<ShadeStyle, Point> areas;
+		private final HashMultimap<ShadeStyle, BlueprintPoint> areas;
 
 		private BlueprintLines(int textureScale, Set<Edge> lines,
-				HashMultimap<ShadeStyle, Point> areas)
+				HashMultimap<ShadeStyle, BlueprintPoint> areas)
 		{
 			this.textureScale = textureScale;
 			this.lines = lines;
@@ -348,7 +347,7 @@ final class AutoWorkbenchBlueprintRenderer
 				GL11.glPointSize(4);
 				GL11.glBegin(GL11.GL_LINES);
 				for(ShadeStyle style : areas.keySet())
-					for(Point pixel : areas.get(style))
+					for(BlueprintPoint pixel : areas.get(style))
 						style.drawShading(pixel);
 				GL11.glEnd();
 			}
@@ -366,7 +365,7 @@ final class AutoWorkbenchBlueprintRenderer
 			this.stripeDirection = stripeDirection;
 		}
 
-		private void drawShading(Point pixel)
+		private void drawShading(BlueprintPoint pixel)
 		{
 			float step = 1/(float)stripeAmount;
 			float offset = step/2;
@@ -405,9 +404,42 @@ final class AutoWorkbenchBlueprintRenderer
 		}
 	}
 
-	private static class TexturePoint extends Point
+	private static class BlueprintPoint
 	{
-		private static final long serialVersionUID = 1L;
+		protected final int x;
+		protected final int y;
+
+		private BlueprintPoint(int x, int y)
+		{
+			this.x = x;
+			this.y = y;
+		}
+
+		private BlueprintPoint(BlueprintPoint other)
+		{
+			this(other.x, other.y);
+		}
+
+		@Override
+		public boolean equals(Object object)
+		{
+			if(this==object)
+				return true;
+			if(object==null || getClass()!=object.getClass())
+				return false;
+			BlueprintPoint other = (BlueprintPoint)object;
+			return x==other.x && y==other.y;
+		}
+
+		@Override
+		public int hashCode()
+		{
+			return 31*x+y;
+		}
+	}
+
+	private static class TexturePoint extends BlueprintPoint
+	{
 		private final int scale;
 
 		private TexturePoint(int x, int y, int scale)
@@ -416,9 +448,9 @@ final class AutoWorkbenchBlueprintRenderer
 			this.scale = scale;
 		}
 
-		private Point scaleTo(int targetScale)
+		private BlueprintPoint scaleTo(int targetScale)
 		{
-			return new Point((int)(x/(float)scale*targetScale), (int)(y/(float)scale*targetScale));
+			return new BlueprintPoint((int)(x/(float)scale*targetScale), (int)(y/(float)scale*targetScale));
 		}
 
 		@Override
@@ -441,10 +473,10 @@ final class AutoWorkbenchBlueprintRenderer
 
 	private static class Edge
 	{
-		private final Point first;
-		private final Point second;
+		private final BlueprintPoint first;
+		private final BlueprintPoint second;
 
-		private Edge(Point first, Point second)
+		private Edge(BlueprintPoint first, BlueprintPoint second)
 		{
 			this.first = first;
 			this.second = second;
@@ -452,10 +484,10 @@ final class AutoWorkbenchBlueprintRenderer
 
 		private Edge scaleTo(int targetScale)
 		{
-			Point scaledFirst = first instanceof TexturePoint
-					?((TexturePoint)first).scaleTo(targetScale):new Point(first);
-			Point scaledSecond = second instanceof TexturePoint
-					?((TexturePoint)second).scaleTo(targetScale):new Point(second);
+			BlueprintPoint scaledFirst = first instanceof TexturePoint
+					?((TexturePoint)first).scaleTo(targetScale):new BlueprintPoint(first);
+			BlueprintPoint scaledSecond = second instanceof TexturePoint
+					?((TexturePoint)second).scaleTo(targetScale):new BlueprintPoint(second);
 			return new Edge(scaledFirst, scaledSecond);
 		}
 

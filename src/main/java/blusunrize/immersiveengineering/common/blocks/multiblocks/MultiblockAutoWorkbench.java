@@ -1,5 +1,6 @@
 package blusunrize.immersiveengineering.common.blocks.multiblocks;
 
+import blusunrize.immersiveengineering.ImmersiveEngineering;
 import blusunrize.immersiveengineering.api.MultiblockHandler.IMultiblock;
 import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDecoration;
@@ -231,6 +232,7 @@ public class MultiblockAutoWorkbench implements IMultiblock
 	@SideOnly(Side.CLIENT)
 	public boolean overwriteBlockRender(ItemStack stack, int iterator)
 	{
+		ImmersiveEngineering.proxy.transformAutoWorkbenchManualComponent(iterator);
 		return false;
 	}
 	@Override
@@ -243,12 +245,13 @@ public class MultiblockAutoWorkbench implements IMultiblock
 	@SideOnly(Side.CLIENT)
 	public boolean canRenderFormedStructure()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void renderFormedStructure()
 	{
+		ImmersiveEngineering.proxy.renderAutoWorkbenchManual();
 	}
 }
