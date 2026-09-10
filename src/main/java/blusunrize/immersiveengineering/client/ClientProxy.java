@@ -24,6 +24,7 @@ import blusunrize.immersiveengineering.client.fx.EntityFXItemParts;
 import blusunrize.immersiveengineering.client.fx.EntityFXSparks;
 import blusunrize.immersiveengineering.client.gui.GuiArcFurnace;
 import blusunrize.immersiveengineering.client.gui.GuiAssembler;
+import blusunrize.immersiveengineering.client.gui.GuiAutoWorkbench;
 import blusunrize.immersiveengineering.client.gui.GuiBlastFurnace;
 import blusunrize.immersiveengineering.client.gui.GuiCokeOven;
 import blusunrize.immersiveengineering.client.gui.GuiCrate;
@@ -102,6 +103,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDevices2;
 import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalMultiblocks;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAssembler;
+import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAutoWorkbench;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBlastFurnacePreheater;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBottlingMachine;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBreakerSwitch;
@@ -636,6 +638,8 @@ public class ClientProxy extends CommonProxy
 			return new GuiToolbox(player.inventory, world);
 		if(ID==Lib.GUIID_GardenCloche && te instanceof TileEntityGardenCloche)
 			return new GuiGardenCloche(player.inventory, (TileEntityGardenCloche)te);
+		if(ID==Lib.GUIID_AutoWorkbench && te instanceof TileEntityAutoWorkbench)
+			return new GuiAutoWorkbench(player.inventory, (TileEntityAutoWorkbench)te);
 		return null;
 	}
 

@@ -355,6 +355,30 @@ public class BlockMetalMultiblocks extends BlockIEBase implements ICustomBoundin
 				return true;
 			}
 		}
+		else if(curr instanceof TileEntityAutoWorkbench)
+		{
+			TileEntityAutoWorkbench te = (TileEntityAutoWorkbench)curr;
+			if(te.formed)
+			{
+				TileEntityAutoWorkbench master = te.master();
+				if(master==null && te.pos==TileEntityAutoWorkbench.MASTER_POS)
+					master = te;
+				if(master==null)
+					return false;
+				if(te.pos==TileEntityAutoWorkbench.REDSTONE_POS && Utils.isHammer(player.getCurrentEquippedItem()))
+				{
+					if(!world.isRemote)
+						master.toggleRedstoneControl();
+					return true;
+				}
+				if(!player.isSneaking())
+				{
+					if(!world.isRemote)
+						player.openGui(ImmersiveEngineering.instance, Lib.GUIID_AutoWorkbench, world, master.xCoord, master.yCoord, master.zCoord);
+					return true;
+				}
+			}
+		}
 		else if(curr instanceof TileEntityMetalPress)
 		{
 			if(((TileEntityMetalPress)curr).formed)

@@ -289,8 +289,7 @@ public class TileEntityAutoWorkbench extends TileEntityMultiblockPart implements
 		selectedRecipe = nbt.getInteger("selectedRecipe");
 		redstoneControlInverted = nbt.getBoolean("redstoneControlInverted");
 		energyStorage.readFromNBT(nbt);
-		if(!descPacket)
-			inventory = Utils.readInventory(nbt.getTagList("inventory", 10), INVENTORY_SIZE);
+		inventory = Utils.readInventory(nbt.getTagList("inventory", 10), INVENTORY_SIZE);
 
 		processQueue.clear();
 		NBTTagList processes = nbt.getTagList("processQueue", 10);
@@ -314,8 +313,7 @@ public class TileEntityAutoWorkbench extends TileEntityMultiblockPart implements
 		nbt.setInteger("selectedRecipe", selectedRecipe);
 		nbt.setBoolean("redstoneControlInverted", redstoneControlInverted);
 		energyStorage.writeToNBT(nbt);
-		if(!descPacket)
-			nbt.setTag("inventory", Utils.writeInventory(inventory));
+		nbt.setTag("inventory", Utils.writeInventory(inventory));
 
 		NBTTagList processes = new NBTTagList();
 		for(AutoWorkbenchProcess process : processQueue)

@@ -6,6 +6,7 @@ import com.mojang.authlib.GameProfile;
 
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAssembler;
+import blusunrize.immersiveengineering.common.blocks.metal.TileEntityAutoWorkbench;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityBucketWheel;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityConveyorSorter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityCrusher;
@@ -19,6 +20,7 @@ import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityModWorkben
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWoodenCrate;
 import blusunrize.immersiveengineering.common.gui.ContainerArcFurnace;
 import blusunrize.immersiveengineering.common.gui.ContainerAssembler;
+import blusunrize.immersiveengineering.common.gui.ContainerAutoWorkbench;
 import blusunrize.immersiveengineering.common.gui.ContainerBlastFurnace;
 import blusunrize.immersiveengineering.common.gui.ContainerCokeOven;
 import blusunrize.immersiveengineering.common.gui.ContainerCrate;
@@ -76,6 +78,8 @@ public class CommonProxy implements IGuiHandler
 			return new ContainerToolbox(player.inventory, world);
 		if(ID==Lib.GUIID_GardenCloche && te instanceof TileEntityGardenCloche)
 			return new ContainerGardenCloche(player.inventory, (TileEntityGardenCloche)te);
+		if(ID==Lib.GUIID_AutoWorkbench && te instanceof TileEntityAutoWorkbench)
+			return new ContainerAutoWorkbench(player.inventory, (TileEntityAutoWorkbench)te);
 		return null;
 	}
 
