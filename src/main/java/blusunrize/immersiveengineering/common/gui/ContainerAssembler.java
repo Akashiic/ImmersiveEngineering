@@ -37,6 +37,11 @@ public class ContainerAssembler extends Container
 			addSlotToContainer(new Slot(inventoryPlayer, i, 13+i*18, 195));
 	}
 
+	public TileEntityAssembler getTile()
+	{
+		return tile;
+	}
+
 	@Override
 	public boolean canInteractWith(EntityPlayer p_75145_1_)
 	{

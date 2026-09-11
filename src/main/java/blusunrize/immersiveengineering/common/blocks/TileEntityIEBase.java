@@ -1,5 +1,6 @@
 package blusunrize.immersiveengineering.common.blocks;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -36,6 +37,16 @@ public abstract class TileEntityIEBase extends TileEntity
 		this.readCustomNBT(pkt.func_148857_g(), true);
     }
 	
+	public void receiveMessageFromClient(EntityPlayer player, NBTTagCompound message)
+	{
+		if(player==null || worldObj==null || player.worldObj!=worldObj
+				|| worldObj.getTileEntity(xCoord, yCoord, zCoord)!=this)
+			return;
+		if(player.getDistanceSq(xCoord+.5D, yCoord+.5D, zCoord+.5D)>64D)
+			return;
+		receiveMessageFromClient(message);
+	}
+
 	public void receiveMessageFromClient(NBTTagCompound message)
 	{
 	}

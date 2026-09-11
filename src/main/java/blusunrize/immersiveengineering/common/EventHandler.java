@@ -42,6 +42,7 @@ import blusunrize.immersiveengineering.common.util.compat.computercraft.TileEnti
 import blusunrize.immersiveengineering.common.util.network.MessageDrill;
 import blusunrize.immersiveengineering.common.util.network.MessageMinecartShaderSync;
 import blusunrize.immersiveengineering.common.util.network.MessageMineralListSync;
+import blusunrize.immersiveengineering.common.util.network.ServerNetworkTaskQueue;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.eventhandler.Event;
@@ -50,6 +51,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.WorldTickEvent;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.material.Material;
@@ -184,6 +186,13 @@ public class EventHandler
 	}
 
 
+
+	@SubscribeEvent
+	public void onServerTick(ServerTickEvent event)
+	{
+		if(event.phase==TickEvent.Phase.START)
+			ServerNetworkTaskQueue.drain();
+	}
 
 	@SubscribeEvent
 	public void onWorldTick(WorldTickEvent event)

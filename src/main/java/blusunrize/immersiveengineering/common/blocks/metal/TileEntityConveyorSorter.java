@@ -3,6 +3,7 @@ package blusunrize.immersiveengineering.common.blocks.metal;
 import java.util.ArrayList;
 
 import blusunrize.immersiveengineering.common.blocks.TileEntityIEBase;
+import blusunrize.immersiveengineering.common.gui.ContainerSorter;
 import blusunrize.immersiveengineering.common.util.Utils;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -116,10 +117,26 @@ public class TileEntityConveyorSorter extends TileEntityIEBase implements ISided
 	}
 
 	@Override
+	public void receiveMessageFromClient(EntityPlayer player, NBTTagCompound message)
+	{
+		if(!(player.openContainer instanceof ContainerSorter)
+				|| ((ContainerSorter)player.openContainer).getTile()!=this)
+			return;
+		super.receiveMessageFromClient(player, message);
+	}
+
+	@Override
 	public void receiveMessageFromClient(NBTTagCompound message)
 	{
-		if(message.hasKey("sideConfig"))
-			this.sideFilter = message.getIntArray("sideConfig");
+		if(!message.hasKey("sideConfig"))
+			return;
+		int[] requested = message.getIntArray("sideConfig");
+		if(requested.length!=6)
+			return;
+		for(int value : requested)
+			if((value&~7)!=0)
+				return;
+		this.sideFilter = requested;
 	}
 
 	public Integer[][] getValidOutputs(int inputSide, ItemStack stack, boolean allowUnmapped, boolean allowThrowing)

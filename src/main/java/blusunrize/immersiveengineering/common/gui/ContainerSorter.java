@@ -32,6 +32,11 @@ public class ContainerSorter extends Container
 			addSlotToContainer(new Slot(inventoryPlayer, i, 8+i*18, 221));
 	}
 
+	public TileEntityConveyorSorter getTile()
+	{
+		return tile;
+	}
+
 	@Override
 	public boolean canInteractWith(EntityPlayer p_75145_1_)
 	{

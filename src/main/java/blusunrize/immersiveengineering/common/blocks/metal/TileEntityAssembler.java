@@ -6,6 +6,7 @@ import java.util.Iterator;
 import blusunrize.immersiveengineering.common.Config;
 import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAssembler;
+import blusunrize.immersiveengineering.common.gui.ContainerAssembler;
 import blusunrize.immersiveengineering.common.util.Utils;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyReceiver;
@@ -385,6 +386,15 @@ public class TileEntityAssembler extends TileEntityMultiblockPart implements ISi
 	}
 
 	@Override
+	public void receiveMessageFromClient(EntityPlayer player, NBTTagCompound message)
+	{
+		if(!(player.openContainer instanceof ContainerAssembler)
+				|| ((ContainerAssembler)player.openContainer).getTile()!=this)
+			return;
+		super.receiveMessageFromClient(player, message);
+	}
+
+	@Override
 	public void receiveMessageFromClient(NBTTagCompound message)
 	{
 		if(message.hasKey("buttonID"))
@@ -400,12 +410,18 @@ public class TileEntityAssembler extends TileEntityMultiblockPart implements ISi
 		else if(message.hasKey("patternSync"))
 		{
 			int r = message.getInteger("recipe");
+			if(r<0 || r>=patterns.length)
+				return;
 			NBTTagList list = message.getTagList("patternSync", 10);
 			CrafterPatternInventory pattern = patterns[r];
-			for(int i=0; i<list.tagCount(); i++)
+			int entries = Math.min(list.tagCount(), pattern.inv.length);
+			for(int i=0; i<entries; i++)
 			{
 				NBTTagCompound itemTag = list.getCompoundTagAt(i);
-				pattern.inv[itemTag.getInteger("slot")] = ItemStack.loadItemStackFromNBT(itemTag);
+				int slot = itemTag.getInteger("slot");
+				if(slot<0 || slot>=pattern.inv.length)
+					continue;
+				pattern.inv[slot] = ItemStack.loadItemStackFromNBT(itemTag);
 			}
 		}
 	}

@@ -7,6 +7,7 @@ import blusunrize.immersiveengineering.api.crafting.BlueprintCraftingRecipe;
 import blusunrize.immersiveengineering.common.Config;
 import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAutoWorkbench;
+import blusunrize.immersiveengineering.common.gui.ContainerAutoWorkbench;
 import blusunrize.immersiveengineering.common.items.ItemEngineersBlueprint;
 import blusunrize.immersiveengineering.common.util.ItemNBTHelper;
 import blusunrize.immersiveengineering.common.util.Utils;
@@ -321,6 +322,15 @@ public class TileEntityAutoWorkbench extends TileEntityMultiblockPart implements
 		nbt.setTag("processQueue", processes);
 		if(descPacket)
 			nbt.setInteger("tickedProcesses", clientTickedProcesses);
+	}
+
+	@Override
+	public void receiveMessageFromClient(EntityPlayer player, NBTTagCompound message)
+	{
+		if(!(player.openContainer instanceof ContainerAutoWorkbench)
+				|| ((ContainerAutoWorkbench)player.openContainer).tile!=this)
+			return;
+		super.receiveMessageFromClient(player, message);
 	}
 
 	@Override
