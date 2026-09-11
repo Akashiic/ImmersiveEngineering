@@ -1,0 +1,279 @@
+[
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\auto_workbench.obj",
+    "bytes": 37926,
+    "records": {
+      "mtllib": 1,
+      "o": 2,
+      "v": 593,
+      "vt": 373,
+      "usemtl": 3,
+      "f": 338
+    },
+    "face_arity": {
+      "3": 4,
+      "4": 334
+    },
+    "groups": [],
+    "materials": [
+      "conveyor",
+      "workbench",
+      "assembler"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\arc_furnace.obj",
+    "bytes": 37703,
+    "records": {
+      "mtllib": 1,
+      "o": 2,
+      "v": 498,
+      "vt": 246,
+      "vn": 19,
+      "usemtl": 2,
+      "f": 368
+    },
+    "face_arity": {
+      "4": 368
+    },
+    "groups": [],
+    "materials": [
+      "arcFurnace",
+      "arcFurnace"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\diesel_generator.obj",
+    "bytes": 26108,
+    "records": {
+      "mtllib": 1,
+      "usemtl": 1,
+      "o": 1,
+      "v": 448,
+      "vt": 169,
+      "f": 264
+    },
+    "face_arity": {
+      "4": 264
+    },
+    "groups": [],
+    "materials": [
+      "dieselGenerator"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\squeezer.obj",
+    "bytes": 21052,
+    "records": {
+      "mtllib": 1,
+      "o": 1,
+      "v": 294,
+      "vt": 176,
+      "vn": 31,
+      "usemtl": 3,
+      "f": 179
+    },
+    "face_arity": {
+      "4": 179
+    },
+    "groups": [],
+    "materials": [
+      "squeezer",
+      "multiblock_components",
+      "multiblock_base"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\sawmill.obj",
+    "bytes": 20759,
+    "records": {
+      "mtllib": 1,
+      "o": 2,
+      "v": 309,
+      "vt": 152,
+      "vn": 36,
+      "usemtl": 4,
+      "f": 159
+    },
+    "face_arity": {
+      "4": 159
+    },
+    "groups": [],
+    "materials": [
+      "conveyor",
+      "multiblock_base",
+      "multiblock_components",
+      "sawmill"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\sawmill_animated.obj",
+    "bytes": 19526,
+    "records": {
+      "mtllib": 1,
+      "usemtl": 1,
+      "o": 1,
+      "v": 144,
+      "vt": 360,
+      "vn": 90,
+      "f": 110
+    },
+    "face_arity": {
+      "4": 110
+    },
+    "groups": [],
+    "materials": [
+      "blade"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\refinery.obj",
+    "bytes": 19701,
+    "records": {
+      "mtllib": 1,
+      "o": 1,
+      "v": 316,
+      "vt": 120,
+      "vn": 6,
+      "usemtl": 3,
+      "f": 181
+    },
+    "face_arity": {
+      "4": 181
+    },
+    "groups": [],
+    "materials": [
+      "refinery",
+      "multiblock_base",
+      "multiblock_components"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\assembler.obj",
+    "bytes": 18672,
+    "records": {
+      "mtllib": 1,
+      "o": 2,
+      "v": 294,
+      "vt": 193,
+      "usemtl": 2,
+      "f": 167
+    },
+    "face_arity": {
+      "4": 167
+    },
+    "groups": [],
+    "materials": [
+      "conveyor",
+      "assembler"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\mixer.obj",
+    "bytes": 14388,
+    "records": {
+      "mtllib": 1,
+      "o": 1,
+      "v": 183,
+      "vt": 153,
+      "vn": 24,
+      "usemtl": 3,
+      "f": 118
+    },
+    "face_arity": {
+      "4": 118
+    },
+    "groups": [],
+    "materials": [
+      "mixer",
+      "multiblock_components",
+      "multiblock_base"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\fermenter.obj",
+    "bytes": 14254,
+    "records": {
+      "mtllib": 1,
+      "o": 1,
+      "v": 207,
+      "vt": 122,
+      "vn": 10,
+      "usemtl": 3,
+      "f": 124
+    },
+    "face_arity": {
+      "4": 124
+    },
+    "groups": [],
+    "materials": [
+      "fermenter",
+      "multiblock_components",
+      "multiblock_base"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\metal_press.obj",
+    "bytes": 14194,
+    "records": {
+      "mtllib": 1,
+      "o": 2,
+      "v": 209,
+      "vt": 111,
+      "vn": 13,
+      "usemtl": 2,
+      "f": 136
+    },
+    "face_arity": {
+      "4": 136
+    },
+    "groups": [],
+    "materials": [
+      "metalPress",
+      "conveyor"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\radio_tower.obj",
+    "bytes": 11819,
+    "records": {
+      "mtllib": 1,
+      "o": 1,
+      "v": 142,
+      "vt": 97,
+      "vn": 46,
+      "usemtl": 2,
+      "f": 104
+    },
+    "face_arity": {
+      "4": 104
+    },
+    "groups": [],
+    "materials": [
+      "radio_tower",
+      "multiblock_base"
+    ]
+  },
+  {
+    "path": "C:\\Users\\User\\Desktop\\Codex\\immersiveengineering-backport\\upstream\\ImmersiveEngineering-1.21.1-chief\\src\\main\\resources\\assets\\immersiveengineering\\models\\block\\metal_multiblock\\crusher.obj",
+    "bytes": 11478,
+    "records": {
+      "mtllib": 1,
+      "o": 1,
+      "v": 168,
+      "vt": 96,
+      "vn": 10,
+      "usemtl": 3,
+      "f": 102
+    },
+    "face_arity": {
+      "4": 102
+    },
+    "groups": [],
+    "materials": [
+      "multiblock_base",
+      "multiblock_components",
+      "crusher"
+    ]
+  }
+]
