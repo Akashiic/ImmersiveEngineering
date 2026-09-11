@@ -1,0 +1,4 @@
+# Deterministic text assets across Windows/Linux worktrees.
+# Forge 1.7 OBJ resources are packaged byte-for-byte; pin LF so audited hashes reproduce.
+*.obj text eol=lf
+*.mtl text eol=lf
