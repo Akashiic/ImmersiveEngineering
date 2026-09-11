@@ -171,7 +171,7 @@ Decision:
 Evidence: `MODERN-FEATURE-GAP-AUDIT.md`.
 
 ## Gate G8.6 — Feature #2: Automated Engineer's Workbench
-Status: A0–A5 PASS; A6 READY FOR RUNTIME TEST 1.
+Status: A0–A5 PASS; A5.1 runtime-smoke rework PASS; replacement Test 1 candidate pending final tagged rebuild.
 
 Execution gates A0–A8 are defined in `AUTO-WORKBENCH-FEATURE-CHARTER.md`.
 - A0 source/asset archaeology: PASS.
@@ -179,12 +179,13 @@ Execution gates A0–A8 are defined in `AUTO-WORKBENCH-FEATURE-CHARTER.md`.
 - A2 legacy architecture, NBT and process transaction design: PASS.
 - A3 core implementation/compile/static audit: PASS.
 - A4 GUI/render/assets/dedicated-side audit: PASS.
-- A5 clean reobf/artifact audit: PASS for pre-tag candidate; exact tagged artifact must repeat the gate.
-- A6 runtime Test 1: READY, not yet executed.
+- A5 clean reobf/artifact audit: PASS for the original tagged candidate.
+- A5.1 client runtime smoke: original `auto-workbench-test-1` REJECTED on mixed triangle/quad OBJ; deterministic quadification implemented and minimal client re-test PASS.
+- A6 user runtime Test 1: BLOCKED until replacement tag/JAR repeats clean build and artifact audit.
 - A7 adversarial fix/Test 2: BLOCKED by A6 evidence.
-- A8 runtime approval/tag/freeze: BLOCKED by A6/A7.
+- A8 runtime approval/freeze: BLOCKED by A6/A7.
 
-Evidence: `AUTO-WORKBENCH-A0-A2-DESIGN.md`, `AUTO-WORKBENCH-A4-RENDER-GATE.md`, `AUTO-WORKBENCH-A5-ARTIFACT-GATE.md`, and `../AUTO_WORKBENCH_TEST_1.md`.
+Evidence: `AUTO-WORKBENCH-A0-A2-DESIGN.md`, `AUTO-WORKBENCH-A4-RENDER-GATE.md`, `AUTO-WORKBENCH-A5-ARTIFACT-GATE.md`, `AUTO-WORKBENCH-A5.1-RUNTIME-SMOKE-GATE.md`, and `../AUTO_WORKBENCH_TEST_1.md`.
 ## Gate G9 — Wider ecosystem
 Status: DEFERRED / NON-BLOCKING while Feature #2 proceeds.
 
