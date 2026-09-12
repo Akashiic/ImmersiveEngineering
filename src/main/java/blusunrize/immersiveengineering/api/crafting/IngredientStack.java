@@ -103,11 +103,20 @@ public class IngredientStack
 		if(stackList!=null)
 		{
 			for(ItemStack candidate : stackList)
-				if(candidate!=null&&OreDictionary.itemMatches(candidate, input, false))
+				if(candidate!=null&&matchesDirect(candidate, input))
 					return nbtMatches(candidate, input);
 			return false;
 		}
-		return stack!=null&&OreDictionary.itemMatches(stack, input, false)&&nbtMatches(stack, input);
+		return stack!=null&&matchesDirect(stack, input)&&nbtMatches(stack, input);
+	}
+
+	private static boolean matchesDirect(ItemStack expected, ItemStack actual)
+	{
+		if(expected==null||actual==null)
+			return expected==actual;
+		return expected.getItem()==actual.getItem()
+				&&(expected.getItemDamage()==OreDictionary.WILDCARD_VALUE
+						||expected.getItemDamage()==actual.getItemDamage());
 	}
 
 	private boolean nbtMatches(ItemStack expected, ItemStack actual)
@@ -150,6 +159,11 @@ public class IngredientStack
 		return oreName;
 	}
 
+	public int getInputSize()
+	{
+		return inputSize;
+	}
+
 	public boolean matchesItemStackIgnoringSize(ItemStack input)
 	{
 		if(input==null)
@@ -159,11 +173,11 @@ public class IngredientStack
 		if(stackList!=null)
 		{
 			for(ItemStack candidate : stackList)
-				if(candidate!=null&&OreDictionary.itemMatches(candidate, input, false)&&nbtMatches(candidate, input))
+				if(candidate!=null&&matchesDirect(candidate, input)&&nbtMatches(candidate, input))
 					return true;
 			return false;
 		}
-		return stack!=null&&OreDictionary.itemMatches(stack, input, false)&&nbtMatches(stack, input);
+		return stack!=null&&matchesDirect(stack, input)&&nbtMatches(stack, input);
 	}
 
 	public IngredientStack setUseNBT(boolean useNBT)

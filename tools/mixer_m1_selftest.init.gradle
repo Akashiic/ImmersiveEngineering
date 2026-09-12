@@ -1,0 +1,10 @@
+import org.gradle.api.tasks.JavaExec
+
+gradle.projectsEvaluated {
+    def p = gradle.rootProject
+    p.tasks.register('mixerM1SelfTest', JavaExec) {
+        dependsOn p.tasks.named('testClasses')
+        classpath = p.sourceSets.test.runtimeClasspath
+        mainClass.set('blusunrize.immersiveengineering.tests.MixerM1SelfTest')
+    }
+}
