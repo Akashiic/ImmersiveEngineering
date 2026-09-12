@@ -38,6 +38,7 @@ public class MTHelper extends IECompatModule
 	public void postInit()
 	{
 		MineTweakerAPI.registerClass(BlastFurnace.class);
+		MineTweakerAPI.registerClass(AlloySmelter.class);
 		MineTweakerAPI.registerClass(CokeOven.class);
 		MineTweakerAPI.registerClass(Crusher.class);
 		MineTweakerAPI.registerClass(Squeezer.class);

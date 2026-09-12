@@ -23,6 +23,7 @@ import blusunrize.immersiveengineering.api.tool.ExcavatorHandler;
 import blusunrize.immersiveengineering.client.fx.EntityFXBlockParts;
 import blusunrize.immersiveengineering.client.fx.EntityFXItemParts;
 import blusunrize.immersiveengineering.client.fx.EntityFXSparks;
+import blusunrize.immersiveengineering.client.gui.GuiAlloySmelter;
 import blusunrize.immersiveengineering.client.gui.GuiArcFurnace;
 import blusunrize.immersiveengineering.client.gui.GuiAssembler;
 import blusunrize.immersiveengineering.client.gui.GuiAutoWorkbench;
@@ -137,6 +138,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySilo;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityTransformer;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityTransformerHV;
+import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAlloySmelter;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAssembler;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAutoWorkbench;
@@ -156,6 +158,7 @@ import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockRefin
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockSheetmetalTank;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockSilo;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockSqueezer;
+import blusunrize.immersiveengineering.common.blocks.stone.TileEntityAlloySmelter;
 import blusunrize.immersiveengineering.common.blocks.stone.TileEntityBlastFurnace;
 import blusunrize.immersiveengineering.common.blocks.stone.TileEntityBlastFurnaceAdvanced;
 import blusunrize.immersiveengineering.common.blocks.stone.TileEntityCokeOven;
@@ -383,6 +386,10 @@ public class ClientProxy extends CommonProxy
 				new ManualPages.Text(ManualHelper.getManual(), "blastfurnace0"),
 				new ManualPages.Crafting(ManualHelper.getManual(), "blastfurnaceBlock", new ItemStack(IEContent.blockStoneDecoration,1,2)),
 				new ManualPageMultiblock(ManualHelper.getManual(), "blastfurnace1", MultiblockBlastFurnace.instance));
+		ManualHelper.addEntry("alloyKiln", ManualHelper.CAT_GENERAL,
+				new ManualPages.Text(ManualHelper.getManual(), "alloyKiln0"),
+				new ManualPages.Crafting(ManualHelper.getManual(), "alloyKiln1", new ItemStack(IEContent.blockStoneDecoration2,1,0)),
+				new ManualPageMultiblock(ManualHelper.getManual(), "alloyKiln2", MultiblockAlloySmelter.instance));
 		ExcavatorHandler.handleMineralManual();
 		int blueprint = BlueprintCraftingRecipe.blueprintCategories.indexOf("electrode");
 		ManualHelper.addEntry("graphite", ManualHelper.CAT_GENERAL, new ManualPages.Text(ManualHelper.getManual(), "graphite0"),new ManualPages.Crafting(ManualHelper.getManual(), "graphite1", new ItemStack(IEContent.itemBlueprint,1,blueprint)));
@@ -648,6 +655,8 @@ public class ClientProxy extends CommonProxy
 			return new GuiGardenCloche(player.inventory, (TileEntityGardenCloche)te);
 		if(ID==Lib.GUIID_AutoWorkbench && te instanceof TileEntityAutoWorkbench)
 			return new GuiAutoWorkbench(player.inventory, (TileEntityAutoWorkbench)te);
+		if(ID==Lib.GUIID_AlloySmelter && te instanceof TileEntityAlloySmelter)
+			return new GuiAlloySmelter(player.inventory, (TileEntityAlloySmelter)te);
 		return null;
 	}
 

@@ -211,6 +211,12 @@
       "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_top.png",
       "source_sha256": "25D214520F97BB6502A288D1097A35FF4C8475672CB827864FD079E7952C0648",
       "transform": "crop16"
+    },
+    "stoneDevice_insulatorGlass.png": {
+      "output_sha256": "8C326CF9CB60A2361617BB14C434CF6DE5A4008970DA84E708273489B30AA118",
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\stone_decoration\\insulating_glass.png",
+      "source_sha256": "8C326CF9CB60A2361617BB14C434CF6DE5A4008970DA84E708273489B30AA118",
+      "transform": "identity-registry-preserving"
     }
   },
   "source_commit": "75a27f03e4243544243567e8d5c38d336f4f10f4"

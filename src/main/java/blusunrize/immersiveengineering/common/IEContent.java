@@ -6,8 +6,11 @@ import java.util.List;
 
 import blusunrize.immersiveengineering.ImmersiveEngineering;
 import blusunrize.immersiveengineering.api.ComparableItemStack;
+import blusunrize.immersiveengineering.api.IEApi;
 import blusunrize.immersiveengineering.api.MultiblockHandler;
+import blusunrize.immersiveengineering.api.crafting.AlloyRecipe;
 import blusunrize.immersiveengineering.api.crafting.BlastFurnaceRecipe;
+import blusunrize.immersiveengineering.api.crafting.IngredientStack;
 import blusunrize.immersiveengineering.api.crafting.BlueprintCraftingRecipe;
 import blusunrize.immersiveengineering.api.crafting.CokeOvenRecipe;
 import blusunrize.immersiveengineering.api.crafting.MetalPressRecipe;
@@ -84,6 +87,7 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityThermoelect
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityTransformer;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityTransformerHV;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityWallmountMetal;
+import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAlloySmelter;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockArcFurnace;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAssembler;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockAutoWorkbench;
@@ -104,7 +108,10 @@ import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockSilo;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.MultiblockSqueezer;
 import blusunrize.immersiveengineering.common.blocks.plant.BlockIECrop;
 import blusunrize.immersiveengineering.common.blocks.stone.BlockStoneDecoration;
+import blusunrize.immersiveengineering.common.blocks.stone.BlockStoneDecoration2;
 import blusunrize.immersiveengineering.common.blocks.stone.BlockStoneDevices;
+import blusunrize.immersiveengineering.common.blocks.stone.BlockStoneDevices2;
+import blusunrize.immersiveengineering.common.blocks.stone.TileEntityAlloySmelter;
 import blusunrize.immersiveengineering.common.blocks.stone.TileEntityBlastFurnace;
 import blusunrize.immersiveengineering.common.blocks.stone.TileEntityBlastFurnaceAdvanced;
 import blusunrize.immersiveengineering.common.blocks.stone.TileEntityCokeOven;
@@ -192,7 +199,9 @@ public class IEContent
 	public static Block blockWoodenStair1;
 	public static Block blockWoodenStair2;
 	public static BlockIEBase blockStoneDevice;
+	public static BlockIEBase blockStoneDevice2;
 	public static BlockIEBase blockStoneDecoration;
+	public static BlockIEBase blockStoneDecoration2;
 	public static Block blockConcreteStair;
 	public static Block blockConcreteTileStair;
 	public static Block blockCrop;
@@ -248,6 +257,8 @@ public class IEContent
 		blockWoodenStair2 = new BlockIEStairs("woodenStairs2",blockTreatedWood,2).setFlammable(true).setHasFlavour(true);
 		blockStoneDevice = new BlockStoneDevices();
 		blockStoneDecoration = new BlockStoneDecoration();
+		blockStoneDecoration2 = new BlockStoneDecoration2();
+		blockStoneDevice2 = new BlockStoneDevices2();
 		blockConcreteStair = new BlockIEStairs("concreteStairs",blockStoneDecoration,4);
 		blockConcreteTileStair = new BlockIEStairs("concreteTileStairs",blockStoneDecoration,5);
 		blockCrop = new BlockIECrop("hemp", "0B","1B","2B","3B","4B","0T");
@@ -481,6 +492,7 @@ public class IEContent
 		registerTile(TileEntityCokeOven.class);
 		registerTile(TileEntityBlastFurnace.class);
 		registerTile(TileEntityBlastFurnaceAdvanced.class);
+		registerTile(TileEntityAlloySmelter.class);
 
 		registerTile(TileEntityBalloon.class);
 
@@ -518,6 +530,14 @@ public class IEContent
 		CokeOvenRecipe.addRecipe(new ItemStack(Items.coal,1,1), "logWood", 900, 250);
 		BlastFurnaceRecipe.addRecipe(new ItemStack(itemMetal,1,7), "ingotIron", 1200, new ItemStack(IEContent.itemMaterial,1,13));
 		BlastFurnaceRecipe.addRecipe(new ItemStack(blockStorage,1,7), "blockIron", 1200*9, new ItemStack(IEContent.itemMaterial,9,13));
+
+		AlloyRecipe.addRecipe(new ItemStack(itemMetal,2,5), new IngredientStack("ingotCopper"), new IngredientStack("ingotNickel"), 200);
+		AlloyRecipe.addRecipe(new ItemStack(itemMetal,2,6), new IngredientStack("ingotGold"), new IngredientStack("ingotSilver"), 200);
+		AlloyRecipe.addRecipe(new ItemStack(blockStoneDevice,2,4), new IngredientStack("blockGlass", 2), new IngredientStack("dustIron"), 200);
+		addConditionalAlloy("ingotBrass", 2, "ingotCopper", 1, "ingotZinc", 1);
+		addConditionalAlloy("ingotBronze", 4, "ingotCopper", 3, "ingotTin", 1);
+		addConditionalAlloy("ingotInvar", 3, "ingotIron", 2, "ingotNickel", 1);
+		addConditionalAlloy("ingotRoseGold", 4, "ingotCopper", 3, "ingotGold", 1);
 
 		BlastFurnaceRecipe.addBlastFuel("fuelCoke", 1200);
 		BlastFurnaceRecipe.addBlastFuel("blockFuelCoke", 1200*10);
@@ -626,6 +646,7 @@ public class IEContent
 		MultiblockHandler.registerMultiblock(MultiblockCokeOven.instance);
 		MultiblockHandler.registerMultiblock(MultiblockBlastFurnace.instance);
 		MultiblockHandler.registerMultiblock(MultiblockBlastFurnaceAdvanced.instance);
+		MultiblockHandler.registerMultiblock(MultiblockAlloySmelter.instance);
 		MultiblockHandler.registerMultiblock(MultiblockDieselGenerator.instance);
 		MultiblockHandler.registerMultiblock(MultiblockSqueezer.instance);
 		MultiblockHandler.registerMultiblock(MultiblockFermenter.instance);
@@ -722,6 +743,22 @@ public class IEContent
 				return new BelljarHandler.PlantRenderInfo[]{new BelljarHandler.PlantRenderInfo(blockCrop, age, .6875f, 0f, 0f, 0f)};
 			}
 		});
+	}
+
+	private static void addConditionalAlloy(String outputOre, int outputCount,
+			String input0Ore, int input0Count, String input1Ore, int input1Count)
+	{
+		if(!OreDictionary.doesOreNameExist(outputOre)||OreDictionary.getOres(outputOre).isEmpty()
+				||!OreDictionary.doesOreNameExist(input0Ore)||OreDictionary.getOres(input0Ore).isEmpty()
+				||!OreDictionary.doesOreNameExist(input1Ore)||OreDictionary.getOres(input1Ore).isEmpty())
+			return;
+		ItemStack output = IEApi.getPreferredOreStack(outputOre);
+		if(output==null)
+			return;
+		output.stackSize = outputCount;
+		AlloyRecipe.addRecipe(output,
+				new IngredientStack(input0Ore, input0Count),
+				new IngredientStack(input1Ore, input1Count), 200);
 	}
 
 	public static void registerToOreDict(String type, ItemIEBase item, int... metas)

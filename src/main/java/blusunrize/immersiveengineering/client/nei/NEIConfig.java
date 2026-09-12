@@ -23,6 +23,7 @@ public class NEIConfig implements IConfigureNEI
 		
 		registerDualHandler(new NEICokeOvenHandler());
 		registerDualHandler(new NEIBlastFurnaceHandler());
+		registerDualHandler(new NEIAlloySmelterHandler());
 
 		registerDualHandler(new NEISqueezerHandler());
 		registerDualHandler(new NEIFermenterHandler());

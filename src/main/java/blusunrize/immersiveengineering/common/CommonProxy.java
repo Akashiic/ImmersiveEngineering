@@ -14,10 +14,12 @@ import blusunrize.immersiveengineering.common.blocks.metal.TileEntityFermenter;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityGardenCloche;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityRefinery;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntitySqueezer;
+import blusunrize.immersiveengineering.common.blocks.stone.TileEntityAlloySmelter;
 import blusunrize.immersiveengineering.common.blocks.stone.TileEntityBlastFurnace;
 import blusunrize.immersiveengineering.common.blocks.stone.TileEntityCokeOven;
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityModWorkbench;
 import blusunrize.immersiveengineering.common.blocks.wooden.TileEntityWoodenCrate;
+import blusunrize.immersiveengineering.common.gui.ContainerAlloySmelter;
 import blusunrize.immersiveengineering.common.gui.ContainerArcFurnace;
 import blusunrize.immersiveengineering.common.gui.ContainerAssembler;
 import blusunrize.immersiveengineering.common.gui.ContainerAutoWorkbench;
@@ -80,6 +82,8 @@ public class CommonProxy implements IGuiHandler
 			return new ContainerGardenCloche(player.inventory, (TileEntityGardenCloche)te);
 		if(ID==Lib.GUIID_AutoWorkbench && te instanceof TileEntityAutoWorkbench)
 			return new ContainerAutoWorkbench(player.inventory, (TileEntityAutoWorkbench)te);
+		if(ID==Lib.GUIID_AlloySmelter && te instanceof TileEntityAlloySmelter)
+			return new ContainerAlloySmelter(player.inventory, (TileEntityAlloySmelter)te);
 		return null;
 	}
 

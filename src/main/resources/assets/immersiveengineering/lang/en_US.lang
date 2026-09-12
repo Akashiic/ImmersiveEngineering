@@ -1014,3 +1014,11 @@ ie.manual.entry.autoworkbench.name=Automated Workbench
 ie.manual.entry.autoworkbench.subtext=For those who can't drive stick
 ie.manual.entry.autoworkbench0=The Automatic Workbench is one of the first major successes of small-scale engineering.<br>The machine is able to follow a set of instructions described by a <link;blueprints;§o§nBlueprint§r> to assemble the items detailed by it.
 ie.manual.entry.autoworkbench1=Upon assembling the multiblocks, a Blueprint can be placed on its drawing table. After selecting the item that should be created, it will begin the assembly process. In order for the machine to work, it will need to be supplied with materials and power of course.<br>Item inputs are the two hatches marked with blue dots, the power input lies above them. Finished items are dropped at the end of the conveyor belt.<br>A redstone signal below the drawing table can be used for control.
+# Alloy Kiln backport
+tile.ImmersiveEngineering.stoneDecoration2.alloyBrick.name=Kiln Brick
+tile.ImmersiveEngineering.stoneDevice2.alloySmelter.name=Alloy Kiln
+ie.manual.entry.alloyKiln.name=Alloy Kiln
+ie.manual.entry.alloyKiln.subtext=Heating Things Up
+ie.manual.entry.alloyKiln0=The Alloy Kiln is a compact furnace built from heat-resistant Kiln Bricks. It combines two inputs at high temperature to create alloys such as Electrum and Constantan without first grinding the metals into dust.
+ie.manual.entry.alloyKiln1=Kiln Bricks are arranged as a 2x2x2 cube. Form the structure with the Engineer's Hammer. The front face follows the direction you face while forming it.
+ie.manual.entry.alloyKiln2=The formed Kiln accepts two alloy ingredients and ordinary furnace fuel. Processing waits safely for output space. The Kiln can also create Insulating Glass from two glass blocks and iron dust, matching the modern Engineer's Manual workflow.

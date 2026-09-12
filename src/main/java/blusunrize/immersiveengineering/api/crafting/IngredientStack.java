@@ -150,6 +150,22 @@ public class IngredientStack
 		return oreName;
 	}
 
+	public boolean matchesItemStackIgnoringSize(ItemStack input)
+	{
+		if(input==null)
+			return false;
+		if(oreName!=null)
+			return ApiUtils.compareToOreName(input, oreName);
+		if(stackList!=null)
+		{
+			for(ItemStack candidate : stackList)
+				if(candidate!=null&&OreDictionary.itemMatches(candidate, input, false)&&nbtMatches(candidate, input))
+					return true;
+			return false;
+		}
+		return stack!=null&&OreDictionary.itemMatches(stack, input, false)&&nbtMatches(stack, input);
+	}
+
 	public IngredientStack setUseNBT(boolean useNBT)
 	{
 		this.useNBT = useNBT;

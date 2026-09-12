@@ -1,6 +1,7 @@
 package blusunrize.immersiveengineering.api.crafting;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -43,7 +44,13 @@ public class AlloyRecipe
 		return input0.matchesItemStack(first)&&input1.matchesItemStack(second);
 	}
 
-	public static final ArrayList<AlloyRecipe> recipeList = new ArrayList<AlloyRecipe>();
+	private static long recipeRevision;
+	public static final ArrayList<AlloyRecipe> recipeList = new TrackedRecipeList();
+
+	public static long getRecipeRevision()
+	{
+		return recipeRevision;
+	}
 
 	public static AlloyRecipe addRecipe(ItemStack output, Object input0, Object input1, int time)
 	{
@@ -67,6 +74,16 @@ public class AlloyRecipe
 		return null;
 	}
 
+	public static boolean isValidInput(ItemStack stack)
+	{
+		if(stack==null)
+			return false;
+		for(AlloyRecipe recipe : recipeList)
+			if(recipe.input0.matchesItemStackIgnoringSize(stack)||recipe.input1.matchesItemStackIgnoringSize(stack))
+				return true;
+		return false;
+	}
+
 	public static List<AlloyRecipe> removeRecipes(ItemStack stack)
 	{
 		List<AlloyRecipe> removed = new ArrayList<AlloyRecipe>();
@@ -83,5 +100,97 @@ public class AlloyRecipe
 			}
 		}
 		return removed;
+	}
+
+	private static class TrackedRecipeList extends ArrayList<AlloyRecipe>
+	{
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public boolean add(AlloyRecipe recipe)
+		{
+			boolean changed = super.add(recipe);
+			if(changed)
+				recipeRevision++;
+			return changed;
+		}
+
+		@Override
+		public void add(int index, AlloyRecipe recipe)
+		{
+			super.add(index, recipe);
+			recipeRevision++;
+		}
+
+		@Override
+		public boolean addAll(Collection<? extends AlloyRecipe> recipes)
+		{
+			boolean changed = super.addAll(recipes);
+			if(changed)
+				recipeRevision++;
+			return changed;
+		}
+
+		@Override
+		public boolean addAll(int index, Collection<? extends AlloyRecipe> recipes)
+		{
+			boolean changed = super.addAll(index, recipes);
+			if(changed)
+				recipeRevision++;
+			return changed;
+		}
+
+		@Override
+		public AlloyRecipe remove(int index)
+		{
+			AlloyRecipe removed = super.remove(index);
+			recipeRevision++;
+			return removed;
+		}
+
+		@Override
+		public boolean remove(Object recipe)
+		{
+			boolean changed = super.remove(recipe);
+			if(changed)
+				recipeRevision++;
+			return changed;
+		}
+
+		@Override
+		public AlloyRecipe set(int index, AlloyRecipe recipe)
+		{
+			AlloyRecipe previous = super.set(index, recipe);
+			recipeRevision++;
+			return previous;
+		}
+
+		@Override
+		public void clear()
+		{
+			if(!isEmpty())
+			{
+				super.clear();
+				recipeRevision++;
+			}
+		}
+
+		@Override
+		public boolean removeAll(Collection<?> recipes)
+		{
+			boolean changed = super.removeAll(recipes);
+			if(changed)
+				recipeRevision++;
+			return changed;
+		}
+
+		@Override
+		public boolean retainAll(Collection<?> recipes)
+		{
+			boolean changed = super.retainAll(recipes);
+			if(changed)
+				recipeRevision++;
+			return changed;
+		}
 	}
 }

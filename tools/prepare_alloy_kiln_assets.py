@@ -24,6 +24,16 @@ manifest["files"][brick_dst.name] = {
     "output_sha256": sha(brick_dst),
     "transform": "identity",
 }
+
+insulating_src = SRC / "block/stone_decoration/insulating_glass.png"
+insulating_dst = DST / "stoneDevice_insulatorGlass.png"
+shutil.copyfile(insulating_src, insulating_dst)
+manifest["files"][insulating_dst.name] = {
+    "source": str(insulating_src.relative_to(UPSTREAM)),
+    "source_sha256": sha(insulating_src),
+    "output_sha256": sha(insulating_dst),
+    "transform": "identity-registry-preserving",
+}
 faces = {
     "bottom": "block/multiblocks/alloy_smelter_bottom.png",
     "front_off": "block/multiblocks/alloy_smelter_off.png",
