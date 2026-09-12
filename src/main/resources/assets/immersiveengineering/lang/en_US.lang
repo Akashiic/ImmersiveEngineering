@@ -144,6 +144,8 @@ fluid.creosote=Creosote Oil
 fluid.plantoil=Plant Oil
 fluid.ethanol=Ethanol
 fluid.biodiesel=Biodiesel
+fluid.concrete=Concrete
+tile.ImmersiveEngineering.fluidConcrete.name=Concrete
 
 
 # ITEMS

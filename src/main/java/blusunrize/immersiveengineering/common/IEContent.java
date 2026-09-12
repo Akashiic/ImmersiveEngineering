@@ -32,6 +32,7 @@ import blusunrize.immersiveengineering.common.blocks.BlockIESlabs;
 import blusunrize.immersiveengineering.common.blocks.BlockIEStairs;
 import blusunrize.immersiveengineering.common.blocks.BlockStorage;
 import blusunrize.immersiveengineering.common.blocks.ItemBlockIEBase;
+import blusunrize.immersiveengineering.common.fluids.BlockIEFluidConcreteLegacy;
 import blusunrize.immersiveengineering.common.blocks.TileEntityIESlab;
 import blusunrize.immersiveengineering.common.blocks.cloth.BlockClothDevices;
 import blusunrize.immersiveengineering.common.blocks.cloth.TileEntityBalloon;
@@ -237,6 +238,9 @@ public class IEContent
 	public static boolean IEEthanol=false;
 	public static Fluid fluidBiodiesel;
 	public static boolean IEBiodiesel=false;
+	public static Fluid fluidConcrete;
+	public static boolean IEConcrete=false;
+	public static BlockIEFluidConcreteLegacy blockFluidConcrete;
 
 	public static void preInit()
 	{
@@ -357,6 +361,15 @@ public class IEContent
 			FluidRegistry.registerFluid(fluidBiodiesel);
 			IEBiodiesel=true;
 		}
+		fluidConcrete = FluidRegistry.getFluid("concrete");
+		if(fluidConcrete==null)
+		{
+			fluidConcrete = new Fluid("concrete").setDensity(2400).setViscosity(4000);
+			FluidRegistry.registerFluid(fluidConcrete);
+			IEConcrete=true;
+		}
+		blockFluidConcrete = new BlockIEFluidConcreteLegacy("fluidConcrete", fluidConcrete);
+		blockFluidConcrete.setPotionEffects(new PotionEffect(Potion.moveSlowdown.id, 20, 3));
 
 		//Ore Dict
 		registerToOreDict("ore", blockOres);

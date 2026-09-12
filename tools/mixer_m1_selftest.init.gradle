@@ -8,3 +8,12 @@ gradle.projectsEvaluated {
         mainClass.set('blusunrize.immersiveengineering.tests.MixerM1SelfTest')
     }
 }
+
+gradle.projectsEvaluated {
+    def p = gradle.rootProject
+    p.tasks.register('concreteAgeDataSelfTest', JavaExec) {
+        dependsOn p.tasks.named('testClasses')
+        classpath = p.sourceSets.test.runtimeClasspath
+        mainClass.set('blusunrize.immersiveengineering.tests.ConcreteAgeDataSelfTest')
+    }
+}

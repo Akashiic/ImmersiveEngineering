@@ -1,0 +1,77 @@
+{
+  "files": {
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/concrete_flow.png": {
+      "output_sha256": "5F7888CECE22F378E139636574F0DE161714F35EA1E39063160DB1C45F130800",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/concrete_flow.png",
+      "source_sha256": "5F7888CECE22F378E139636574F0DE161714F35EA1E39063160DB1C45F130800",
+      "transform": "identity_path_translation"
+    },
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/concrete_flow.png.mcmeta": {
+      "output_sha256": "2054EC23771561D5C388C5AA16EC87C9690C220C85FFDB28608868CE8C27D14E",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/concrete_flow.png.mcmeta",
+      "source_sha256": "2054EC23771561D5C388C5AA16EC87C9690C220C85FFDB28608868CE8C27D14E",
+      "transform": "identity_path_translation"
+    },
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/concrete_still.png": {
+      "output_sha256": "2487F2223E32060F53F48866965B0E1D8F107FF890852999B62FADD8944C4C1B",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/concrete_still.png",
+      "source_sha256": "2487F2223E32060F53F48866965B0E1D8F107FF890852999B62FADD8944C4C1B",
+      "transform": "identity_path_translation"
+    },
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/concrete_still.png.mcmeta": {
+      "output_sha256": "ABC43B2A29FE5106FB7E64028D320EF2C4351EFD7FE26E66C878D517104FAB5B",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/concrete_still.png.mcmeta",
+      "source_sha256": "ABC43B2A29FE5106FB7E64028D320EF2C4351EFD7FE26E66C878D517104FAB5B",
+      "transform": "identity_path_translation"
+    },
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/herbicide_flow.png": {
+      "output_sha256": "1A983FC288E9CB10B777ED09F202D268CDC819774117834CD85786D38BE08D28",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/herbicide_flow.png",
+      "source_sha256": "1A983FC288E9CB10B777ED09F202D268CDC819774117834CD85786D38BE08D28",
+      "transform": "identity_path_translation"
+    },
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/herbicide_flow.png.mcmeta": {
+      "output_sha256": "ABC43B2A29FE5106FB7E64028D320EF2C4351EFD7FE26E66C878D517104FAB5B",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/herbicide_flow.png.mcmeta",
+      "source_sha256": "ABC43B2A29FE5106FB7E64028D320EF2C4351EFD7FE26E66C878D517104FAB5B",
+      "transform": "identity_path_translation"
+    },
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/herbicide_still.png": {
+      "output_sha256": "C878588E2B9EF97C83E5EA9D5D0980E4640EC5AA35CEAF68F65C4013BF094CA1",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/herbicide_still.png",
+      "source_sha256": "C878588E2B9EF97C83E5EA9D5D0980E4640EC5AA35CEAF68F65C4013BF094CA1",
+      "transform": "identity_path_translation"
+    },
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/herbicide_still.png.mcmeta": {
+      "output_sha256": "ABC43B2A29FE5106FB7E64028D320EF2C4351EFD7FE26E66C878D517104FAB5B",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/herbicide_still.png.mcmeta",
+      "source_sha256": "ABC43B2A29FE5106FB7E64028D320EF2C4351EFD7FE26E66C878D517104FAB5B",
+      "transform": "identity_path_translation"
+    },
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/redstone_acid_flow.png": {
+      "output_sha256": "93865462916C129975C9718F7907094AF7A9FF4F404DCA02BC6CDCCA39026504",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/redstone_acid_flow.png",
+      "source_sha256": "93865462916C129975C9718F7907094AF7A9FF4F404DCA02BC6CDCCA39026504",
+      "transform": "identity_path_translation"
+    },
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/redstone_acid_flow.png.mcmeta": {
+      "output_sha256": "ABC43B2A29FE5106FB7E64028D320EF2C4351EFD7FE26E66C878D517104FAB5B",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/redstone_acid_flow.png.mcmeta",
+      "source_sha256": "ABC43B2A29FE5106FB7E64028D320EF2C4351EFD7FE26E66C878D517104FAB5B",
+      "transform": "identity_path_translation"
+    },
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/redstone_acid_still.png": {
+      "output_sha256": "EE8EFC39841A5C7FC95A08403B08D2661BF5C10CA06E298523C00A6F63F0844F",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/redstone_acid_still.png",
+      "source_sha256": "EE8EFC39841A5C7FC95A08403B08D2661BF5C10CA06E298523C00A6F63F0844F",
+      "transform": "identity_path_translation"
+    },
+    "src/main/resources/assets/immersiveengineering/textures/blocks/fluid/redstone_acid_still.png.mcmeta": {
+      "output_sha256": "90FB44A3511D279E0F59D80D82799E72EE6295EF29420184F76F218D4D3D653A",
+      "source": "src/main/resources/assets/immersiveengineering/textures/block/fluid/redstone_acid_still.png.mcmeta",
+      "source_sha256": "90FB44A3511D279E0F59D80D82799E72EE6295EF29420184F76F218D4D3D653A",
+      "transform": "identity_path_translation"
+    }
+  },
+  "source_commit": "75a27f03e4243544243567e8d5c38d336f4f10f4"
+}

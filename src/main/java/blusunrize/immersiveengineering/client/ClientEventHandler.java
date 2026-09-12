@@ -105,6 +105,8 @@ public class ClientEventHandler
 				IEContent.fluidEthanol.setIcons(event.map.registerIcon("immersiveengineering:fluid/ethanol_still"), event.map.registerIcon("immersiveengineering:fluid/ethanol_flow"));
 			if(IEContent.IEBiodiesel)
 				IEContent.fluidBiodiesel.setIcons(event.map.registerIcon("immersiveengineering:fluid/biodiesel_still"), event.map.registerIcon("immersiveengineering:fluid/biodiesel_flow"));
+			if(IEContent.IEConcrete)
+				IEContent.fluidConcrete.setIcons(event.map.registerIcon("immersiveengineering:fluid/concrete_still"), event.map.registerIcon("immersiveengineering:fluid/concrete_flow"));
 			WireType.iconDefaultWire = event.map.registerIcon("immersiveengineering:wire");
 			TileRenderArcFurnace.hotMetal_flow = event.map.registerIcon("immersiveengineering:fluid/hotMetal_flow");
 			TileRenderArcFurnace.hotMetal_still = event.map.registerIcon("immersiveengineering:fluid/hotMetal_still");
