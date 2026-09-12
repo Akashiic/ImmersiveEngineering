@@ -1,0 +1,144 @@
+{
+  "baseline_mixer_source_hits": [],
+  "bridge_commit": "1e37e541ba9f3923b485c53af3a5025bf64d666a",
+  "bridge_files": {
+    "src/main/java/blusunrize/immersiveengineering/api/crafting/MixerRecipe.java": true,
+    "src/main/java/blusunrize/immersiveengineering/client/gui/GuiMixer.java": true,
+    "src/main/java/blusunrize/immersiveengineering/client/render/TileRenderMixer.java": true,
+    "src/main/java/blusunrize/immersiveengineering/common/blocks/metal/TileEntityMixer.java": true,
+    "src/main/java/blusunrize/immersiveengineering/common/blocks/multiblocks/MultiblockMixer.java": true,
+    "src/main/java/blusunrize/immersiveengineering/common/gui/ContainerMixer.java": true
+  },
+  "bridge_history": [
+    "f9a07eb98 Move API to separate source set (#4706)",
+    "aa4e4a840 Cache all config values for slightly better performance Remove options that were used as conditions for crafting recipes as those are loaded too early",
+    "dd649c79b Apply time and energy modifiers during recipe deserialization rather than dynamically",
+    "71a5d51db Fix time and energy modifier configs not being applied, see #4249",
+    "71b2df3e4 Initialize recipe lists by default, to hopefully fix threading-related nullpointers",
+    "98e70875b Refactor: Fluid Tags as inputs (#4225)",
+    "98c86fbb9 JSON Recipes (#3844)",
+    "515e23aa1 api mostly compiles",
+    "8796584c2 Partially updated IEContent.java, renamed most block/TE classes to suffix naming",
+    "b9efb9e06 Continuing to port random classes, renamed a bunch of NBT methods globally",
+    "dbab27372 Updated workspace to 1.14.3, I hope the migration mappings worked",
+    "37468b6c1 GUIs",
+    "83296b89a Finished metal multiblocks, started on the other metal blocks",
+    "8df0a120e Stone multiblocks",
+    "1b16eef46 Sorter, fluid sorter and some capability utils",
+    "2d7385f2e Cloth blocks pretty much done",
+    "3f111fcb1 Updated to stable mappings",
+    "a93f4c77b Fix the mixer crashing the server if it's set to run faster than usual (or probably with CT recipes processing large amounts of fluid), closes #3131 Make the mixer GUI a bit more consistent: x mB of fluid should be the same height, no matter how they're split",
+    "ce1b1dbb1 Reworking Mixer potions, part 1",
+    "e3e8cf65d Formatted *everything* to the \"official\" codestyle",
+    "495e2c536 Relicensing IE! (#2543)",
+    "7a944ed6e Replace IInternalStorageItem with IItemHandler capabilities, see #2397 Probably still quite buggy",
+    "0a82b4175 Fixed a lot of invalid has/getCapability implementations in case of missing multiblock masters, closes #2363",
+    "4bf7b6bd9 Updated mappings - part 2",
+    "ee93f35d0 Moved everything away from World.rand as it can be influenced by ghostloading, closes #2221",
+    "97ff464cc Update to 1.11.2 (#2063)",
+    "0b7a785ac Misc things (#1986)",
+    "30173e58a Added toggleable option to the Mixer to output all fluids instead of just the bottom one",
+    "7ce2220c8 Misc fixes (#1979)",
+    "64275c03c Added Crafttweaker integration for the Mixer, closes #1940",
+    "767fa2cf2 Added Fluid Potions and recipes to the mixer. Added JEI Integration for the mixer JEI is broken for potion recipes, because I can't sync their variants up... Made colouration of Fluid in GUIs and TESRs standard",
+    "1a9e6b54e Added the Mixer! Still needs some localizing, manual, JEI and finetuning, but the base is there."
+  ],
+  "modern_assets": {
+    "src/main/resources/assets/immersiveengineering/sounds/mixer.ogg": {
+      "sha256": "B600CA8FC8F6B953A8C15818699089B6FC88C775B7D8DBB0720B81AF34A0876D",
+      "size": 69291
+    },
+    "src/main/resources/assets/immersiveengineering/textures/block/multiblocks/mixer.png": {
+      "sha256": "D59BEB9985EB785B90CD8BB78FF0F7142A738C76722E3BC87746AF9175A4B18B",
+      "size": 3028
+    },
+    "src/main/resources/assets/immersiveengineering/textures/gui/mixer.png": {
+      "sha256": "CD3B9621EBE0217B7ED33D8002773B0958A63F98D6F48B51BC5C18B360C92BC1",
+      "size": 12960
+    }
+  },
+  "modern_commit": "75a27f03e4243544243567e8d5c38d336f4f10f4",
+  "modern_models": {
+    "mixer.obj": {
+      "faces": 118,
+      "quads": 118,
+      "sha256": "24FE37E551E2D641CCE049EDFBACC132EFD47E5BC6C27DC28DC20743F2F20E8E",
+      "triangles": 0,
+      "uvs": 153,
+      "vertices": 183
+    },
+    "mixer_agitator.obj": {
+      "faces": 29,
+      "quads": 29,
+      "sha256": "85EB5611FFA7DDB8A113BC027B3099A2BAC300FB84B446864B4F283CD2EE8D4F",
+      "triangles": 0,
+      "uvs": 11,
+      "vertices": 56
+    }
+  },
+  "modern_recipes": {
+    "concrete": {
+      "energy": 3200,
+      "fluid": {
+        "amount": 500,
+        "tag": "minecraft:water"
+      },
+      "inputs": [
+        {
+          "basePredicate": {
+            "tag": "c:sands"
+          },
+          "count": 2
+        },
+        {
+          "tag": "c:gravels"
+        },
+        {
+          "tag": "c:clay"
+        }
+      ],
+      "result": {
+        "amount": 500,
+        "id": "immersiveengineering:concrete"
+      },
+      "type": "immersiveengineering:mixer"
+    },
+    "herbicide": {
+      "energy": 3200,
+      "fluid": {
+        "amount": 500,
+        "tag": "c:ethanol"
+      },
+      "inputs": [
+        {
+          "tag": "c:dusts/sulfur"
+        },
+        {
+          "tag": "c:dusts/copper"
+        }
+      ],
+      "result": {
+        "amount": 500,
+        "id": "immersiveengineering:herbicide"
+      },
+      "type": "immersiveengineering:mixer"
+    },
+    "redstone_acid": {
+      "energy": 1600,
+      "fluid": {
+        "amount": 250,
+        "tag": "minecraft:water"
+      },
+      "inputs": [
+        {
+          "tag": "c:dusts/redstone"
+        }
+      ],
+      "result": {
+        "amount": 250,
+        "id": "immersiveengineering:redstone_acid"
+      },
+      "type": "immersiveengineering:mixer"
+    }
+  }
+}
