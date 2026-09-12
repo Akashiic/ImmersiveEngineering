@@ -1,0 +1,245 @@
+{
+  "bridge_1_12_2": {
+    "commit": "1e37e541ba9f3923b485c53af3a5025bf64d666a",
+    "history": [
+      "e3e8cf65dadb2762cb343cc5f31d9bf9a29f2188\tFormatted *everything* to the \"official\" codestyle",
+      "a17fe489f837085fd25564b366fcd9a8a3d74ee7\tMade AlloyKiln only search for recipes when both input slots are filled, see #2960 Made AlloyKiln not consume fuelsource container items, closes #2964",
+      "5ae96e0c53d1d386c8a78636256b8d1095c5b4fb\tThe blast furnace works again, closes #2803 Fixed the same bug for the alloy kiln",
+      "495e2c5365235881285909cff65e087f945fdc1d\tRelicensing IE! (#2543)",
+      "133df6d5001f0ce22ea9bf8cb1c02ecec90a94d4\tRemove TE's that don't tick from the ticking list, see #2468",
+      "5e078d5be908dd512dc7045e4469b91bd5426d58\tChanged Alloy Kiln and Blastfurnace to decrement their burntimers even when not in use, made them render active through then too, closes #2457",
+      "7b5ec57ce78105b717aed63b549b1060c8caf2e2\tMoved all of IE's recipes to the registry event Moved IE's potions to their registry event Fixed Wolfpack Cartridges not initializing properly",
+      "0a82b41758d89ccf1e94c47fa1457a346c66fc50\tFixed a lot of invalid has/getCapability implementations in case of missing multiblock masters, closes #2363",
+      "0582a0d7b5140e974a6fc37650783a258747daa5\tFixed a lot of potential ghostloading issues caused by getTileEntity, closes #2221",
+      "528c375b2c2549b4e97b210fce83948afbdee961\tFixed multiblocks not breaking correctly when broken using a hammer or a drill, closes #2061, closes #1546",
+      "f5fdf38058a203c840d5a8d412cc984ff5229184\tAdded the Alloy Kiln! It's a cheap 2x2x2 multiblock that alloys metals =3",
+      "01db45266af40798c2202925fa89b538099810bb\tFixed the blast furnace using up slightly too much fuel when preheaters are activated during the process, closes #2094",
+      "cfda4718eab42b8dcea0150b6acb967ff36e0023\tRemapper&Null ItemStack fixes (#2083)",
+      "97ff464cc334e20a298930434c68849861221cf1\tUpdate to 1.11.2 (#2063)",
+      "188a5c0895fb503a27d83ac3a9422cf615a21d4b\tMisc fixes for build 58 (#2064)",
+      "bba1dc7f01a2f86a88b28e071664e079849a31f6\tChanged Multiblocks to use IFluidTank rather than FluidTank",
+      "cbbb1b4aaa775067f91292a5bb8ace31884cf7c2\tAdded compatability for TheOneProbe",
+      "24fe72fbaa2a78ff15af6a5d1c2c1bc4e2fe5f26\tAdjusted to Forge's new Config System! It's glorious! I actually enjoy having static fields again. Not everything worked out the box, but with the @Mapped annotation,the manual stuff is working and so is Retrogen. Sadly, annotations are limtied in the thigns they can accept, so direct insertion of maps is not possible. The example shown is a way around that. Normal config system still remains because the options are needed for the compat system. Still investigating options in regards to that.",
+      "cdd9e15679f5f932fdf9b9984ae4328560f511a9\tALL THE 1.9.4 UPDATE!",
+      "cce255f9e6ae46490415cf3026e81cd274272a8c\tfixed a crash when piping fluids out of a sheetmetal tank, closes #1189 fixed a bug with transformers that was caused by my previous commit",
+      "7cdf8b784f8ad95edc5bc0154bf59db559dbf3fb\tthe voltmeter is now able to measure loss between non-output connectors fixed a crash with the mining drill, closes #1099",
+      "4e54dd3a5c4c1cfc2c7518041cd990c30be26fa7\tInitial Commit, 1.8.9 is now publically available!"
+    ],
+    "original_feature_commit": "f5fdf38058a203c840d5a8d412cc984ff5229184"
+  },
+  "legacy_1_7_10": {
+    "alloy_recipe_files": [],
+    "gui_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "stone_decoration_subnames": [
+      "hempcrete",
+      "cokeBrick",
+      "blastBrick",
+      "coalCoke",
+      "concrete",
+      "concreteTile",
+      "blastBrickReinforced"
+    ],
+    "stone_device_subnames": [
+      "hempcrete",
+      "cokeOven",
+      "blastFurnace",
+      "coalCoke",
+      "insulatorGlass",
+      "blastFurnaceAdvanced"
+    ]
+  },
+  "modern": {
+    "assets": {
+      "models/block/stone_multiblocks/cube_two.obj": {
+        "bytes": 307,
+        "sha256": "BCB598F4A0FB74FF133734BFE3E0434A4299E0436D83DD6F3B68A4D59280FBBB"
+      },
+      "textures/block/multiblocks/alloy_smelter_bottom.png": {
+        "bytes": 632,
+        "sha256": "92248D07FFF1C8DF7ED2F3CA600D894205B96B5C41C4EB5E52F83B891752B1FA"
+      },
+      "textures/block/multiblocks/alloy_smelter_off.png": {
+        "bytes": 1493,
+        "sha256": "53A2950915649D41E7B78E76211D07B994EEAECE74F9402A5DB2CAE40508C26E"
+      },
+      "textures/block/multiblocks/alloy_smelter_on.png": {
+        "bytes": 1617,
+        "sha256": "85DE2CEABD09EC0B29888E6B269F459DEA80BA93D5A9246A0EA5E9D94A89C22F"
+      },
+      "textures/block/multiblocks/alloy_smelter_side.png": {
+        "bytes": 1314,
+        "sha256": "84F368B42D9E9C7D7896908824CC7553D21099DEB8B7CC368EBAB57CE5B3EC7B"
+      },
+      "textures/block/multiblocks/alloy_smelter_top.png": {
+        "bytes": 1257,
+        "sha256": "25D214520F97BB6502A288D1097A35FF4C8475672CB827864FD079E7952C0648"
+      },
+      "textures/gui/alloy_smelter.png": {
+        "bytes": 8201,
+        "sha256": "7534080900240414A4CBC10EF152D8B482C06901841EEB187847C4C8A3F59853"
+      }
+    },
+    "commit": "75a27f03e4243544243567e8d5c38d336f4f10f4",
+    "recipe_count": 8,
+    "recipes": {
+      "brass": {
+        "input0": {
+          "tag": "c:ingots/copper"
+        },
+        "input1": {
+          "tag": "c:ingots/zinc"
+        },
+        "result": {
+          "basePredicate": {
+            "tag": "c:ingots/brass"
+          },
+          "count": 2
+        },
+        "time": 200
+      },
+      "bronze": {
+        "input0": {
+          "basePredicate": {
+            "tag": "c:ingots/copper"
+          },
+          "count": 3
+        },
+        "input1": {
+          "tag": "c:ingots/tin"
+        },
+        "result": {
+          "basePredicate": {
+            "tag": "c:ingots/bronze"
+          },
+          "count": 4
+        },
+        "time": 200
+      },
+      "constantan": {
+        "input0": {
+          "tag": "c:ingots/copper"
+        },
+        "input1": {
+          "tag": "c:ingots/nickel"
+        },
+        "result": {
+          "basePredicate": {
+            "tag": "c:ingots/constantan"
+          },
+          "count": 2
+        },
+        "time": 200
+      },
+      "electrum": {
+        "input0": {
+          "tag": "c:ingots/gold"
+        },
+        "input1": {
+          "tag": "c:ingots/silver"
+        },
+        "result": {
+          "basePredicate": {
+            "tag": "c:ingots/electrum"
+          },
+          "count": 2
+        },
+        "time": 200
+      },
+      "insulating_glass": {
+        "input0": {
+          "basePredicate": {
+            "tag": "c:glass_blocks"
+          },
+          "count": 2
+        },
+        "input1": {
+          "tag": "c:dusts/iron"
+        },
+        "result": {
+          "count": 2,
+          "id": "immersiveengineering:insulating_glass"
+        },
+        "time": 200
+      },
+      "invar": {
+        "input0": {
+          "basePredicate": {
+            "tag": "c:ingots/iron"
+          },
+          "count": 2
+        },
+        "input1": {
+          "tag": "c:ingots/nickel"
+        },
+        "result": {
+          "basePredicate": {
+            "tag": "c:ingots/invar"
+          },
+          "count": 3
+        },
+        "time": 200
+      },
+      "manyullyn": {
+        "input0": {
+          "basePredicate": {
+            "tag": "c:ingots/cobalt"
+          },
+          "count": 3
+        },
+        "input1": {
+          "item": "minecraft:netherite_scrap"
+        },
+        "result": {
+          "basePredicate": {
+            "tag": "c:ingots/manyullyn"
+          },
+          "count": 4
+        },
+        "time": 200
+      },
+      "rose_gold": {
+        "input0": {
+          "basePredicate": {
+            "tag": "c:ingots/copper"
+          },
+          "count": 3
+        },
+        "input1": {
+          "tag": "c:ingots/gold"
+        },
+        "result": {
+          "basePredicate": {
+            "tag": "c:ingots/rose_gold"
+          },
+          "count": 4
+        },
+        "time": 200
+      }
+    },
+    "structure": {
+      "alloy_bricks": 8,
+      "dimensions": [
+        2,
+        2,
+        2
+      ]
+    },
+    "version": "1.21.1"
+  }
+}
