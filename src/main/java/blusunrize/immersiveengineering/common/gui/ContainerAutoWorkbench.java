@@ -5,6 +5,7 @@ import blusunrize.immersiveengineering.common.items.ItemEngineersBlueprint;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -12,6 +13,7 @@ public class ContainerAutoWorkbench extends Container
 {
 	public static final int MACHINE_SLOT_COUNT = TileEntityAutoWorkbench.INVENTORY_SIZE;
 	public final TileEntityAutoWorkbench tile;
+	private int lastEnergy = -1;
 
 	public ContainerAutoWorkbench(InventoryPlayer playerInventory, TileEntityAutoWorkbench tile)
 	{
@@ -44,6 +46,24 @@ public class ContainerAutoWorkbench extends Container
 	public boolean canInteractWith(EntityPlayer player)
 	{
 		return tile.isUseableByPlayer(player);
+	}
+
+	@Override
+	public void detectAndSendChanges()
+	{
+		super.detectAndSendChanges();
+		int energy = tile.energyStorage.getEnergyStored();
+		if(energy!=lastEnergy)
+			for(Object crafterObject : crafters)
+				((ICrafting)crafterObject).sendProgressBarUpdate(this, 0, energy);
+		lastEnergy = energy;
+	}
+
+	@Override
+	public void updateProgressBar(int id, int value)
+	{
+		if(id==0)
+			tile.energyStorage.setEnergyStored(value);
 	}
 
 	@Override

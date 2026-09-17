@@ -132,6 +132,8 @@ public class TileEntityAutoWorkbench extends TileEntityMultiblockPart implements
 				}
 			}
 		}
+		if(ticked>0)
+			markDirty();
 		if(ticked!=lastTickedProcesses)
 		{
 			lastTickedProcesses = ticked;
