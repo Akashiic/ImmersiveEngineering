@@ -182,11 +182,12 @@ Execution gates A0–A8 are defined in `AUTO-WORKBENCH-FEATURE-CHARTER.md`.
 - A5 original tagged artifact audit: PASS, but original candidate later rejected by runtime smoke.
 - A5.1 runtime-smoke rework: PASS; mixed triangle/quad OBJ defect fixed and lifecycle smoke validated.
 - A5.2 replacement R2 clean tagged build/artifact audit: PASS.
+- A5.3 production-pack startup/classloading smoke: PASS; R2 loads through the real transformer stack with zero Auto Workbench parser exception.
 - A6 user runtime Test 1: READY — `auto-workbench-test-1-r2` only.
 - A7 adversarial fix/Test 2: BLOCKED by A6 evidence.
 - A8 runtime approval/freeze: BLOCKED by A6/A7.
 
-Evidence: `AUTO-WORKBENCH-A0-A2-DESIGN.md`, `AUTO-WORKBENCH-A4-RENDER-GATE.md`, `AUTO-WORKBENCH-A5-ARTIFACT-GATE.md`, `AUTO-WORKBENCH-A5.1-RUNTIME-SMOKE-GATE.md`, `AUTO-WORKBENCH-A5.2-R2-FINAL-GATE.md`, and `../AUTO_WORKBENCH_TEST_1.md`.
+Evidence: `AUTO-WORKBENCH-A0-A2-DESIGN.md`, `AUTO-WORKBENCH-A4-RENDER-GATE.md`, `AUTO-WORKBENCH-A5-ARTIFACT-GATE.md`, `AUTO-WORKBENCH-A5.1-RUNTIME-SMOKE-GATE.md`, `AUTO-WORKBENCH-A5.2-R2-FINAL-GATE.md`, `AUTO-WORKBENCH-A5.3-PRODUCTION-STARTUP-SMOKE.md`, and `../AUTO_WORKBENCH_TEST_1.md`.
 ## Gate G9 — Wider ecosystem
 Status: DEFERRED / NON-BLOCKING while Feature #2 proceeds.
 
