@@ -171,7 +171,7 @@ Decision:
 Evidence: `MODERN-FEATURE-GAP-AUDIT.md`.
 
 ## Gate G8.6 — Feature #2: Automated Engineer's Workbench
-Status: A5.5 R3 source hardening PASS; A6 BLOCKED pending R3 tagged build/artifact/runtime-smoke gates.
+Status: A5.6 R3 final candidate PASS; A6 READY after manual R3 installation.
 
 Execution gates A0–A8 are defined in `AUTO-WORKBENCH-FEATURE-CHARTER.md`.
 - A0 source/asset archaeology: PASS.
@@ -185,11 +185,12 @@ Execution gates A0–A8 are defined in `AUTO-WORKBENCH-FEATURE-CHARTER.md`.
 - A5.3 production-pack startup/classloading smoke: PASS; R2 loads through the real transformer stack with zero Auto Workbench parser exception.
 - A5.4 R2 reproducible regression gate: PASS; 20/20 identity/artifact/topology/transform/structure checks, later superseded by deeper state audit.
 - A5.5 state persistence/GUI sync audit: R2 REJECTED; R3 source hardening PASS pre-tag.
-- A6 user runtime Test 1: BLOCKED until R3 repeats clean build, artifact audit and startup smoke; evidence-capture tooling remains ready.
+- A5.6 R3 clean tagged build/artifact/minimal-client smoke: PASS; 21/21 artifact gate and successful 4-mod client initialization.
+- A6 user runtime Test 1: READY after manually replacing R2 with `auto-workbench-test-1-r3`; evidence-capture tooling now requires the exact R3 hash.
 - A7 adversarial fix/Test 2: BLOCKED by A6 evidence.
 - A8 runtime approval/freeze: BLOCKED by A6/A7.
 
-Evidence: `AUTO-WORKBENCH-A0-A2-DESIGN.md`, `AUTO-WORKBENCH-A4-RENDER-GATE.md`, `AUTO-WORKBENCH-A5-ARTIFACT-GATE.md`, `AUTO-WORKBENCH-A5.1-RUNTIME-SMOKE-GATE.md`, `AUTO-WORKBENCH-A5.2-R2-FINAL-GATE.md`, `AUTO-WORKBENCH-A5.3-PRODUCTION-STARTUP-SMOKE.md`, `AUTO-WORKBENCH-A5.4-REGRESSION-GATE.md`, `AUTO-WORKBENCH-A5.5-STATE-SYNC-GATE.md`, `AUTO-WORKBENCH-A6-EVIDENCE-PROTOCOL.md`, and `../AUTO_WORKBENCH_TEST_1.md`.
+Evidence: `AUTO-WORKBENCH-A0-A2-DESIGN.md`, `AUTO-WORKBENCH-A4-RENDER-GATE.md`, `AUTO-WORKBENCH-A5-ARTIFACT-GATE.md`, `AUTO-WORKBENCH-A5.1-RUNTIME-SMOKE-GATE.md`, `AUTO-WORKBENCH-A5.2-R2-FINAL-GATE.md`, `AUTO-WORKBENCH-A5.3-PRODUCTION-STARTUP-SMOKE.md`, `AUTO-WORKBENCH-A5.4-REGRESSION-GATE.md`, `AUTO-WORKBENCH-A5.5-STATE-SYNC-GATE.md`, `AUTO-WORKBENCH-A5.6-R3-FINAL-GATE.md`, `AUTO-WORKBENCH-A6-EVIDENCE-PROTOCOL.md`, and `../AUTO_WORKBENCH_TEST_1.md`.
 ## Gate G9 — Wider ecosystem
 Status: DEFERRED / NON-BLOCKING while Feature #2 proceeds.
 

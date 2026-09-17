@@ -10,13 +10,20 @@ from collections import deque
 ROOT = Path(r"C:\Users\User\Desktop\Codex\immersiveengineering-backport")
 PACK = Path(r"C:\Users\User\AppData\Roaming\.technic\modpacks\forbidden-series")
 MARKER = ROOT / "evidence" / "auto-workbench-a6" / "ACTIVE_SESSION.json"
-JAR = PACK / "mods" / "ImmersiveEngineering-auto-workbench-test-1-r2.jar"
+JAR = PACK / "mods" / "ImmersiveEngineering-auto-workbench-test-1-r3.jar"
 LOGS = [PACK / "logs" / "latest.log", PACK / "logs" / "fml-client-latest.log", PACK / "logs" / "CustomNPCs-latest.log"]
 PATTERNS = ("AutoWorkbench", "ImmersiveEngineering", "ModelFormatException", "Exception", "ERROR", "FATAL")
-EXPECTED_SHA = "C72F7C4AAD54491F83EA6073799DBEAFF44C260B8B4CBDE33249F1351820FA97"
+EXPECTED_SHA = "B91A12EBC1D424915CB8E3DE5F3267D5699FA564BA605FAFDD9635E61CFB0A12"
 
 def now():
     return dt.datetime.now().astimezone()
+
+def installed_ie_jars():
+    return sorted((PACK / "mods").glob("ImmersiveEngineering*.jar"), key=lambda x: x.name.lower())
+
+def safe_label(label):
+    cleaned = "".join(ch if ch.isalnum() or ch in "-_." else "-" for ch in label).strip("-")
+    return cleaned or "test"
 
 def sha256(path):
     h = hashlib.sha256()
@@ -24,10 +31,23 @@ def sha256(path):
         for chunk in iter(lambda: f.read(1024 * 1024), b""):
             h.update(chunk)
     return h.hexdigest().upper()
+
+def validate_installed_candidate():
+    jars = installed_ie_jars()
+    if [x.name for x in jars] != [JAR.name]:
+        raise SystemExit("A6 requires exactly one IE JAR: %s; found: %s" % (JAR.name, [x.name for x in jars]))
+    jar_hash = sha256(JAR)
+    if jar_hash != EXPECTED_SHA:
+        raise SystemExit("Installed R3 SHA-256 mismatch: %s" % jar_hash)
+    return jar_hash
+
 def start_session(label):
+    if MARKER.exists():
+        raise SystemExit("An A6 session marker already exists. Collect or clear it before starting another session.")
+    jar_hash = validate_installed_candidate()
     MARKER.parent.mkdir(parents=True, exist_ok=True)
     stamp = now()
-    data = {"label": label, "started": stamp.isoformat(), "jar": str(JAR)}
+    data = {"label": safe_label(label), "started": stamp.isoformat(), "jar": str(JAR), "jar_sha256": jar_hash}
     MARKER.write_text(json.dumps(data, indent=2), encoding="utf-8")
     print("A6_SESSION_START=PASS")
     print("started=" + data["started"])
@@ -55,14 +75,14 @@ def collect_session():
     meta = json.loads(MARKER.read_text(encoding="utf-8"))
     started = dt.datetime.fromisoformat(meta["started"])
     session_id = started.strftime("%Y%m%d-%H%M%S")
-    label = meta.get("label", "test").replace(" ", "-")
+    label = safe_label(meta.get("label", "test"))
     out = MARKER.parent / (session_id + "-" + label)
-    out.mkdir(parents=True, exist_ok=False)
 
-    jar_hash = sha256(JAR) if JAR.is_file() else None
+    if meta.get("jar") != str(JAR) or meta.get("jar_sha256") != EXPECTED_SHA:
+        raise SystemExit("Active A6 marker does not describe the immutable R3 candidate")
+    jar_hash = validate_installed_candidate()
+    out.mkdir(parents=True, exist_ok=False)
     result = {"started": meta["started"], "collected": now().isoformat(), "jar_sha256": jar_hash, "expected_sha256": EXPECTED_SHA, "logs": {}, "crashes": []}
-    if jar_hash != EXPECTED_SHA:
-        raise SystemExit("Production IE JAR does not match R2 before collection")
 
     for source in LOGS:
         if not source.is_file():
@@ -83,6 +103,7 @@ def collect_session():
 
     manifest = out / "A6-EVIDENCE.json"
     manifest.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    MARKER.unlink()
     print("A6_EVIDENCE_COLLECTION=PASS")
     print("output=" + str(out))
     print("jar_sha256=" + jar_hash)
@@ -94,6 +115,6 @@ if __name__ == "__main__":
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--start", action="store_true")
     group.add_argument("--collect", action="store_true")
-    parser.add_argument("--label", default="auto-workbench-test-1-r2")
+    parser.add_argument("--label", default="auto-workbench-test-1-r3")
     args = parser.parse_args()
     start_session(args.label) if args.start else collect_session()
