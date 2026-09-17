@@ -17,10 +17,16 @@ public class ContainerGardenCloche extends Container
 
 	private int lastEnergy = -1;
 	private int lastTank = -1;
-	private int lastFertilizer = -1;
-	private int lastFertilizerMod = -1;
+	private int lastFertilizerLow = -1;
+	private int lastFertilizerHigh = -1;
+	private int lastFertilizerModLow = -1;
+	private int lastFertilizerModHigh = -1;
 	private int lastGrowth = -1;
 	private int lastActive = -1;
+	private int lastFertilizerDurationLow = -1;
+	private int lastFertilizerDurationHigh = -1;
+	private int lastGrowthModifierLow = -1;
+	private int lastGrowthModifierHigh = -1;
 
 	public ContainerGardenCloche(InventoryPlayer playerInventory, TileEntityGardenCloche tile)
 	{
@@ -80,31 +86,60 @@ public class ContainerGardenCloche extends Container
 		int energy = tile.energyStorage.getEnergyStored();
 		int tankAmount = tile.tank.getFluidAmount();
 		int fertilizer = tile.fertilizerAmount;
-		int fertilizerMod = Math.round(tile.fertilizerMod*1000f);
+		int fertilizerLow = fertilizer&0xffff;
+		int fertilizerHigh = (fertilizer>>>16)&0xffff;
+		int fertilizerModBits = Float.floatToIntBits(tile.fertilizerMod);
+		int fertilizerModLow = fertilizerModBits&0xffff;
+		int fertilizerModHigh = (fertilizerModBits>>>16)&0xffff;
 		int growth = Math.round(tile.getGrowth()*10000f);
 		int active = tile.renderActive?1:0;
+		int duration = tile.getFertilizerDurationForDisplay();
+		int durationLow = duration&0xffff;
+		int durationHigh = (duration>>>16)&0xffff;
+		int growthModifierBits = Float.floatToIntBits(tile.getGrowthModifierForDisplay());
+		int growthModifierLow = growthModifierBits&0xffff;
+		int growthModifierHigh = (growthModifierBits>>>16)&0xffff;
+		// S31 values are signed shorts: send high halves before low halves, which commit reconstructed values.
 		for(Object crafterObject : crafters)
 		{
 			ICrafting crafter = (ICrafting)crafterObject;
 			if(energy!=lastEnergy)
-				crafter.sendProgressBarUpdate(this, 0, energy);
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_ENERGY, energy);
 			if(tankAmount!=lastTank)
-				crafter.sendProgressBarUpdate(this, 1, tankAmount);
-			if(fertilizer!=lastFertilizer)
-				crafter.sendProgressBarUpdate(this, 2, fertilizer);
-			if(fertilizerMod!=lastFertilizerMod)
-				crafter.sendProgressBarUpdate(this, 3, fertilizerMod);
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_TANK_AMOUNT, tankAmount);
+			if(fertilizerHigh!=lastFertilizerHigh)
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_FERTILIZER_HIGH, fertilizerHigh);
+			if(fertilizerLow!=lastFertilizerLow || fertilizerHigh!=lastFertilizerHigh)
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_FERTILIZER_LOW, fertilizerLow);
+			if(fertilizerModHigh!=lastFertilizerModHigh)
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_FERTILIZER_MOD_HIGH, fertilizerModHigh);
+			if(fertilizerModLow!=lastFertilizerModLow || fertilizerModHigh!=lastFertilizerModHigh)
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_FERTILIZER_MOD_LOW, fertilizerModLow);
 			if(growth!=lastGrowth)
-				crafter.sendProgressBarUpdate(this, 4, growth);
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_GROWTH, growth);
 			if(active!=lastActive)
-				crafter.sendProgressBarUpdate(this, 5, active);
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_ACTIVE, active);
+			if(durationHigh!=lastFertilizerDurationHigh)
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_FERTILIZER_DURATION_HIGH, durationHigh);
+			if(durationLow!=lastFertilizerDurationLow || durationHigh!=lastFertilizerDurationHigh)
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_FERTILIZER_DURATION_LOW, durationLow);
+			if(growthModifierHigh!=lastGrowthModifierHigh)
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_GROWTH_MOD_HIGH, growthModifierHigh);
+			if(growthModifierLow!=lastGrowthModifierLow || growthModifierHigh!=lastGrowthModifierHigh)
+				crafter.sendProgressBarUpdate(this, TileEntityGardenCloche.SYNC_GROWTH_MOD_LOW, growthModifierLow);
 		}
 		lastEnergy = energy;
 		lastTank = tankAmount;
-		lastFertilizer = fertilizer;
-		lastFertilizerMod = fertilizerMod;
+		lastFertilizerLow = fertilizerLow;
+		lastFertilizerHigh = fertilizerHigh;
+		lastFertilizerModLow = fertilizerModLow;
+		lastFertilizerModHigh = fertilizerModHigh;
 		lastGrowth = growth;
 		lastActive = active;
+		lastFertilizerDurationLow = durationLow;
+		lastFertilizerDurationHigh = durationHigh;
+		lastGrowthModifierLow = growthModifierLow;
+		lastGrowthModifierHigh = growthModifierHigh;
 	}
 
 	@Override
