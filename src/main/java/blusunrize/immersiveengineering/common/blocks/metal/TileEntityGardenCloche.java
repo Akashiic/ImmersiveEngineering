@@ -42,6 +42,18 @@ public class TileEntityGardenCloche extends TileEntityIEBase implements IEnergyR
 	public static final int SLOT_OUTPUT_START = 3;
 	public static final int SLOT_OUTPUT_END = 6;
 	public static final int INVENTORY_SIZE = 7;
+	public static final int SYNC_ENERGY = 0;
+	public static final int SYNC_TANK_AMOUNT = 1;
+	public static final int SYNC_FERTILIZER_LOW = 2;
+	public static final int SYNC_FERTILIZER_HIGH = 3;
+	public static final int SYNC_FERTILIZER_MOD_LOW = 4;
+	public static final int SYNC_FERTILIZER_MOD_HIGH = 5;
+	public static final int SYNC_GROWTH = 6;
+	public static final int SYNC_ACTIVE = 7;
+	public static final int SYNC_FERTILIZER_DURATION_LOW = 8;
+	public static final int SYNC_FERTILIZER_DURATION_HIGH = 9;
+	public static final int SYNC_GROWTH_MOD_LOW = 10;
+	public static final int SYNC_GROWTH_MOD_HIGH = 11;
 
 	private static final int[] NO_SLOTS = new int[0];
 	private static final int[] FERTILIZER_SLOT = new int[]{SLOT_FERTILIZER};
@@ -60,6 +72,12 @@ public class TileEntityGardenCloche extends TileEntityIEBase implements IEnergyR
 	public boolean renderActive;
 
 	private IPlantHandler currentPlantHandler;
+	private transient int syncedFertilizerHigh;
+	private transient int syncedFertilizerModHigh;
+	private transient int syncedFertilizerDuration = 6000;
+	private transient int syncedFertilizerDurationHigh;
+	private transient float syncedGrowthModifier = 1f;
+	private transient int syncedGrowthModifierHigh;
 	public transient boolean breaking;
 	public transient boolean suppressMachineDrop;
 	private transient AxisAlignedBB renderBB;
@@ -155,7 +173,7 @@ public class TileEntityGardenCloche extends TileEntityIEBase implements IEnergyR
 		}
 		if(renderGrowth<1f)
 		{
-			renderGrowth += getGrowthModifier()*BelljarHandler.getSoilGrowthMultiplier(seed, soil, this)*handler.getGrowthStep(seed, soil, renderGrowth, this, fertilizerMod);
+			renderGrowth += getGrowthModifierForDisplay()*BelljarHandler.getSoilGrowthMultiplier(seed, soil, this)*handler.getGrowthStep(seed, soil, renderGrowth, this, fertilizerMod);
 			if(renderGrowth>1f)
 				renderGrowth = 1f;
 		}
@@ -370,28 +388,76 @@ public class TileEntityGardenCloche extends TileEntityIEBase implements IEnergyR
 	{
 		switch(id)
 		{
-		case 0:
+		case SYNC_ENERGY:
 			energyStorage.setEnergyStored(value);
 			break;
-		case 1:
-			tank.setFluid(value<=0?null:new FluidStack(net.minecraftforge.fluids.FluidRegistry.WATER, value));
+		case SYNC_TANK_AMOUNT:
+			applySyncedFluidAmount(Math.max(0, value));
 			break;
-		case 2:
-			fertilizerAmount = value;
+		case SYNC_FERTILIZER_HIGH:
+			syncedFertilizerHigh = value&0xffff;
 			break;
-		case 3:
-			fertilizerMod = value/1000f;
+		case SYNC_FERTILIZER_LOW:
+			fertilizerAmount = combineShortParts(value, syncedFertilizerHigh);
 			break;
-		case 4:
+		case SYNC_FERTILIZER_MOD_HIGH:
+			syncedFertilizerModHigh = value&0xffff;
+			break;
+		case SYNC_FERTILIZER_MOD_LOW:
+			fertilizerMod = Float.intBitsToFloat(combineShortParts(value, syncedFertilizerModHigh));
+			break;
+		case SYNC_GROWTH:
 			growth = value/10000f;
 			renderGrowth = growth;
 			break;
-		case 5:
+		case SYNC_ACTIVE:
 			renderActive = value!=0;
+			break;
+		case SYNC_FERTILIZER_DURATION_HIGH:
+			syncedFertilizerDurationHigh = value&0xffff;
+			break;
+		case SYNC_FERTILIZER_DURATION_LOW:
+			syncedFertilizerDuration = Math.max(1, combineShortParts(value, syncedFertilizerDurationHigh));
+			break;
+		case SYNC_GROWTH_MOD_HIGH:
+			syncedGrowthModifierHigh = value&0xffff;
+			break;
+		case SYNC_GROWTH_MOD_LOW:
+			syncedGrowthModifier = Float.intBitsToFloat(combineShortParts(value, syncedGrowthModifierHigh));
 			break;
 		default:
 			break;
 		}
+	}
+
+	private static int combineShortParts(int low, int high)
+	{
+		return ((high&0xffff)<<16)|(low&0xffff);
+	}
+
+	private void applySyncedFluidAmount(int amount)
+	{
+		// Fluid type and tag are synchronized by description NBT using Forge's FluidName contract.
+		FluidStack current = tank.getFluid();
+		if(amount<=0)
+		{
+			tank.setFluid(null);
+			return;
+		}
+		if(current!=null)
+		{
+			FluidStack updated = current.copy();
+			updated.amount = amount;
+			tank.setFluid(updated);
+		}
+	}
+
+	private void refreshPackedSyncState()
+	{
+		syncedFertilizerHigh = (fertilizerAmount>>>16)&0xffff;
+		syncedFertilizerModHigh = (Float.floatToIntBits(fertilizerMod)>>>16)&0xffff;
+		syncedFertilizerDurationHigh = (syncedFertilizerDuration>>>16)&0xffff;
+		syncedGrowthModifierHigh = (Float.floatToIntBits(syncedGrowthModifier)>>>16)&0xffff;
 	}
 
 	public ResourceLocation getSoilTexture()
@@ -427,7 +493,17 @@ public class TileEntityGardenCloche extends TileEntityIEBase implements IEnergyR
 
 	public float getEffectiveGrowthMultiplier()
 	{
-		return getGrowthModifier()*fertilizerMod*getSoilGrowthMultiplier();
+		return getGrowthModifierForDisplay()*fertilizerMod*getSoilGrowthMultiplier();
+	}
+
+	public int getFertilizerDurationForDisplay()
+	{
+		return worldObj!=null && worldObj.isRemote?syncedFertilizerDuration:getFertilizerDuration();
+	}
+
+	public float getGrowthModifierForDisplay()
+	{
+		return worldObj!=null && worldObj.isRemote?syncedGrowthModifier:getGrowthModifier();
 	}
 
 	private static float getGrowthModifier()
@@ -450,6 +526,14 @@ public class TileEntityGardenCloche extends TileEntityIEBase implements IEnergyR
 		growth = nbt.getFloat("growth");
 		renderGrowth = growth;
 		renderActive = nbt.getBoolean("renderActive");
+		if(descPacket)
+		{
+			if(nbt.hasKey("clocheSyncFertilizerDuration"))
+				syncedFertilizerDuration = Math.max(1, nbt.getInteger("clocheSyncFertilizerDuration"));
+			if(nbt.hasKey("clocheSyncGrowthModifier"))
+				syncedGrowthModifier = nbt.getFloat("clocheSyncGrowthModifier");
+		}
+		refreshPackedSyncState();
 		currentPlantHandler = null;
 		renderBB = null;
 	}
@@ -467,6 +551,11 @@ public class TileEntityGardenCloche extends TileEntityIEBase implements IEnergyR
 		nbt.setFloat("fertilizerMod", fertilizerMod);
 		nbt.setFloat("growth", growth);
 		nbt.setBoolean("renderActive", renderActive);
+		if(descPacket)
+		{
+			nbt.setInteger("clocheSyncFertilizerDuration", getFertilizerDuration());
+			nbt.setFloat("clocheSyncGrowthModifier", getGrowthModifier());
+		}
 	}
 
 	@Override

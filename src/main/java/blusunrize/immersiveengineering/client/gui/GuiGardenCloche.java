@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.lwjgl.opengl.GL11;
 
 import blusunrize.immersiveengineering.client.ClientUtils;
-import blusunrize.immersiveengineering.common.Config;
 import blusunrize.immersiveengineering.common.blocks.metal.TileEntityGardenCloche;
 import blusunrize.immersiveengineering.common.gui.ContainerGardenCloche;
 import blusunrize.immersiveengineering.common.util.Lib;
@@ -34,7 +33,7 @@ public class GuiGardenCloche extends GuiContainer
 
 		if(mouseX>guiLeft+30 && mouseX<guiLeft+37 && mouseY>guiTop+22 && mouseY<guiTop+68)
 		{
-			int duration = Math.max(1, Config.getInt("gardenCloche_fertilizerDuration"));
+			int duration = tile.getFertilizerDurationForDisplay();
 			int percent = Math.round(100*tile.fertilizerAmount/(float)duration);
 			tooltip.add(StatCollector.translateToLocalFormatted(Lib.DESC_INFO+"gardenClocheFertilizer", percent));
 			tooltip.add(StatCollector.translateToLocalFormatted(Lib.DESC_INFO+"gardenClocheFertilizerMod", String.format("%.2f", tile.fertilizerMod)));
@@ -67,7 +66,7 @@ public class GuiGardenCloche extends GuiContainer
 
 		ClientUtils.handleGuiTank(tile.tank, guiLeft+8, guiTop+8, 16, 47, 176, 30, 20, 51, mouseX, mouseY, TEXTURE, null);
 
-		int duration = Math.max(1, Config.getInt("gardenCloche_fertilizerDuration"));
+		int duration = tile.getFertilizerDurationForDisplay();
 		int fertilizerPixels = Math.max(0, Math.min(46, Math.round(46*tile.fertilizerAmount/(float)duration)));
 		ClientUtils.drawGradientRect(guiLeft+30, guiTop+22+(46-fertilizerPixels), guiLeft+37, guiTop+68, 0xff95ed00, 0xff8a5a00);
 
