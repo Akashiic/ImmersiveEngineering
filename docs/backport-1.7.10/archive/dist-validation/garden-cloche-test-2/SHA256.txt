@@ -1,0 +1,4 @@
+ImmersiveEngineering-garden-cloche-test-2.jar
+SHA-256: 51CF081E5A7C9E92DC9EDE65021BA2BEFBDD17971A070D7F26F8C83839C4AC2E
+Git tag: garden-cloche-test-2
+Git commit: ad5e6201

@@ -1,0 +1,11 @@
+flowchart TD
+  classDef base fill:#eceff1,stroke:#607d8b,color:#111
+  classDef pick fill:#fff3cd,stroke:#ef6c00,color:#111
+  classDef todo fill:#f8d7da,stroke:#c62828,color:#111
+
+  M["BASE: origin/feature/mixer · 7b8863d0<br/>contém Cloche T2 + Auto Workbench R2 + Alloy Kiln + Mixer M1/M2 parcial<br/>já contém o pino LF de OBJ (5784567a)"]:::base
+  P1["cherry-pick a55d6fa7<br/>multiplayer da Cloche sobre linha R2<br/>dry-run: aplica limpo"]:::pick
+  P2["cherry-pick 5d467a61<br/>correção de estado do R3<br/>dry-run: só ROADMAP.md conflita (doc)"]:::pick
+  P3["cherry-pick a1b811a6<br/>rede C2S enfileirada<br/>dry-run: aplica limpo · toca o mesmo TileEntityAutoWorkbench.java"]:::pick
+  G["Pendente: build limpo · auditoria de artefato · ABI · smoke de cliente · A6 · K5 · runtime dedicado"]:::todo
+  M --> P1 --> P2 --> P3 --> G

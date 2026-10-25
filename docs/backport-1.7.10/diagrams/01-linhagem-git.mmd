@@ -1,0 +1,62 @@
+flowchart LR
+  classDef ok fill:#d4edda,stroke:#2e7d32,color:#111
+  classDef rej fill:#f8d7da,stroke:#c62828,color:#111
+  classDef latest fill:#fff3cd,stroke:#ef6c00,stroke-width:3px,color:#111
+  classDef pend fill:#e8eaf6,stroke:#3949ab,color:#111
+  classDef up fill:#eceff1,stroke:#607d8b,color:#111
+
+  subgraph ANC["Ancestralidade upstream"]
+    direction TB
+    U0["BluSunrize 1.7.10<br/>c45a3a2 · 2016-05-09<br/>Build and Release v0.7.7"]:::up
+    U1["chaos234<br/>c38fd6b → 3cf2a38<br/>era 0.7.8"]:::up
+    U2["Bogdan-G 1.7.10<br/>798ce21a · 2017-04-28<br/>XSTR · split de energia"]:::up
+    U0 --> U1 --> U2
+  end
+
+  B0["0c803472 · 09/09<br/>Baseline Forbidden 0.7.9 em RFG<br/>tag 0.7.9-forbidden-baseline"]:::ok
+  U2 --> B0
+
+  subgraph CL["Garden Cloche"]
+    direction TB
+    C1["415ad44c<br/>tag garden-cloche-test-1<br/>substituída"]:::up
+    C2["6 commits de correção<br/>UV · MFR · Magical Crops · AgriCraft"]:::up
+    C3["ad5e6201 · 09/09 16:47<br/>tag garden-cloche-test-2<br/>APROVADA funcional"]:::ok
+    C1 --> C2 --> C3
+  end
+  B0 --> C1
+
+  MP["ac69028c · 16/09<br/>tag garden-cloche-multiplayer-test-1<br/>estático PASS · runtime MP pendente"]:::pend
+  C3 --> MP
+
+  subgraph AW["Auto Workbench · linha R3"]
+    direction TB
+    A0["9 commits · a36bb241 … f7d638cb<br/>A0–A4 · 09–10/09"]:::up
+    A1["e2ee4453<br/>tag auto-workbench-test-1<br/>REJEITADO · OBJ"]:::rej
+    A2["97cea596<br/>tag auto-workbench-test-1-r2<br/>REJEITADO · A5.5"]:::rej
+    A3["44bbc72d → a4259bf1 → 53cfd2bf → e0e0aa4e<br/>docs A5.2/A5.3 · regressão · coletor A6"]:::up
+    A4["5d467a61 · 17/09 01:21<br/>tag auto-workbench-test-1-r3<br/>MAIS RECENTE · A6 pendente"]:::latest
+    A5["ac41e5e7 · 17/09 01:53<br/>HEAD feature/auto-workbench<br/>docs A5.6 + protocolo A6"]:::latest
+    A0 --> A1 --> A2 --> A3 --> A4 --> A5
+  end
+  C3 --> A0
+
+  HM["a55d6fa7 · 16/09<br/>hardening/auto-r2-cloche-mp<br/>MP da Cloche sobre o R2"]:::pend
+  A2 --> HM
+
+  subgraph CH["Plano mestre 1.21.1 · linha Alloy/Mixer/rede"]
+    direction TB
+    P1["94df992b → e0cd905b → 51ce9cc0<br/>charter · áudio · render/rede · 11/09"]:::up
+    N1["e7c7e37a → a1b811a6<br/>hardening/network-gate<br/>C2S enfileirado"]:::pend
+    N2["c5453e22<br/>hardening/network-gate-chief<br/>verificação estática"]:::pend
+    R1["7ada56c1 → 431f3615<br/>gate de registry · Alloy A0–A2"]:::up
+    K1["5784567a → 174a5228 → a1376474<br/>tag alloy-kiln-test-1<br/>K4 PASS"]:::ok
+    K2["ccaad104<br/>HEAD feature/alloy-kiln"]:::up
+    X1["c2ddc2bb → f7a4abd4 → b1fab23f<br/>Mixer A0–A2 + M1 PASS"]:::ok
+    X2["7b8863d0 · 12/09 10:04<br/>HEAD feature/mixer<br/>fluido Concrete · sem gate M2"]:::pend
+    D1["d7bf99e5<br/>HEAD chief/ie-1.21.1-masterplan"]:::up
+    P1 --> N1 --> N2
+    P1 --> R1 --> K1 --> K2
+    K1 --> X1 --> X2
+    R1 --> D1
+  end
+  A2 --> P1

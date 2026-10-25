@@ -1,0 +1,25 @@
+flowchart TD
+  classDef verified fill:#d4edda,stroke:#2e7d32,color:#111
+  classDef recovered fill:#fff3cd,stroke:#ef6c00,color:#111
+  classDef ours fill:#e8eaf6,stroke:#3949ab,color:#111
+  classDef warn fill:#f8d7da,stroke:#c62828,color:#111
+
+  O["BluSunrize/ImmersiveEngineering<br/>branch 1.7.10 @ c45a3a2<br/>Build and Release v0.7.7 · 2016-05-09"]:::verified
+  T["tag remota 0.7.7<br/>HISTÓRIA DIVERGENTE<br/>não é ancestral do HEAD"]:::warn
+  C["chaos234/ImmersiveEngineering<br/>c38fd6b → 3cf2a38 · era 0.7.8"]:::verified
+  B["Bogdan-G/ImmersiveEngineering<br/>798ce21a · 2017-04-28"]:::verified
+  FA["Impressão A: split de energia no ConnectorLV"]:::verified
+  FB["Impressão B: org/bogdang/.../XSTR.class"]:::verified
+  FC["Impressão C: família float/GL no Matrix4 e renderers"]:::verified
+  D["Overlay Forbidden Series 0.7.9<br/>Java 8 · versão · DeveloperCapes embutido"]:::recovered
+  J["Jar implantado<br/>SHA f68b4bef…92fb8"]:::recovered
+  X["Repositório público literal do Forbidden 0.7.9<br/>NÃO LOCALIZADO"]:::warn
+  R["0c803472 · baseline recuperada em RFG<br/>694 classes · 463 .java idênticos · 32 diferenças classificadas"]:::ours
+  O -. "tag fora da linhagem" .- T
+  O --> C --> B
+  B --- FA
+  B --- FB
+  B --- FC
+  B --> D --> J
+  J --> R
+  X -. "ausente" .- D

@@ -1,0 +1,109 @@
+AUTO WORKBENCH TEST 1 R2 — VALIDATION
+
+Status: READY FOR USER RUNTIME TEST 1
+Do not promote to production/stable yet.
+
+Tag: auto-workbench-test-1-r2
+Commit: 97cea596eed2254050f602428853007caade286d
+JAR: ImmersiveEngineering-auto-workbench-test-1-r2.jar
+Size: 3,806,303 bytes
+SHA-256: C72F7C4AAD54491F83EA6073799DBEAFF44C260B8B4CBDE33249F1351820FA97
+
+Build gate:
+- clean build PASS
+- BUILD SUCCESSFUL in 1m46s
+- 26 tasks; 25 executed, 1 up-to-date
+- compileJava PASS
+- processResources PASS
+- reobfJar PASS
+- sourcesJar PASS
+- checkstyle/test/check/build PASS
+Artifact gate:
+- 1,405 archive entries
+- 747 classes
+- 747/747 class major 52 (Java 8)
+- 0 duplicate ZIP entries
+- mcmod.info: Immersive Engineering / 1.7.10-0.7.9
+- description: Forbidden Series Edition
+- manifest FMLAT preserved
+- Akashic jar_gate: PASS
+
+Baseline delta vs Garden Cloche Test 2:
+- +25 entries
+- 0 removed
+- 14 changed
+- +17 classes
+- expected Auto Workbench classes present
+
+Common/client boundary:
+- Garden Cloche baseline common/API client refs: 55
+- R2 common/API client refs: 55
+- new refs: 0
+- boundary gate: PASS
+Registry identity:
+- existing Metal Press meta = 13
+- Auto Workbench meta = 14
+- existing Steel Sheet meta = 2
+- Redstone Engineering Block meta = 3
+- Garden Cloche GUI ID = 13
+- Auto Workbench GUI ID = 14
+- no existing ID was remapped
+
+R1 -> R2 isolation:
+- same 1,405 entries
+- 0 added
+- 0 removed
+- exactly 2 changed entries
+- changed only autoWorkbench.obj and autoWorkbenchMirrored.obj
+- all 747 class bytes unchanged
+
+OBJ gate inside final JAR:
+- normal: 338 faces, all quads
+- mirrored: 338 faces, all quads
+- animated: 98 faces, all quads
+- JAR asset bytes equal audited source assets
+Runtime smoke evidence:
+- original auto-workbench-test-1 rejected before user test
+- root cause: Forge 1.7 WavefrontObject group mixed 289 quads + 4 triangles
+- static IE renderer consumes a GL_QUADS stream
+- corrective adaptation: triangle A/B/C -> degenerate quad A/B/C/C
+- corrected minimal client: Forge loaded IE successfully
+- FML message: Forge Mod Loader has successfully loaded 4 mods
+- block/item/revolver atlases completed
+- no Auto Workbench ModelFormatException after correction
+
+Inherited baseline resource warnings:
+- revolver_rose.png missing
+- metal2_skycrateDispenser.png missing
+- revolver_tesla.png missing
+- all three are also absent in approved Garden Cloche Test 2
+
+Dedicated RFG runtime was not claimed as full PASS because it reached the Minecraft EULA prompt; the EULA was not accepted automatically on the user's behalf.
+
+Decision: R2 is approved only for A6 user runtime Test 1. A7/A8 remain blocked.
+Additional corrected-runtime evidence:
+- corrected client remained alive after IE initialization
+- 21:38:03: FMLServerStartingEvent sent to ImmersiveEngineering
+- 21:38:03: FMLServerStartedEvent sent to ImmersiveEngineering
+- 21:39:28: FMLServerStoppingEvent sent to ImmersiveEngineering
+- 21:39:29: FMLServerStoppedEvent sent to ImmersiveEngineering
+- no ModelFormatException recorded in corrected fml-client log
+
+This proves lifecycle/classloading/resource-render initialization in the isolated runtime. It does NOT replace A6 gameplay testing of formation, GUI, crafting, queue, RF, automation, mirroring, output, teardown or persistence.
+
+Evidence files:
+RUNTIME-SMOKE-CORRECTED.log SHA-256 DC30458BA5D108AE95B24AECBE367C4CC8A223C0AE280041B633C86C7ACED8E5
+RUNTIME-SMOKE-R1-REJECTED-CRASH.txt SHA-256 52D9F422CBA8C86565E82FB89E450AE1548F6C9F762449E67F94AEEBFEB6F8DC
+Production-pack startup smoke (A5.3):
+- production `mods` JAR SHA-256 matches R2 candidate exactly
+- `fml-client-latest.log` scanned in streaming mode: 8,716,747 lines
+- TileRenderAutoWorkbench references: 567
+- TileEntityAutoWorkbench references: 189
+- ContainerAutoWorkbench references: 189
+- GuiAutoWorkbench references: 0
+- `ModelFormatException: Error parsing`: 0
+- no Immersive Engineering Auto Workbench exception identified
+- two generic `AutoWorkbench` exception matches were BuildCraft Factory compatibility classes, not IE
+
+Interpretation: R2 passes real-pack startup/classloading/OBJ parsing through the installed transformer stack.
+A6 gameplay remains open because no GUI-open/crafting evidence was observed in this session.

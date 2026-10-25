@@ -1,0 +1,26 @@
+gantt
+  title 09–12/09/2026 · Cloche, Auto Workbench R2, plano mestre, rede, Alloy Kiln, Mixer
+  dateFormat YYYY-MM-DD HH:mm
+  axisFormat %d/%m %Hh
+  tickInterval 6hour
+
+  section Baseline e Cloche
+  Baseline 0.7.9 recuperada (0c803472)              :done, s1, 2026-09-09 01:35, 2026-09-09 10:05
+  Cloche Test 1 → Test 2 (ad5e6201)                 :done, s2, 2026-09-09 10:05, 2026-09-09 16:47
+  Aprovação funcional da Cloche às 17h44            :milestone, m1, 2026-09-09 17:44, 0m
+
+  section Auto Workbench
+  A0–A4 implementação (9 commits)                   :done, a1, 2026-09-09 19:14, 2026-09-10 01:35
+  Test 1 (e2ee4453) rejeitado → R2 (97cea596)       :done, a2, 2026-09-10 11:39, 2026-09-10 21:31
+
+  section Plano mestre e rede
+  Charter 1.21.1 · áudio · render (94df992b…)       :done, p1, 2026-09-11 15:21, 2026-09-11 16:11
+  Hardening C2S (a1b811a6 → c5453e22)               :done, p2, 2026-09-11 18:22, 2026-09-11 19:53
+  Gate de registry (7ada56c1)                       :milestone, p3, 2026-09-11 19:50, 0m
+
+  section Alloy Kiln
+  A0–A2 → implementação → K4 (ccaad104)             :done, k1, 2026-09-11 22:23, 2026-09-12 01:57
+
+  section Mixer
+  A0–A2 e M1 PASS (b1fab23f)                        :done, x1, 2026-09-12 02:08, 2026-09-12 03:31
+  Fluido Concrete sem gate (7b8863d0)               :milestone, x2, 2026-09-12 10:04, 0m

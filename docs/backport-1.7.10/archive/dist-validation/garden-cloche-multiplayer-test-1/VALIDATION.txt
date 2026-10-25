@@ -1,0 +1,50 @@
+Garden Cloche Multiplayer Test 1 — Validation
+
+Source tag: garden-cloche-multiplayer-test-1
+Source commit: ac69028c8d0558f7e4435cab33f0cd6745c344c0
+Baseline: garden-cloche-test-2
+
+Final clean build:
+- command: gradlew clean build --no-daemon
+- result: BUILD SUCCESSFUL in 2m55s
+- tasks: 23 actionable, 22 executed, 1 up-to-date
+- reobfJar/checkstyle/check/build: PASS
+
+Artifact:
+- JAR: ImmersiveEngineering-garden-cloche-multiplayer-test-1.jar
+- size: 3701436 bytes
+- SHA-256: 17F6F3D507C7E16BEE595C62C1AE19ED41407B854B32590A8C0B1557222FC0FB
+Comparative JAR gate vs Garden Cloche Test 2:
+- entries: 1380 -> 1380
+- archive entries added: 0
+- archive entries removed: 0
+- Java classes: 730
+- class major: 52 for 730/730 classes
+- duplicate ZIP entries: 0
+- changed class files: 6
+- intended semantic classes: TileEntityGardenCloche, ContainerGardenCloche, GuiGardenCloche
+- ContainerGardenCloche$1/$2/$3: javap -c -p logically identical to Test 2
+- new common/api client references: 0
+- common/api client-ref set: 55 -> 55
+- public/protected members removed from three touched classes: 0
+- mcmod.info: 1.7.10-0.7.9 / Forbidden Series Edition preserved
+- manifest FMLAT preserved
+Multiplayer protocol gates:
+- Forge S31PacketWindowProperty signed-short contract verified from 1.7.10 source
+- int reconstruction tested: 0, 1, 32767, 32768, 65535, 65536, 6000, 70000, INT_MAX, -1
+- exact float-bit reconstruction tested: 1.0, 1.25, 2.81818, 100.0, 32768.5, 0.0001
+- sync IDs: unique 0..11
+- Garden Cloche receiveMessageFromClient override: absent
+- modified common classes net.minecraft.client refs: 0
+
+Fluid sync:
+- fluid type/tag authority remains Forge FluidStack NBT using FluidName
+- Container only corrects synchronized amount and never fabricates WATER
+- numeric fluid IDs are not used in the multiplayer protocol
+
+Config sync:
+- fertilizer duration synchronized from server
+- global growth modifier synchronized from server
+- client GUI/render no longer trusts its local values for those fields
+
+Independent Akashic jar_gate: PASS

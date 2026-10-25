@@ -1,0 +1,17 @@
+gantt
+  title 16–17/09/2026 · Hardening MP da Cloche e fechamento do Auto Workbench R3
+  dateFormat YYYY-MM-DD HH:mm
+  axisFormat %d/%m %Hh
+  tickInterval 1hour
+
+  section Multiplayer da Cloche
+  Patch MP (ac69028c · a55d6fa7)                    :done, h1, 2026-09-16 23:09, 2026-09-16 23:18
+
+  section Auto Workbench
+  Gate A5.2 do R2 (44bbc72d)                        :done, a1, 2026-09-16 23:18, 2026-09-16 23:58
+  A5.3 smoke em produção (a4259bf1)                 :done, a2, 2026-09-16 23:58, 2026-09-17 00:06
+  A5.4 regressão R2 20/20 (53cfd2bf)                :done, a3, 2026-09-17 00:06, 2026-09-17 01:00
+  Coletor A6 (e0e0aa4e)                             :done, a4, 2026-09-17 01:00, 2026-09-17 01:04
+  A5.5 R2 rejeitado → R3 (5d467a61)                 :crit, done, a5, 2026-09-17 01:04, 2026-09-17 01:21
+  Tag R3 às 01h22 · jar às 01h24                    :milestone, a6, 2026-09-17 01:22, 0m
+  Docs A5.6 (ac41e5e7)                              :done, a7, 2026-09-17 01:22, 2026-09-17 01:53

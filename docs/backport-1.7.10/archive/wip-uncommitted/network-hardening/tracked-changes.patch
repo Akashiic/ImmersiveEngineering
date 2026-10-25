@@ -1,0 +1,143 @@
+diff --git a/src/main/java/blusunrize/immersiveengineering/common/EventHandler.java b/src/main/java/blusunrize/immersiveengineering/common/EventHandler.java
+index f0230dac..4d14925c 100644
+--- a/src/main/java/blusunrize/immersiveengineering/common/EventHandler.java
++++ b/src/main/java/blusunrize/immersiveengineering/common/EventHandler.java
+@@ -42,6 +42,7 @@ import blusunrize.immersiveengineering.common.util.compat.computercraft.TileEnti
+ import blusunrize.immersiveengineering.common.util.network.MessageDrill;
+ import blusunrize.immersiveengineering.common.util.network.MessageMinecartShaderSync;
+ import blusunrize.immersiveengineering.common.util.network.MessageMineralListSync;
++import blusunrize.immersiveengineering.common.util.network.MinecartShaderSyncRequestQueue;
+ import blusunrize.immersiveengineering.common.util.network.ServerNetworkTaskQueue;
+ import cpw.mods.fml.common.FMLCommonHandler;
+ import cpw.mods.fml.common.ObfuscationReflectionHelper;
+@@ -191,7 +192,10 @@ public class EventHandler
+ 	public void onServerTick(ServerTickEvent event)
+ 	{
+ 		if(event.phase==TickEvent.Phase.START)
++		{
+ 			ServerNetworkTaskQueue.drain();
++			MinecartShaderSyncRequestQueue.drain();
++		}
+ 	}
+ 
+ 	@SubscribeEvent
+diff --git a/src/main/java/blusunrize/immersiveengineering/common/util/network/MessageMinecartShaderSync.java b/src/main/java/blusunrize/immersiveengineering/common/util/network/MessageMinecartShaderSync.java
+index e1e13504..acf1d33f 100644
+--- a/src/main/java/blusunrize/immersiveengineering/common/util/network/MessageMinecartShaderSync.java
++++ b/src/main/java/blusunrize/immersiveengineering/common/util/network/MessageMinecartShaderSync.java
+@@ -2,10 +2,10 @@ package blusunrize.immersiveengineering.common.util.network;
+ 
+ import io.netty.buffer.ByteBuf;
+ import net.minecraft.entity.Entity;
++import net.minecraft.entity.player.EntityPlayerMP;
+ import net.minecraft.entity.item.EntityMinecart;
+ import net.minecraft.item.ItemStack;
+ import net.minecraft.world.World;
+-import net.minecraftforge.common.DimensionManager;
+ import blusunrize.immersiveengineering.ImmersiveEngineering;
+ import blusunrize.immersiveengineering.client.models.ModelShaderMinecart;
+ import blusunrize.immersiveengineering.common.entities.EntityPropertiesShaderCart;
+@@ -13,6 +13,7 @@ import cpw.mods.fml.common.network.ByteBufUtils;
+ import cpw.mods.fml.common.network.simpleimpl.IMessage;
+ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
++import cpw.mods.fml.relauncher.Side;
+ 
+ public class MessageMinecartShaderSync implements IMessage
+ {
+@@ -58,17 +59,11 @@ public class MessageMinecartShaderSync implements IMessage
+ 		@Override
+ 		public IMessage onMessage(MessageMinecartShaderSync message, MessageContext ctx)
+ 		{
+-			World world = DimensionManager.getWorld(message.dimension);
+-			if(world!=null)
+-			{
+-				Entity entity = world.getEntityByID(message.entityID);
+-				if(entity!=null)
+-				{
+-					EntityPropertiesShaderCart properties = (EntityPropertiesShaderCart)entity.getExtendedProperties(EntityPropertiesShaderCart.PROPERTY_NAME);
+-					if(properties!=null)
+-						ImmersiveEngineering.packetHandler.sendToAll(new MessageMinecartShaderSync(entity, properties));
+-				}
+-			}
++			if(ctx.side!=Side.SERVER || !message.request || ctx.getServerHandler()==null
++					|| ctx.getServerHandler().playerEntity==null)
++				return null;
++			EntityPlayerMP player = ctx.getServerHandler().playerEntity;
++			MinecartShaderSyncRequestQueue.request(player, message.dimension, message.entityID);
+ 			return null;
+ 		}
+ 	}
+diff --git a/src/main/java/blusunrize/immersiveengineering/common/util/network/MessageRequestBlockUpdate.java b/src/main/java/blusunrize/immersiveengineering/common/util/network/MessageRequestBlockUpdate.java
+index c518f2da..6ade3539 100644
+--- a/src/main/java/blusunrize/immersiveengineering/common/util/network/MessageRequestBlockUpdate.java
++++ b/src/main/java/blusunrize/immersiveengineering/common/util/network/MessageRequestBlockUpdate.java
+@@ -1,16 +1,21 @@
+ package blusunrize.immersiveengineering.common.util.network;
+ 
+-import cpw.mods.fml.common.FMLCommonHandler;
++import blusunrize.immersiveengineering.common.IEContent;
++import net.minecraft.entity.player.EntityPlayerMP;
++import net.minecraft.item.ItemStack;
+ import cpw.mods.fml.common.network.simpleimpl.IMessage;
+ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+ import cpw.mods.fml.relauncher.Side;
+ import io.netty.buffer.ByteBuf;
+-import net.minecraft.server.MinecraftServer;
++import net.minecraft.nbt.NBTTagCompound;
+ import net.minecraft.world.World;
+ 
+ public class MessageRequestBlockUpdate implements IMessage
+ {
++	private static final int MIN_REQUEST_INTERVAL_TICKS = 10;
++	private static final String LAST_REQUEST_TICK = "IEVoltmeterBlockUpdateTick";
++
+ 	int x, y, z, dim;
+ 	public MessageRequestBlockUpdate(int x, int y, int z, int dimension)
+ 	{
+@@ -41,16 +46,38 @@ public class MessageRequestBlockUpdate implements IMessage
+ 	public static class Handler implements IMessageHandler<MessageRequestBlockUpdate, IMessage>
+ 	{
+ 		@Override
+-		public IMessage onMessage(MessageRequestBlockUpdate message, MessageContext ctx)
++		public IMessage onMessage(final MessageRequestBlockUpdate message, MessageContext ctx)
+ 		{
+-			if (FMLCommonHandler.instance().getEffectiveSide()==Side.SERVER)
++			if(ctx.side!=Side.SERVER || ctx.getServerHandler()==null || ctx.getServerHandler().playerEntity==null)
++				return null;
++			final EntityPlayerMP player = ctx.getServerHandler().playerEntity;
++			ServerNetworkTaskQueue.enqueue(player, new Runnable()
+ 			{
+-				World w = MinecraftServer.getServer().worldServerForDimension(message.dim);
+-				if (w!=null)
++				@Override
++				public void run()
+ 				{
+-					w.markBlockForUpdate(message.x, message.y, message.z);
++					World world = player.worldObj;
++					if(world==null || world.provider.dimensionId!=message.dim)
++						return;
++					if(player.getDistanceSq(message.x+.5D, message.y+.5D, message.z+.5D)>64D)
++						return;
++					ItemStack held = player.getCurrentEquippedItem();
++					if(held==null || held.getItem()!=IEContent.itemTool || held.getItemDamage()!=2)
++						return;
++					if(!world.getChunkProvider().chunkExists(message.x>>4, message.z>>4))
++						return;
++					long now = world.getTotalWorldTime();
++					NBTTagCompound playerData = player.getEntityData();
++					if(playerData.hasKey(LAST_REQUEST_TICK))
++					{
++						long delta = now-playerData.getLong(LAST_REQUEST_TICK);
++						if(delta>=0 && delta<MIN_REQUEST_INTERVAL_TICKS)
++							return;
++					}
++					playerData.setLong(LAST_REQUEST_TICK, now);
++					world.markBlockForUpdate(message.x, message.y, message.z);
+ 				}
+-			}
++			});
+ 			return null;
+ 		}
+ 	}

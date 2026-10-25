@@ -1,0 +1,8 @@
+candidate	status_per_project_docs	file	bytes	sha256_computed	source_tag	source_commit
+garden-cloche-test-1	superseded by test-2	ImmersiveEngineering-garden-cloche-test-1.jar	3683093	E03A71CAE6D2BEE8B85D710C7980C520641C4C8BB87C7F4DF0492779ED50B480	garden-cloche-test-1	415ad44c
+garden-cloche-test-2	USER-APPROVED 2026-09-09 (functional)	ImmersiveEngineering-garden-cloche-test-2.jar	3699942	51CF081E5A7C9E92DC9EDE65021BA2BEFBDD17971A070D7F26F8C83839C4AC2E	garden-cloche-test-2	ad5e6201
+auto-workbench-test-1	REJECTED (OBJ parser crash)	ImmersiveEngineering-auto-workbench-test-1.jar	3806297	94547AA9A48BE6EE0A3E5C6B39F317973AAE14E0B9EC0FF4AA6CAADB1BB8DFAB	auto-workbench-test-1	e2ee4453
+auto-workbench-test-1-r2	REJECTED 2026-09-17 (A5.5 state audit)	ImmersiveEngineering-auto-workbench-test-1-r2.jar	3806303	C72F7C4AAD54491F83EA6073799DBEAFF44C260B8B4CBDE33249F1351820FA97	auto-workbench-test-1-r2	97cea596
+auto-workbench-test-1-r3	A5.6 PASS; A6 gameplay pending; IN USE by author	ImmersiveEngineering-auto-workbench-test-1-r3.jar	3806758	B91A12EBC1D424915CB8E3DE5F3267D5699FA564BA605FAFDD9635E61CFB0A12	auto-workbench-test-1-r3	5d467a61
+alloy-kiln-test-1	K4 PASS (static/client smoke); K5 gameplay pending	ImmersiveEngineering-alloy-kiln-test-1.jar	3871389	F03FC1EC9EA4C17DBB38E62D204EAD4853966D570D06E3258B0525DAA5DA8590	alloy-kiln-test-1	a1376474
+garden-cloche-multiplayer-test-1	static/artifact PASS; multiplayer runtime pending	ImmersiveEngineering-garden-cloche-multiplayer-test-1.jar	3701436	17F6F3D507C7E16BEE595C62C1AE19ED41407B854B32590A8C0B1557222FC0FB	garden-cloche-multiplayer-test-1	ac69028c

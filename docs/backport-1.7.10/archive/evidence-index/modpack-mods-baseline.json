@@ -1,0 +1,968 @@
+﻿[
+    {
+        "name":  "!Akashic-ThePatcher-1.1.0-beta.4.jar",
+        "size":  209845,
+        "lastWriteUtc":  "2026-09-08T03:00:00.0000000Z",
+        "sha256":  "c5db60e4fa6c9a4298f1385f1b0cfe1f937ff63f9bcd851e861dbb6e37fdbe23"
+    },
+    {
+        "name":  "+unimixins-all-1.7.10-0.3.1.jar",
+        "size":  5519796,
+        "lastWriteUtc":  "2026-08-19T20:49:32.3250047Z",
+        "sha256":  "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318"
+    },
+    {
+        "name":  "ae2fc-1.5.104-gtnh.jar",
+        "size":  816310,
+        "lastWriteUtc":  "2026-08-20T00:04:08.0712284Z",
+        "sha256":  "dc9e841a22619c0ebca0201a3e59ce5a20062f5e4394433243677602d6c5b502"
+    },
+    {
+        "name":  "aether-1.7.10-v1.1.2.5.jar",
+        "size":  14335798,
+        "lastWriteUtc":  "2026-03-28T07:57:12.0000000Z",
+        "sha256":  "a5a1036ef9f163509cdd17b1e1ccb5c47f5822be514b356aaa0b580e7fb5566e"
+    },
+    {
+        "name":  "AgriCraft-1.5.2-evernife-v1.jar",
+        "size":  1739023,
+        "lastWriteUtc":  "2026-03-28T07:57:11.0000000Z",
+        "sha256":  "bfced6c72b72b2205324f3e3777d6468eba3b45987926dcba181a190e2b1fe98"
+    },
+    {
+        "name":  "Akashic-Horizons-of-The-Mirai-forge17-0.1.11-dev-1.7.10.jar",
+        "size":  45373618,
+        "lastWriteUtc":  "2026-09-08T21:03:38.9866882Z",
+        "sha256":  "473a4a669811b418e46039e9e9657b2636391da9b4d78243cfa0cdfd5c74b798"
+    },
+    {
+        "name":  "akashictome-1.2.7.jar",
+        "size":  51874,
+        "lastWriteUtc":  "2026-08-19T21:09:17.9472901Z",
+        "sha256":  "1852bd5ba27a67c6f870f770bead62f90b0896de1ead392540c53c8e6caebdce"
+    },
+    {
+        "name":  "AM2.5-LTS-1.6.11-LE.jar",
+        "size":  35858214,
+        "lastWriteUtc":  "2026-03-28T07:57:14.0000000Z",
+        "sha256":  "b6e4f0e91ee65914286d878dd204b6a310dac6cf37a2a7674a90f1aee475eb9f"
+    },
+    {
+        "name":  "AmunRa-GC-0.8.14.jar",
+        "size":  1609354,
+        "lastWriteUtc":  "2026-08-20T00:04:49.0027892Z",
+        "sha256":  "bc9e0ce4e1d52e0627116c29255a61a60a173e5893272caf5cf9e0eea1f8b9f3"
+    },
+    {
+        "name":  "angelica-2.2.8.jar",
+        "size":  9759163,
+        "lastWriteUtc":  "2026-08-20T00:06:00.5030143Z",
+        "sha256":  "2b26826e5c9cb1ec208b097165a67662cdedbedb8c84ff96dc26c17b198cf84f"
+    },
+    {
+        "name":  "AnimationAPI-1.7.10-1.2.4.jar",
+        "size":  14859,
+        "lastWriteUtc":  "2026-03-28T07:57:14.0000000Z",
+        "sha256":  "57e68a303740e7b09ee05ed1fd6da342a1c2dc7d3f14ae283d71cbd35673f7b6"
+    },
+    {
+        "name":  "AppleCore-3.3.11.jar",
+        "size":  100748,
+        "lastWriteUtc":  "2026-08-19T21:11:05.9093002Z",
+        "sha256":  "4b3b5351567cba454b8a69c016356de74e02efdfe034877d7835666c544639a1"
+    },
+    {
+        "name":  "appliedenergistics2-rv3-beta-1035-GTNH.jar",
+        "size":  4829597,
+        "lastWriteUtc":  "2026-08-19T21:05:05.6389728Z",
+        "sha256":  "c1e126473c771cd12d4d352123cbeff180bd338a754ee1cd739cea1942a63d23"
+    },
+    {
+        "name":  "arcane_engineering-0.2.7.jar",
+        "size":  680545,
+        "lastWriteUtc":  "2026-03-28T07:57:15.0000000Z",
+        "sha256":  "c67f8c1fec8df814300fe9c8689d3ef906665573e503c5737bf240bad7be9f1d"
+    },
+    {
+        "name":  "archaicfix-0.8.0.jar",
+        "size":  293536,
+        "lastWriteUtc":  "2026-05-26T11:36:43.3584234Z",
+        "sha256":  "15d0de52361ab20057e14c2a0bec7b8614c63bcef1b010490506ea00ae79011e"
+    },
+    {
+        "name":  "Armourers-Workshop-1.7.10-0.48.5.jar",
+        "size":  2089120,
+        "lastWriteUtc":  "2026-03-28T07:57:15.0000000Z",
+        "sha256":  "d87c67ec7ac7adf910176e2b927ce572a79602b4bc25d46bcbe88744d670f0fc"
+    },
+    {
+        "name":  "aspectrecipeindex-1.1.3.jar",
+        "size":  167020,
+        "lastWriteUtc":  "2026-08-19T23:50:17.1731912Z",
+        "sha256":  "7c39c0cc43ebc0a04e2b2a9c5b3cfbd96363bc0e05062e7f86b3fff89232905f"
+    },
+    {
+        "name":  "Atum-1.7.10-0.6.77.jar",
+        "size":  2655445,
+        "lastWriteUtc":  "2026-03-28T07:57:15.0000000Z",
+        "sha256":  "247000362a4213a2fea84677cdf6776c7ef2e7f4b13eaa0d75c28bb6ecfa5916"
+    },
+    {
+        "name":  "Avaritia-1.99.jar",
+        "size":  859920,
+        "lastWriteUtc":  "2026-08-19T21:16:47.1011555Z",
+        "sha256":  "ab92ad6d0a6b49f3fc43b9705cdfd591d9b0e4723112852e7e5352aa1b61316e"
+    },
+    {
+        "name":  "Avaritiaddons-1.9.5-GTNH.jar",
+        "size":  210941,
+        "lastWriteUtc":  "2026-08-19T21:44:51.8797508Z",
+        "sha256":  "80324e98b5ee8a64bb4811ac3967c0a55899df72630b42f70c58fd57d53a5ac6"
+    },
+    {
+        "name":  "backhand-1.8.13.jar",
+        "size":  151731,
+        "lastWriteUtc":  "2026-08-19T21:53:51.1262939Z",
+        "sha256":  "79439290421e979001ec2df7d8aa672c0983eb0094fac508bf2df6782145da15"
+    },
+    {
+        "name":  "bdlib-1.11.0-GTNH.jar",
+        "size":  1537651,
+        "lastWriteUtc":  "2026-08-19T21:17:16.4148803Z",
+        "sha256":  "130e6e88b8a3340a7518eef3ba313877b7a08149693980fa10c5d8b4f9da3095"
+    },
+    {
+        "name":  "beebetteratbees-0.4.7-GTNH.jar",
+        "size":  37798,
+        "lastWriteUtc":  "2026-08-20T00:08:07.3234416Z",
+        "sha256":  "24db6587dc873e9789904ed2812073f321c39b7da984207eef57b57e83b04133"
+    },
+    {
+        "name":  "Better-Furnaces-Mod-1.7.10.jar",
+        "size":  127915,
+        "lastWriteUtc":  "2026-03-28T07:57:15.0000000Z",
+        "sha256":  "c012f77784b759b211949ca3f9bd7767419d90e19d029406640fe39a66b62d8d"
+    },
+    {
+        "name":  "BetterQuesting-3.8.79-GTNH.jar",
+        "size":  1988326,
+        "lastWriteUtc":  "2026-08-19T21:17:52.3793136Z",
+        "sha256":  "1c72524b4950e4f0ef6767b6e234886f30289108655ca25f4589f5daa84c5a6f"
+    },
+    {
+        "name":  "BiblioCraft[v1.11.7][MC1.7.10].jar",
+        "size":  5452316,
+        "lastWriteUtc":  "2026-03-28T07:57:16.0000000Z",
+        "sha256":  "6c6cdba3b5fc7ceedb4441063d41482b0ee0736dd7354931dc599ec1de1f33ef"
+    },
+    {
+        "name":  "BigReactors-0.5.4A.jar",
+        "size":  794887,
+        "lastWriteUtc":  "2026-03-28T07:57:16.0000000Z",
+        "sha256":  "bde89d7da71ecc51710bd13773175ea061f64520ddcd9914eb1980748eecfee7"
+    },
+    {
+        "name":  "binnie-mods-2.6.43.jar",
+        "size":  4254849,
+        "lastWriteUtc":  "2026-08-19T21:20:18.3199938Z",
+        "sha256":  "33dedc5222c5ad14516bd77252973fac17d3853b7dd2c854fe11471a5d4cfff2"
+    },
+    {
+        "name":  "BloodArsenal-1.5.12.jar",
+        "size":  774184,
+        "lastWriteUtc":  "2026-08-19T21:20:43.5588541Z",
+        "sha256":  "39ada5128e5597d58af55ef9d03b1852de203058e22b6d649c9a4d133881157c"
+    },
+    {
+        "name":  "BloodMagic-1.9.12.jar",
+        "size":  9550191,
+        "lastWriteUtc":  "2026-08-19T21:24:19.9474381Z",
+        "sha256":  "89d71443a01246c29d52da4531559f8408ef8402956aa47e2bce4fa25e5d1803"
+    },
+    {
+        "name":  "bogosorter-1.3.46-GTNH.jar",
+        "size":  479598,
+        "lastWriteUtc":  "2026-08-20T00:08:46.3149634Z",
+        "sha256":  "62ecfc1ecf8496fd12b655ff8afb60db9ffa38aab38dc704769b1848bc6da744"
+    },
+    {
+        "name":  "Botania+r1.8-249.jar",
+        "size":  15977344,
+        "lastWriteUtc":  "2026-03-28T07:57:18.0000000Z",
+        "sha256":  "056aef1c2971c783d7553b1b33ba411467dd2a263476b76c1325038e7ed5d079"
+    },
+    {
+        "name":  "bugtorch-1.2.14-GTNH.jar",
+        "size":  138968,
+        "lastWriteUtc":  "2026-03-28T07:57:18.0000000Z",
+        "sha256":  "b5604dffa58f4b91309d2fd6746bfb46f501b392bdf3a0144ad1040fd437696f"
+    },
+    {
+        "name":  "buildcraft-7.1.63.jar",
+        "size":  2686818,
+        "lastWriteUtc":  "2026-08-19T21:26:27.8138763Z",
+        "sha256":  "dfb5b284dfc7b48ce407753bbc895cb520f0b7e9120f0184486652a97f58b108"
+    },
+    {
+        "name":  "buildcraft-compat-7.1.22.jar",
+        "size":  250770,
+        "lastWriteUtc":  "2026-08-19T21:26:48.8736597Z",
+        "sha256":  "ef04aec3e13dc5f6b661595e72cb0219cec83951fb949a584fd751ac57c7639b"
+    },
+    {
+        "name":  "CarefulCastCorrector-2.0.jar",
+        "size":  10542,
+        "lastWriteUtc":  "2026-01-10T04:55:52.0000000Z",
+        "sha256":  "dd141e71eff5a963ef12e9d176916a5d871b6351a7324836080dc5ae0252b87e"
+    },
+    {
+        "name":  "CarpentersBlocks-3.7.3-GTNH.jar",
+        "size":  504733,
+        "lastWriteUtc":  "2026-08-19T21:35:07.1498992Z",
+        "sha256":  "39bbeb0938a2531cf63a423067a0707578bd6dcf9da99a27ab648a81f887c957"
+    },
+    {
+        "name":  "chisel-2.17.32-GTNH.jar",
+        "size":  7607474,
+        "lastWriteUtc":  "2026-08-19T21:35:41.5867844Z",
+        "sha256":  "63a533d5aa7d78b9201daf739a5555520ad4ae81cb017fe1115d6c386ff47cf1"
+    },
+    {
+        "name":  "chromatictooltips-1.0.35-GTNH.jar",
+        "size":  243530,
+        "lastWriteUtc":  "2026-08-20T00:09:16.5771680Z",
+        "sha256":  "826f0aad96b77d9242ea35692270ee96d9dc1128600cb257d25c600028f02874"
+    },
+    {
+        "name":  "chromatictooltipscompat-1.0.36-GTNH.jar",
+        "size":  137202,
+        "lastWriteUtc":  "2026-08-20T00:09:34.2017058Z",
+        "sha256":  "f9e803466579b3e6088a009e7215720340f48ccf631a042d8c6dd7246398e1fe"
+    },
+    {
+        "name":  "CodeChickenCore-1.4.17.jar",
+        "size":  452724,
+        "lastWriteUtc":  "2026-08-19T21:36:22.0589127Z",
+        "sha256":  "f08e2b225f6fe7022b104fc34358e83c174eff668a8ca1c1fbbeaff09718cc24"
+    },
+    {
+        "name":  "CoFHCore-[1.7.10]3.1.4-329.jar",
+        "size":  1230511,
+        "lastWriteUtc":  "2026-03-28T07:57:19.0000000Z",
+        "sha256":  "acefa71392eff745dcfd6d6d5e49b6586e2e4e103d1260f4674f622152ef6f60"
+    },
+    {
+        "name":  "CoFHLib-[1.7.10]1.2.1-185.jar",
+        "size":  305688,
+        "lastWriteUtc":  "2026-08-19T21:49:22.7308608Z",
+        "sha256":  "9628f59a659e061f2256cd8e85d45c1f3a81be6d092a1d2c5dd361317add7596"
+    },
+    {
+        "name":  "CookingForBlockheads-1.4.13-GTNH.jar",
+        "size":  353859,
+        "lastWriteUtc":  "2026-08-19T21:36:53.2849886Z",
+        "sha256":  "cadee5fc1fc749d68528024ef1348a227be897ec04e96bc7ee3d3c12d99dbdd1"
+    },
+    {
+        "name":  "coretweaks-0.3.4.7-GTNH.jar",
+        "size":  786937,
+        "lastWriteUtc":  "2026-08-19T21:37:18.8556265Z",
+        "sha256":  "89c117aeee723df3a31d8d341626e7d080b78e50e23564c889e59b198f9bde9b"
+    },
+    {
+        "name":  "coroutil-1.7.10-1.1.6.jar",
+        "size":  1297035,
+        "lastWriteUtc":  "2026-05-15T05:23:33.3815364Z",
+        "sha256":  "c191fe7f7cb2082056b9a465cb28973c45030cf77810d8bc550b9594ca873051"
+    },
+    {
+        "name":  "CraftTweaker-3.4.8.jar",
+        "size":  1005518,
+        "lastWriteUtc":  "2026-08-19T21:38:04.8241956Z",
+        "sha256":  "9895f0253e02f49d3870f5d2375227f7d1b782b895d595f74e7dfc7031435cd2"
+    },
+    {
+        "name":  "cruciblerpf-1.0.0.jar",
+        "size":  3743,
+        "lastWriteUtc":  "2026-05-09T03:59:33.7242838Z",
+        "sha256":  "920791113447bd7762abe8dedcd0ce56efa56d66613684af782ef19be1d5b973"
+    },
+    {
+        "name":  "CustomNPC-Plus-1.10.2.jar",
+        "size":  13921141,
+        "lastWriteUtc":  "2026-03-28T07:57:20.0000000Z",
+        "sha256":  "9e7a1eb0a3d893c902688879a6c19e824c47744ecfaea04e7a9287f5e7fd72b8"
+    },
+    {
+        "name":  "DimensionalDoors-2.2.6-1.7.10.jar",
+        "size":  4030361,
+        "lastWriteUtc":  "2026-03-28T07:57:20.0000000Z",
+        "sha256":  "59aa3de8614074d7d03ac10b2771537843d4b2af1141e3b7b3dd6bc101920e64"
+    },
+    {
+        "name":  "Draconic-Evolution-1.5.33-GTNH.jar",
+        "size":  6755384,
+        "lastWriteUtc":  "2026-08-19T21:25:19.8637803Z",
+        "sha256":  "5637b84616b71b5fb38e5ec113ee20b5c28db6d83557d73b309e02ab34d5a23c"
+    },
+    {
+        "name":  "DummyCore-1.21.0.jar",
+        "size":  102065,
+        "lastWriteUtc":  "2026-08-19T21:40:53.6128508Z",
+        "sha256":  "8221d142dc547d1cda13b2ddb73ff5ad9abdff8a6f3f1997d82532b4099a8bda"
+    },
+    {
+        "name":  "DynamicSurroundings-1.7.10-1.0.6.4.jar",
+        "size":  9630896,
+        "lastWriteUtc":  "2026-03-28T07:57:21.0000000Z",
+        "sha256":  "6cb53f4d96b2c165bdf11095ab8dd46a07cc662a1dd5c73c59573a533b58d9f2"
+    },
+    {
+        "name":  "Electroblob\u0027s Wizardry - 1.1.6 - MC 1.7.10.jar",
+        "size":  12954203,
+        "lastWriteUtc":  "2026-03-28T07:57:22.0000000Z",
+        "sha256":  "dcc4b16c0f91e2e4e6b636d84bc043d949565d751f678387e7bdd693ed5c2377"
+    },
+    {
+        "name":  "Eln-1.24.6.jar",
+        "size":  13397976,
+        "lastWriteUtc":  "2026-08-19T21:42:32.8112816Z",
+        "sha256":  "1e0f87c7d3bb3edf018c46bb64d69a530ebe87ecec2a794298138731d05bfbae"
+    },
+    {
+        "name":  "endercore-0.5.14.jar",
+        "size":  440536,
+        "lastWriteUtc":  "2026-08-19T21:43:16.2947418Z",
+        "sha256":  "983f6bea180ecb88e2fe77b1a2d50f323ef134065945dad15f1de52d19280332"
+    },
+    {
+        "name":  "EnderIO-2.10.39.jar",
+        "size":  4903278,
+        "lastWriteUtc":  "2026-08-19T21:43:46.2043125Z",
+        "sha256":  "06675e1ddacaec032e1d1832f1a1fcf2ee99cc1369d8f128d308a5f67422b5bd"
+    },
+    {
+        "name":  "EnderStorage-1.8.7.jar",
+        "size":  158107,
+        "lastWriteUtc":  "2026-08-19T21:44:29.5267480Z",
+        "sha256":  "086d61761a93aead84bb7c37acbe176d0e0a450fd93ab12597c0e05e8ca7ef03"
+    },
+    {
+        "name":  "entityculling-1.6.4-mc1.7.10.jar",
+        "size":  38712,
+        "lastWriteUtc":  "2026-03-02T06:19:21.7991314Z",
+        "sha256":  "dd1b15c1abfe3756051987c17924810a4e433a26c29b5defdeccedced15567e7"
+    },
+    {
+        "name":  "eternalsingularity-1.4.3.jar",
+        "size":  118896,
+        "lastWriteUtc":  "2026-08-19T21:45:18.3861263Z",
+        "sha256":  "9c14074b0749ecddab62e2b16921de23360149e3bda9fb4fbf870efc3b5fd4a9"
+    },
+    {
+        "name":  "etfuturum-2.6.58-GTNH.jar",
+        "size":  5350760,
+        "lastWriteUtc":  "2026-09-06T20:46:25.2923533Z",
+        "sha256":  "1579ba06d6dc3a29a1abf39ec62ccfc2528835f9f60178b8496955e9f6b75e4d"
+    },
+    {
+        "name":  "ExtraPlanets-1.7.10-2.1.4.jar",
+        "size":  8029092,
+        "lastWriteUtc":  "2026-03-28T07:57:23.0000000Z",
+        "sha256":  "469f68ddd8bb1bcc251bea9a7577676ebf9a87d598a2a32d00cf2fdfb647b6af"
+    },
+    {
+        "name":  "FloodLights-1.5.6.jar",
+        "size":  175859,
+        "lastWriteUtc":  "2026-08-19T22:36:14.4676286Z",
+        "sha256":  "e228b66c0dc90a614e8f436c686b4670243f2790e62376c5fdb757cb2b7c04d5"
+    },
+    {
+        "name":  "Forbidden.Magic-0.9.17-GTNH.jar",
+        "size":  631205,
+        "lastWriteUtc":  "2026-08-19T22:37:32.2079140Z",
+        "sha256":  "5abd26dff612190405ac0d60875e0bf1c67796ed1c3c496481d70e89c93353d6"
+    },
+    {
+        "name":  "Forestry-4.11.36.jar",
+        "size":  3396314,
+        "lastWriteUtc":  "2026-08-19T23:09:12.1328304Z",
+        "sha256":  "78daf273c4d112324ea7fb3ad9fbac99ecd088c1b78982811deebd58da712d6f"
+    },
+    {
+        "name":  "ForgottenRelics-1.7.3-[Final].jar",
+        "size":  839639,
+        "lastWriteUtc":  "2026-03-28T07:57:24.0000000Z",
+        "sha256":  "c63341435bdefa63138da887eeaa61fa83056710ad386e35bc6742b97390332b"
+    },
+    {
+        "name":  "FpsReducer-mc1.7.10-1.10.3.jar",
+        "size":  44091,
+        "lastWriteUtc":  "2026-03-28T08:21:39.5089801Z",
+        "sha256":  "2915ea69cc612bf045619917f678c9fb58dc1b37d7e04c932f663a58a397c516"
+    },
+    {
+        "name":  "gadomancy-1.5.14.jar",
+        "size":  6955664,
+        "lastWriteUtc":  "2026-08-19T23:10:11.7150112Z",
+        "sha256":  "9ca434d80c2642fdf977fcbb64019d6e697ab044320026b18c9a309e6c0587a6"
+    },
+    {
+        "name":  "Galacticraft-4.0-Akashic.jar",
+        "size":  12577332,
+        "lastWriteUtc":  "2026-03-28T07:57:25.0000000Z",
+        "sha256":  "1e5133f003ed0bffe641c5be3f1ea9e5722f41e403c89f83186e0e3d7301744c"
+    },
+    {
+        "name":  "GardenStuff-1.7.10-1.7.0.jar",
+        "size":  776742,
+        "lastWriteUtc":  "2026-03-28T07:57:25.0000000Z",
+        "sha256":  "a1cfba20d02ea5ba5f5a646a85caca9e23aca777f4ed47707657bc0f83a45831"
+    },
+    {
+        "name":  "geckolib-unofficial-1.7.10-1.0.4.jar",
+        "size":  4238778,
+        "lastWriteUtc":  "2026-03-28T07:57:26.0000000Z",
+        "sha256":  "36d9d0471bfb55271f0d6649b586fe99608dad61261fac4065c008276021fe23"
+    },
+    {
+        "name":  "gendustry-1.9.12-GTNH.jar",
+        "size":  2583918,
+        "lastWriteUtc":  "2026-08-19T23:11:53.7799924Z",
+        "sha256":  "919fd9cab718e836ea7ae5140b1f61db3cd9a9ebc8b9f92705525a7b475494c7"
+    },
+    {
+        "name":  "gtnhlib-0.11.41.jar",
+        "size":  1393639,
+        "lastWriteUtc":  "2026-08-19T23:12:18.7805686Z",
+        "sha256":  "055b799dfa17a4cd49986c1c18df03e28dc90168d230ed8c4318b18dda1c0800"
+    },
+    {
+        "name":  "hodgepodge-2.7.189.jar",
+        "size":  1121453,
+        "lastWriteUtc":  "2026-08-19T23:12:54.1217345Z",
+        "sha256":  "7d7650c761e312df0d9831757296621d40bd5a9030f73cf270e4bc0b219666e2"
+    },
+    {
+        "name":  "IguanaTweaksTConstruct-2.6.5.jar",
+        "size":  439560,
+        "lastWriteUtc":  "2026-03-28T07:57:26.0000000Z",
+        "sha256":  "67fdc1493384c7c60970837be39ad312c3c85b41584a02a5051c4866ff7caa52"
+    },
+    {
+        "name":  "ImmersiveEngineering-1.7.10-0.7.9.jar",
+        "size":  3589880,
+        "lastWriteUtc":  "2026-03-28T07:57:27.0000000Z",
+        "sha256":  "f68b4bef165414ae751d00ef2e1eb2a9692b196239e45193a6bc82d37bb92fb8"
+    },
+    {
+        "name":  "industrialcraft-2-2.2.828a-experimental.jar",
+        "size":  5633948,
+        "lastWriteUtc":  "2026-03-28T07:57:28.0000000Z",
+        "sha256":  "b15d922b746dbc20411dca6ecfe1a975d295acbfc81b7e754fe5a6d8488a79b6"
+    },
+    {
+        "name":  "IndustrialUpgrade-2.5.21.jar",
+        "size":  5207998,
+        "lastWriteUtc":  "2026-03-28T07:57:28.0000000Z",
+        "sha256":  "d32e1183170d03364abada3804202f73e3a4f40622a6aa7521bc4ee69002747f"
+    },
+    {
+        "name":  "InfernalMobs-1.10.6-GTNH.jar",
+        "size":  145927,
+        "lastWriteUtc":  "2026-08-19T23:14:13.0661140Z",
+        "sha256":  "a70a55c5a2ce1a88a3340de2d918adeb02a310cf9a45b21a5a9dae24cae87544"
+    },
+    {
+        "name":  "InventoryTweaks-1.59-unofficial-asie-1.jar",
+        "size":  227648,
+        "lastWriteUtc":  "2026-03-28T07:57:28.0000000Z",
+        "sha256":  "2bec8c688fb1d7617b489166e0c102dd19106acba1646017b5da48ba597a9abb"
+    },
+    {
+        "name":  "IronChest-6.1.13.jar",
+        "size":  186781,
+        "lastWriteUtc":  "2026-08-19T23:15:04.8288967Z",
+        "sha256":  "eaadb2b27192d1ec086c59bde8c216a7aabd967f7b84ca2d389b05989c096735"
+    },
+    {
+        "name":  "IronDome-[1.7.10]-1.2.1.jar",
+        "size":  2816161,
+        "lastWriteUtc":  "2026-03-04T16:49:14.7900402Z",
+        "sha256":  "bdc0d8d77a4de8d02f1b29134ddb1a74120db91834d781ebce8f724affa5f99c"
+    },
+    {
+        "name":  "journeymap-forge-1.7.10-6.0.2.jar",
+        "size":  5560184,
+        "lastWriteUtc":  "2026-08-19T23:17:44.2799878Z",
+        "sha256":  "d94fe7bd3e53754d740c21391408a7216e022a030d5f5762e6fb07d384b7525a"
+    },
+    {
+        "name":  "littletiles-1.6.42.jar",
+        "size":  716613,
+        "lastWriteUtc":  "2026-08-20T00:03:05.9056145Z",
+        "sha256":  "f6530d65d4d2698df347b8063073b6e63c542a2353294e0b5dd59a513d4af309"
+    },
+    {
+        "name":  "LunatriusCore-1.2.1-GTNH.jar",
+        "size":  47094,
+        "lastWriteUtc":  "2026-03-28T07:57:29.0000000Z",
+        "sha256":  "887574ea5ea35f250c3c6483b77edd4923ebf2e73c688401c6dc3fceecc92ead"
+    },
+    {
+        "name":  "magicalcrops-4.0.0_PUBLIC_BETA_5.jar",
+        "size":  1498281,
+        "lastWriteUtc":  "2026-03-28T07:57:29.0000000Z",
+        "sha256":  "c13530f8eb3bba0a77a5343af0a6c72d0b384be5c9d036067e58c9f544816a3b"
+    },
+    {
+        "name":  "magicbees-2.10.12-GTNH.jar",
+        "size":  1012704,
+        "lastWriteUtc":  "2026-08-19T23:20:47.1405967Z",
+        "sha256":  "6da93fbe224dd30ec0cdb37478ff6eea711ef2908ee8b6466dc2f8c6547257ca"
+    },
+    {
+        "name":  "malisisdoors-1.19.11-GTNH.jar",
+        "size":  2030153,
+        "lastWriteUtc":  "2026-08-20T00:11:50.2583322Z",
+        "sha256":  "af3336e1ddeed28dc64aeeca49c23ded3214e14da8f02705b4c4ac177e66a357"
+    },
+    {
+        "name":  "Mantle-0.5.4.jar",
+        "size":  192322,
+        "lastWriteUtc":  "2026-08-19T23:21:24.8648917Z",
+        "sha256":  "6e5c4b0699888b54d81ec9e2a2ac0fbd2905a08766a819b8f823ff3e1bd6b9ee"
+    },
+    {
+        "name":  "MatterOverdrive.jar",
+        "size":  18154831,
+        "lastWriteUtc":  "2026-03-28T07:57:31.0000000Z",
+        "sha256":  "c1716f487f320504b526c246067d967456ca3d9af81c24f20700af35f3ca9733"
+    },
+    {
+        "name":  "Mekanism-1.7.10-9.10.48-Core.jar",
+        "size":  20589501,
+        "lastWriteUtc":  "2026-03-28T07:57:31.0000000Z",
+        "sha256":  "3b141cda5bb5987315e907de0f2f791ad50d4bca833e8304f9f806695864bf74"
+    },
+    {
+        "name":  "Mekanism-1.7.10-9.10.48-Generators.jar",
+        "size":  262227,
+        "lastWriteUtc":  "2026-03-28T07:57:31.0000000Z",
+        "sha256":  "1350dbd9dd07ae69cde6b9fd121e5f433893ad65d0dfaf74ef0cca2b1e6d14af"
+    },
+    {
+        "name":  "Mekanism-1.7.10-9.10.48-Tools.jar",
+        "size":  30871,
+        "lastWriteUtc":  "2026-03-28T07:57:31.0000000Z",
+        "sha256":  "f43c052764bda9bad671cb6f43f0ae5f942c2673f4161ddc37b65c0fd291342c"
+    },
+    {
+        "name":  "Mekanism-1.7.10-9.10.48-Ultimate.jar",
+        "size":  648,
+        "lastWriteUtc":  "2026-03-28T07:57:31.0000000Z",
+        "sha256":  "8ce1b8ad6a82e58770d21566b23eaa9d80e106f2d4b33c8f6514dfedc4ee3ce2"
+    },
+    {
+        "name":  "MineFactoryReloaded-[1.7.10]2.8.1-174.jar",
+        "size":  1756014,
+        "lastWriteUtc":  "2026-03-28T07:57:31.0000000Z",
+        "sha256":  "d59fb424c6fcdb312b7910691df81e0e6d781779358ac368ddb6da706d25adc0"
+    },
+    {
+        "name":  "mInvButton - Mod Client.jar",
+        "size":  31003,
+        "lastWriteUtc":  "2026-03-04T16:49:14.9940497Z",
+        "sha256":  "492259d9ba3aeff3b6b9d7c82552a83a80ce9097627b8a89b55e3cf5b8055c87"
+    },
+    {
+        "name":  "mobsinfo-0.5.20-GTNH.jar",
+        "size":  437768,
+        "lastWriteUtc":  "2026-08-19T23:26:05.9640938Z",
+        "sha256":  "933ccddca69a7ed0c803bd597398f3793883de1ae3502209354ccaf2856411c0"
+    },
+    {
+        "name":  "ModTweaker2-0.14.0.jar",
+        "size":  573171,
+        "lastWriteUtc":  "2026-08-19T23:22:50.4302288Z",
+        "sha256":  "35e85c7fcb0c1950ba6909ba01b3c443bc1cb832f24431aed38b0314a575963d"
+    },
+    {
+        "name":  "modularui2-2.3.85-1.7.10.jar",
+        "size":  1624381,
+        "lastWriteUtc":  "2026-08-19T21:48:48.9661964Z",
+        "sha256":  "ccd7a2a1244ad1e1e03f07a63bce884d2c69c0755e94a00edcfa090125d06712"
+    },
+    {
+        "name":  "Morpheus-1.7.10-1.6.21.jar",
+        "size":  18767,
+        "lastWriteUtc":  "2026-03-28T07:57:31.0000000Z",
+        "sha256":  "37014340a0400277b1202233f75619d53e84c0cf37d2d3561a993241a45cb412"
+    },
+    {
+        "name":  "MrTJPCore-1.3.7.jar",
+        "size":  739589,
+        "lastWriteUtc":  "2026-08-20T00:12:39.6458700Z",
+        "sha256":  "bda0302e180ac34f41d05a872e07a3bfc161b91ac32a53b664104447a0f94726"
+    },
+    {
+        "name":  "mtrm-1.7.10-1.1.1.jar",
+        "size":  33495,
+        "lastWriteUtc":  "2026-03-28T07:57:31.0000000Z",
+        "sha256":  "904819d2cc209e5c7b99f6a7310fafc1075dce4ac60a39474fcca7c6d967162d"
+    },
+    {
+        "name":  "naturescompass-1.5.2-GTNH.jar",
+        "size":  173784,
+        "lastWriteUtc":  "2026-08-20T00:13:07.8828910Z",
+        "sha256":  "aea94f65e5828b4d66c86a6cb19fd9fc1d45be09f9dd055980567f3ed56729b6"
+    },
+    {
+        "name":  "necrotempus-2.0.0.jar",
+        "size":  3448528,
+        "lastWriteUtc":  "2026-08-19T23:24:35.2922356Z",
+        "sha256":  "d220dad5f270b99fd6ad8a42dcdb1d092eb97412f5c4d888aa072ea3fecc374c"
+    },
+    {
+        "name":  "NEIAddons-1.18.4.jar",
+        "size":  152968,
+        "lastWriteUtc":  "2026-08-19T23:26:18.2342902Z",
+        "sha256":  "fa2d6d7231e7771fcb513893f1014d21f22dcd4c7a84ef58a51f31bdeef3407f"
+    },
+    {
+        "name":  "NEIIntegration-1.5.3.jar",
+        "size":  159094,
+        "lastWriteUtc":  "2026-08-19T23:26:44.0622191Z",
+        "sha256":  "dcb47385a4c5cb4e01e1a6464285b581e565dbee0a6d8e4166c6c5b4eb1e53d5"
+    },
+    {
+        "name":  "netherlicious-3.2.8.jar",
+        "size":  2905596,
+        "lastWriteUtc":  "2026-03-28T07:57:32.0000000Z",
+        "sha256":  "bfd24eedf6011773a215b9096fddf034a1d7c066a6d2a30dd61db6786efb9497"
+    },
+    {
+        "name":  "NettyPatcher-0.2.jar",
+        "size":  30451,
+        "lastWriteUtc":  "2026-03-28T07:57:32.0000000Z",
+        "sha256":  "534ca95e5539ba040e04feaac2bf6093b6d49ef51461448a4ef8d47d5a3e9556"
+    },
+    {
+        "name":  "NotEnoughEnergistics-1.7.39.jar",
+        "size":  296135,
+        "lastWriteUtc":  "2026-08-19T23:27:55.8157545Z",
+        "sha256":  "e1868483856dac7ca4ac9ce6eac616e43bf321551015697a75685c91b01782e0"
+    },
+    {
+        "name":  "NotEnoughItems-2.8.125-GTNH.jar",
+        "size":  1609754,
+        "lastWriteUtc":  "2026-08-19T23:28:17.9457730Z",
+        "sha256":  "91b032e0fc5336a93ead987df98e8d02d3185dbbe160d40ac2da5e605e1f2070"
+    },
+    {
+        "name":  "npcaw-1.2.jar",
+        "size":  23772,
+        "lastWriteUtc":  "2026-03-28T07:57:32.0000000Z",
+        "sha256":  "bfd3f32d16858c83c574d5cc3c427b0534dbe106de6f31b098f0b4d8681dde7a"
+    },
+    {
+        "name":  "npcgecko-1.3.jar",
+        "size":  109233,
+        "lastWriteUtc":  "2026-03-28T07:57:32.0000000Z",
+        "sha256":  "d5aa97c8d6fc833776ed73c51def0b1846618e790a8ad93f6f13982e984528a6"
+    },
+    {
+        "name":  "omniconfig-1.0.1-mc1.7.10.jar",
+        "size":  166622,
+        "lastWriteUtc":  "2026-03-28T07:57:32.0000000Z",
+        "sha256":  "f0e7d47e5ae081b78de5f0754b6db629f0bba567767ad7071c81846c494f1feb"
+    },
+    {
+        "name":  "OpenBlocks-1.12.20-GTNH.jar",
+        "size":  3473938,
+        "lastWriteUtc":  "2026-08-19T23:42:13.3909222Z",
+        "sha256":  "e527a99f00b7d45adc81e8d8e7173ed957ed7b410d5da96179aa787508c789d9"
+    },
+    {
+        "name":  "OpenModsLibs-0.10.14.jar",
+        "size":  2127736,
+        "lastWriteUtc":  "2026-08-19T23:42:32.0785593Z",
+        "sha256":  "050c5faa4683bee04aa51ac5763f30d61438b4ac01b0ae9b23f0171b4688985d"
+    },
+    {
+        "name":  "Opis-1.4.12-mapless.jar",
+        "size":  7056371,
+        "lastWriteUtc":  "2026-08-19T23:43:27.4025419Z",
+        "sha256":  "50db7e9b67813511f5c1103d251ef3bdcd87dc41158eddf765a253b84bdc6cb1"
+    },
+    {
+        "name":  "PacketUnlimiter-1.7.10-1.1.jar",
+        "size":  7959,
+        "lastWriteUtc":  "2026-03-28T07:57:32.0000000Z",
+        "sha256":  "1a699f09cbdd4679bf0cbdabd5bb44b5ccfcd040f77a89ce0c6c6308ab9660a1"
+    },
+    {
+        "name":  "Pam\u0027s HarvestCraft 1.7.10Lb.jar",
+        "size":  2482753,
+        "lastWriteUtc":  "2026-03-28T07:57:33.0000000Z",
+        "sha256":  "b0dc253702948d19d9c2d5191ae78ae022b65fac73210ca7313d7ef3b1cd7a57"
+    },
+    {
+        "name":  "ParallelMipMap-1.0.jar",
+        "size":  17314,
+        "lastWriteUtc":  "2026-03-28T07:57:33.0000000Z",
+        "sha256":  "be7b3b007b79df37944db21c6af83a553510a94b5fb8626aa14f955f27d58288"
+    },
+    {
+        "name":  "PlayerAPI-1.5.0.jar",
+        "size":  298448,
+        "lastWriteUtc":  "2026-03-28T07:57:33.0000000Z",
+        "sha256":  "13cec0ea69288c38e3174864439889d7c2da611409d7520fc276929cb74215d6"
+    },
+    {
+        "name":  "PlayerContainerFix-2.0.0.jar",
+        "size":  4991,
+        "lastWriteUtc":  "2026-03-28T07:57:33.0000000Z",
+        "sha256":  "47c9284d10be3f6b5d48321eeca194bdc0f52e51d1680851c05098309a68a3ee"
+    },
+    {
+        "name":  "praesidium-evolutionis-0.1.0-1-gb5ad5f0.jar",
+        "size":  79576,
+        "lastWriteUtc":  "2026-01-10T04:56:13.0000000Z",
+        "sha256":  "16cdbb85f3aa59d61cacfff8b5d3b9ce961b57f90ba509057fc7f9a0775bab1c"
+    },
+    {
+        "name":  "RunicDungeons-1.1.7b.jar",
+        "size":  701902,
+        "lastWriteUtc":  "2026-03-28T07:57:33.0000000Z",
+        "sha256":  "36c0a96683ec1cb84fcfc2fb70a194d21f393af18cbe8fe181265cb4a80a5f7a"
+    },
+    {
+        "name":  "salisarcana-1.1.67-GTNH.jar",
+        "size":  683223,
+        "lastWriteUtc":  "2026-08-19T23:45:12.0364002Z",
+        "sha256":  "5d9b5a3a82eced550c838b58bb30b639393166669800073b1a129ea17ba774bf"
+    },
+    {
+        "name":  "sampler-1.60.1.jar",
+        "size":  205368,
+        "lastWriteUtc":  "2026-01-10T04:56:13.0000000Z",
+        "sha256":  "cbb9604ef5329843b0a3940e6c08b18980d28430ac039e73344b3445cfd69418"
+    },
+    {
+        "name":  "SuperTic-1.5.6.jar",
+        "size":  20849,
+        "lastWriteUtc":  "2026-08-19T21:51:41.0879245Z",
+        "sha256":  "414800517724323e1209403d4530868439055392c7b8ac8cd98b300b8ecbd626"
+    },
+    {
+        "name":  "Tainted-Magic-7.7.8-GTNH.jar",
+        "size":  2395082,
+        "lastWriteUtc":  "2026-08-19T23:48:19.7835300Z",
+        "sha256":  "9274e143c554d142461271687d44a0dfce26d1a34eea0faba2c5411b463f559d"
+    },
+    {
+        "name":  "tcnodetracker-1.4.6.jar",
+        "size":  142889,
+        "lastWriteUtc":  "2026-08-20T00:14:38.7822191Z",
+        "sha256":  "4cfc64856bdceee954dcb43d87d6bd1603f17342ba95b6357fd28234e95c8156"
+    },
+    {
+        "name":  "TConstruct-1.14.102-GTNH.jar",
+        "size":  5591875,
+        "lastWriteUtc":  "2026-08-19T23:50:37.2973846Z",
+        "sha256":  "a68682edaf28bdf7e48e2868791a4c92cee587f725972987628f50130ec7b25c"
+    },
+    {
+        "name":  "TcpNoDelayMod-2.0.jar",
+        "size":  4386,
+        "lastWriteUtc":  "2026-03-28T07:57:33.0000000Z",
+        "sha256":  "f69ec8922474f0cd0320187f10520330d1c5ac1d04324db33a76b770de9cb70f"
+    },
+    {
+        "name":  "Thaumcraft-1.7.10-4.2.3.5.jar",
+        "size":  12565807,
+        "lastWriteUtc":  "2026-03-04T16:49:15.1942431Z",
+        "sha256":  "3dba9786966974701578a658d1bb369bf35bdf5f363079f5ac9c4910a39113be"
+    },
+    {
+        "name":  "Thaumcraft4Tweaks-1.5.39.jar",
+        "size":  380679,
+        "lastWriteUtc":  "2026-03-28T07:57:34.0000000Z",
+        "sha256":  "1b411a54c3fccdb3f7259dfa6bdd11bea8701e3f94515ef78245abd85c97c1f4"
+    },
+    {
+        "name":  "ThaumcraftMobAspects-1.2.1-GTNH.jar",
+        "size":  24005,
+        "lastWriteUtc":  "2026-03-28T07:57:34.0000000Z",
+        "sha256":  "929e86ec61d65850c18524e5153f5ecec4c8e9b08374fe21dd269bf2e66dfa65"
+    },
+    {
+        "name":  "thaumcraftneiplugin-1.7.10-1.7a.jar",
+        "size":  68794,
+        "lastWriteUtc":  "2026-03-28T07:57:34.0000000Z",
+        "sha256":  "d39e6c8fc27709b04d58ec4c1b625648776dbf01cdf7af2d51388ee215d5d4e8"
+    },
+    {
+        "name":  "Thaumic-Based-1.9.19.jar",
+        "size":  1638928,
+        "lastWriteUtc":  "2026-08-19T23:51:48.5416956Z",
+        "sha256":  "efbf1a36bd7c54fdef9d301dcae0c9500c2f778f9291456a92b1090b866e1cc1"
+    },
+    {
+        "name":  "thaumicboots-1.5.12.jar",
+        "size":  1446380,
+        "lastWriteUtc":  "2026-08-19T23:52:17.8748261Z",
+        "sha256":  "2d037fcdc06bd3051f9c4b047c7910927f13a47d03f004d9773db430daad31f7"
+    },
+    {
+        "name":  "thaumicenergistics-1.7.58-GTNH.jar",
+        "size":  1430099,
+        "lastWriteUtc":  "2026-08-19T23:52:55.6974626Z",
+        "sha256":  "e339054b8b640a5da94b632fa7ddc6b28857c615149c2e96fb8e6a33922839ee"
+    },
+    {
+        "name":  "Thaumic-Exploration-1.5.27-GTNH.jar",
+        "size":  1818325,
+        "lastWriteUtc":  "2026-08-19T23:53:15.3249804Z",
+        "sha256":  "31caaa67e42a300ad2dd2b44963ce159c8766959afe823d4264b55643aeeccc6"
+    },
+    {
+        "name":  "ThaumicHorizons-1.8.22.jar",
+        "size":  2736909,
+        "lastWriteUtc":  "2026-08-19T23:53:44.4196562Z",
+        "sha256":  "48ed05ce8facc7a5556fe5c71f14009d063bd5205f6e10db230ebfabe33e88e7"
+    },
+    {
+        "name":  "thaumicinsurgence-0.4.1.jar",
+        "size":  787289,
+        "lastWriteUtc":  "2026-08-19T23:54:07.3265580Z",
+        "sha256":  "0fe98f8e0b07a1749ad518954e00b7322d4f78b36dac6ff6da79962ac7b512e8"
+    },
+    {
+        "name":  "ThaumicRevelations-1.2.3.jar",
+        "size":  1650868,
+        "lastWriteUtc":  "2026-03-28T07:57:35.0000000Z",
+        "sha256":  "63bf2116b1a95635fd02850b7a4b6093aa7f8603fb60a102a666995fd26ae4ce"
+    },
+    {
+        "name":  "ThaumicTinkerer-2.12.30.jar",
+        "size":  1981419,
+        "lastWriteUtc":  "2026-08-19T23:54:47.0505930Z",
+        "sha256":  "7dc1a49c6c13589581591af5cd96f416d64aa7b0dca2f441aefbd8d6d8906e83"
+    },
+    {
+        "name":  "TheKitchenMod-1.3.23-1.7.2-10.jar",
+        "size":  318490,
+        "lastWriteUtc":  "2026-03-28T07:57:35.0000000Z",
+        "sha256":  "8baa8098b4b67b403ed4d340c9f1501474dbb81484cafacb047f0ca85068d802"
+    },
+    {
+        "name":  "ThermalExpansion-[1.7.10]4.1.5-248.jar",
+        "size":  2614932,
+        "lastWriteUtc":  "2026-03-28T07:57:36.0000000Z",
+        "sha256":  "cbfeebd28c8e48ac41e88f08957dc2f99a1160a0c641bbd95eff232071e884d0"
+    },
+    {
+        "name":  "ThermalFoundation-[1.7.10]1.2.6-118.jar",
+        "size":  2316321,
+        "lastWriteUtc":  "2026-03-28T07:57:35.0000000Z",
+        "sha256":  "2e78538d2db2e924b9455e6521c89b6633f2c3f171a3b5b8f1208ce4eaca4206"
+    },
+    {
+        "name":  "TiCTooltips-1.4.1.jar",
+        "size":  54955,
+        "lastWriteUtc":  "2026-08-19T21:51:54.3218166Z",
+        "sha256":  "6299b77248812c7d56edc3229f5590b8de39c66ef57e45f8cb0336805e3bc4f4"
+    },
+    {
+        "name":  "TileEntityResetFix-1.0.1-noreq.jar",
+        "size":  120843,
+        "lastWriteUtc":  "2026-01-10T04:56:16.0000000Z",
+        "sha256":  "97fdd03ebf6b519c7687f05b7052acbd44c270248163f357001db207ac175474"
+    },
+    {
+        "name":  "Transfer Zenyn 2.0.jar",
+        "size":  74190,
+        "lastWriteUtc":  "2026-03-28T07:57:35.0000000Z",
+        "sha256":  "38d7fc250867d2bba5fdad94ed5176fa686d16e45b982710aab2fef5cd623c3d"
+    },
+    {
+        "name":  "TwilightForest-2.7.39.jar",
+        "size":  5362800,
+        "lastWriteUtc":  "2026-08-19T23:55:21.6808427Z",
+        "sha256":  "2ecc0360c59754ff1f7daa2def3a41deee0c9b2ddf5ce65730f180fbbb2c445a"
+    },
+    {
+        "name":  "txloader-1.8.11.jar",
+        "size":  45468,
+        "lastWriteUtc":  "2026-08-19T23:55:46.6774365Z",
+        "sha256":  "2f11fa7f67c2e3b61e4e6c24e8106fcc221c535c71bea68d718b1408a242a8ff"
+    },
+    {
+        "name":  "utilitiesinexcess-1.0.0-alpha02.jar",
+        "size":  2461014,
+        "lastWriteUtc":  "2026-08-19T21:53:21.7272237Z",
+        "sha256":  "a65179eb2fa0c3bdd2446236578b78ad073b5800e15614413ce7e47d0d176d08"
+    },
+    {
+        "name":  "Waila-1.19.31.jar",
+        "size":  547854,
+        "lastWriteUtc":  "2026-08-19T23:56:08.2490294Z",
+        "sha256":  "a427544859e81a896a38c2ea04a1543bd7c03e3cd6551bc45c7ff43872af62a6"
+    },
+    {
+        "name":  "WailaHarvestability-1.3.6-GTNH.jar",
+        "size":  30517,
+        "lastWriteUtc":  "2026-08-19T23:56:27.9196152Z",
+        "sha256":  "f947078e58bb765b79bda0100dfb6388b6dff6c8d1098827240f3204405254aa"
+    },
+    {
+        "name":  "WAILAPlugins-0.7.2.jar",
+        "size":  69811,
+        "lastWriteUtc":  "2026-08-19T23:56:49.8178231Z",
+        "sha256":  "28d8be1f352898b94c96ce42a4f1bc4b78fdef4c25211eeab8ab1f4c09653566"
+    },
+    {
+        "name":  "WanionLib-1.10.1.jar",
+        "size":  59194,
+        "lastWriteUtc":  "2026-08-19T23:57:08.8910451Z",
+        "sha256":  "9a4f227026798fb01cbad249bd489e479429336e082471d00e32cc6a15e12886"
+    },
+    {
+        "name":  "WarpTheory-1.5.7-GTNH.jar",
+        "size":  399390,
+        "lastWriteUtc":  "2026-08-19T23:57:27.7209684Z",
+        "sha256":  "20aea23718cf4079b27b557c2f83bc8847b8a5eb45e86003902a0e9651d1a1a6"
+    },
+    {
+        "name":  "Wawla-1.3.3-GTNH.jar",
+        "size":  78897,
+        "lastWriteUtc":  "2026-08-19T23:57:52.7424432Z",
+        "sha256":  "788076ebf369549640063229b66f4ec3980c0fecc1f7ca0294e8672f28889bd6"
+    },
+    {
+        "name":  "witchery-1.7.10-0.24.1-evernife-V6.jar",
+        "size":  7010251,
+        "lastWriteUtc":  "2026-01-10T04:56:17.0000000Z",
+        "sha256":  "b2bd899585038584861c1b03159e1e069b0a57c7fd146d935ba047f8992a2779"
+    },
+    {
+        "name":  "WitchingGadgets-1.8.49-GTNH.jar",
+        "size":  3983928,
+        "lastWriteUtc":  "2026-08-19T23:58:21.4695851Z",
+        "sha256":  "eb3f865a1987534908aadc91f2ad79fb0233219bc7e95f7baff96547cd1f44b0"
+    },
+    {
+        "name":  "YAMCore-0.7.5.jar",
+        "size":  122440,
+        "lastWriteUtc":  "2026-08-20T00:15:32.4603168Z",
+        "sha256":  "7ff29db5b66525f9b1fab6d52d25e4c9adfe12aec52f5aa425d152599edaf02b"
+    },
+    {
+        "name":  "ZenScript-1.0.2-GTNH.jar",
+        "size":  530408,
+        "lastWriteUtc":  "2026-08-20T00:15:10.9430206Z",
+        "sha256":  "8f1563438f8232c32775289d7f0874e53ed7800756aae0174268c3687183ce34"
+    }
+]

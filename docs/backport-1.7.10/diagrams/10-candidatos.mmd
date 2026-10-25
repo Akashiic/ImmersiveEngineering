@@ -1,0 +1,13 @@
+flowchart LR
+  classDef ok fill:#d4edda,stroke:#2e7d32,color:#111
+  classDef rej fill:#f8d7da,stroke:#c62828,color:#111
+  classDef latest fill:#fff3cd,stroke:#ef6c00,stroke-width:3px,color:#111
+  classDef pend fill:#e8eaf6,stroke:#3949ab,color:#111
+  classDef old fill:#eceff1,stroke:#90a4ae,color:#444
+
+  G1["garden-cloche-test-1<br/>E03A71CA…<br/>superada"]:::old --> G2["garden-cloche-test-2<br/>51CF081E…<br/>APROVADA funcional"]:::ok
+  G2 --> GM["garden-cloche-multiplayer-test-1<br/>17F6F3D5…<br/>estático PASS"]:::pend
+  G2 --> W1["auto-workbench-test-1<br/>94547AA9…<br/>REJEITADO"]:::rej
+  W1 --> W2["auto-workbench-test-1-r2<br/>C72F7C4A…<br/>REJEITADO 17/09"]:::rej
+  W2 --> W3["auto-workbench-test-1-r3<br/>B91A12EB…<br/>MAIS RECENTE · A6 pendente"]:::latest
+  W2 --> K1["alloy-kiln-test-1<br/>F03FC1EC…<br/>K4 PASS · K5 pendente"]:::pend

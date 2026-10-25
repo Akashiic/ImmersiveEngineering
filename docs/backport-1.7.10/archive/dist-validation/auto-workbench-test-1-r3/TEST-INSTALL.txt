@@ -1,0 +1,34 @@
+AUTO WORKBENCH TEST 1 R3 — MANUAL INSTALLATION
+
+Candidate: auto-workbench-test-1-r3
+Commit: 5d467a612605c1201a13bde52b54e3550477ac05
+Expected JAR SHA-256:
+B91A12EBC1D424915CB8E3DE5F3267D5699FA564BA605FAFDD9635E61CFB0A12
+
+R2 IS REJECTED. Do not keep or restore it as the test candidate.
+
+Before testing:
+1. Stop Minecraft completely.
+2. Back up the test world before loading it with R3.
+3. Remove ImmersiveEngineering-auto-workbench-test-1-r2.jar from the modpack mods directory.
+4. Copy ImmersiveEngineering-auto-workbench-test-1-r3.jar into the mods directory.
+5. Confirm there is exactly ONE ImmersiveEngineering*.jar in that directory.
+6. Verify the installed JAR SHA-256 matches the value above.
+
+Do not test R2 and R3 simultaneously.
+Evidence capture:
+7. From the project root, run:
+   python tools/collect_auto_workbench_a6_evidence.py --start --label auto-workbench-test-1-r3
+8. Launch the Forbidden Series client and execute AUTO_WORKBENCH_TEST_1_R3.md (T0–T18).
+9. Exit Minecraft normally.
+10. Run:
+    python tools/collect_auto_workbench_a6_evidence.py --collect
+11. Preserve the generated evidence folder and manual observations for A6 review.
+
+Rollback if R3 fails:
+- restore the pre-test world backup;
+- remove R3;
+- restore the last approved pre-Auto-Workbench IE candidate (Garden Cloche Test 2), not rejected R2;
+- keep R3 logs/crash reports for diagnosis.
+
+This package does not authorize public redistribution; licensing remains a separate release gate.

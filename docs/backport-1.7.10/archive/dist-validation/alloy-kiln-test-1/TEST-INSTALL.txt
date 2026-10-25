@@ -1,0 +1,17 @@
+ALLOY KILN TEST 1 — INSTALLATION
+
+1. Close Minecraft and the test server.
+2. Back up the target test world.
+3. Remove the previous Immersive Engineering test JAR from the mods folder.
+4. Install ONLY:
+   ImmersiveEngineering-alloy-kiln-test-1.jar
+5. Never load two ImmersiveEngineering JARs simultaneously.
+6. Verify SHA-256 against SHA256.txt before launch.
+7. Keep the normal Forbidden Series runtime, including Angelica, enabled for the primary homologation pass.
+8. Execute ALLOY_KILN_TEST_1.md.
+9. Preserve client/server logs and any crash report.
+
+STATUS:
+K4 static/build/artifact/ABI/client-smoke PASS.
+K5 real Forbidden Series gameplay/runtime PENDING.
+DO NOT PROMOTE TO PRODUCTION/STABLE YET.

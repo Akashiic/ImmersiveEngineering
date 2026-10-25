@@ -1,0 +1,13 @@
+branch	tip	tip_date_iso_-03	commits_ahead_of_bogdan_798ce21a	contains_R3_5d467a61	tip_subject
+1.7.10	798ce21a	2017-04-28 02:28:28 +0300	0	no	part GL11 calls d->f, random.nextDouble()->nextFloat(), add XSTR, Matrix double->float
+audit/modern-feature-gap	a36bb241	2026-09-09 19:14:17 -0300	10	no	docs(backport): select Auto Workbench as feature 2
+chief/ie-1.21.1-masterplan	d7bf99e5	2026-09-12 02:08:40 -0300	26	no	docs(mixer): close archaeology and architecture gates
+feature/alloy-kiln	ccaad104	2026-09-12 01:57:57 -0300	29	no	test(alloy-kiln): record K4 verification gates
+feature/auto-workbench	ac41e5e7	2026-09-17 01:53:49 -0300	26	yes	docs(auto-workbench): close R3 gate and harden A6 evidence
+feature/garden-cloche	ad5e6201	2026-09-09 16:47:13 -0300	9	no	docs(cloche): add test 2 validation matrix
+feature/mixer	7b8863d0	2026-09-12 10:04:09 -0300	32	no	feat(mixer): add concrete fluid runtime
+forbidden-backport	0c803472	2026-09-09 10:05:32 -0300	1	no	Recover Forbidden 0.7.9 baseline on RFG
+hardening/auto-r2-cloche-mp	a55d6fa7	2026-09-16 23:18:23 -0300	21	no	fix(cloche): harden multiplayer state synchronization
+hardening/garden-cloche-multiplayer	ac69028c	2026-09-16 23:09:20 -0300	10	no	fix(cloche): harden multiplayer state synchronization
+hardening/network-gate	a1b811a6	2026-09-11 18:28:40 -0300	25	no	fix(network): harden legacy tile GUI C2S path
+hardening/network-gate-chief	c5453e22	2026-09-11 19:53:15 -0300	26	no	test(network): verify hardened C2S artifact and ABI

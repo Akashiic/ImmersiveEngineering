@@ -1,0 +1,21 @@
+stateDiagram-v2
+  direction LR
+  [*] --> DISCOVERED
+  DISCOVERED --> PROVENANCE_LOCKED: fonte e licença verificadas
+  PROVENANCE_LOCKED --> DESIGNED: A0 a A2
+  DESIGNED --> IMPLEMENTED: código compila
+  IMPLEMENTED --> STATIC_PASS: build, artefato, ABI, smoke
+  STATIC_PASS --> RUNTIME_TEST_1: jogo real
+  RUNTIME_TEST_1 --> ADVERSARIAL_FIX: falha comprovada
+  ADVERSARIAL_FIX --> RUNTIME_TEST_2: novo candidato
+  RUNTIME_TEST_1 --> APPROVED: evidência completa
+  RUNTIME_TEST_2 --> APPROVED: evidência completa
+  RUNTIME_TEST_2 --> ADVERSARIAL_FIX: nova falha
+  DISCOVERED --> DEFERRED: custo ou risco
+  DESIGNED --> REJECTED: licença ou arquitetura
+  APPROVED --> [*]
+  note right of STATIC_PASS
+    Compilar não é aprovar.
+    NOT TESTED, NON-CONCLUSIVE
+    e ASSUMED nunca valem PASS.
+  end note

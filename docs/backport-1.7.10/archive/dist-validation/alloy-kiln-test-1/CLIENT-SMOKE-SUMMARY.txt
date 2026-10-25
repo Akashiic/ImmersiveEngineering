@@ -1,0 +1,9 @@
+java.io.FileNotFoundException: C:\Users\User\Desktop\Codex\immersiveengineering-backport\work\runtime-alloy-kiln-smoke\run\config\splash.properties (O sistema não pode encontrar o caminho especificado)
+[01:40:14] [Client thread/INFO] [FML/]: Forge Mod Loader has identified 4 mods to load
+[01:40:15] [Forge Version Check/INFO] [STDERR/Forge]: [java.lang.Throwable$WrappedPrintStream:println:749]: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[01:40:15] [Forge Version Check/INFO] [STDERR/Forge]: [java.lang.Throwable$WrappedPrintStream:println:749]: Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+[01:40:19] [Client thread/INFO] [FML/]: Forge Mod Loader has successfully loaded 4 mods
+[01:40:21] [Client thread/ERROR] [TEXTURE ERRORS/]:   domain immersiveengineering is missing 3 textures
+[01:40:21] [Client thread/ERROR] [TEXTURE ERRORS/]:       textures/revolvers/revolver_rose.png
+[01:40:21] [Client thread/ERROR] [TEXTURE ERRORS/]:       textures/blocks/metal2_skycrateDispenser.png
+[01:40:21] [Client thread/ERROR] [TEXTURE ERRORS/]:       textures/revolvers/revolver_tesla.png

@@ -1,0 +1,16 @@
+flowchart LR
+  classDef stage fill:#eceff1,stroke:#607d8b,color:#111
+  classDef ok fill:#d4edda,stroke:#2e7d32,color:#111
+  classDef latest fill:#fff3cd,stroke:#ef6c00,stroke-width:3px,color:#111
+  classDef pend fill:#e8eaf6,stroke:#3949ab,color:#111
+
+  S1["DESIGNED"]:::stage --> S2["IMPLEMENTED"]:::stage --> S3["STATIC_PASS"]:::stage --> S4["RUNTIME_TEST_1"]:::stage --> S5["APPROVED"]:::stage
+
+  F1["Garden Cloche Test 2<br/>aprovada funcional 09/09"]:::ok -.-> S5
+  F2["Auto Workbench R3<br/>A5.6 PASS · A6 pendente<br/>MAIS RECENTE"]:::latest -.-> S3
+  F3["Alloy Kiln Test 1<br/>K4 PASS · K5 pendente"]:::pend -.-> S3
+  F4["Cloche multiplayer<br/>estático PASS · MP pendente"]:::pend -.-> S3
+  F5["Hardening de rede C2S<br/>estático PASS · runtime pendente"]:::pend -.-> S3
+  F6["Mixer M1 fundação<br/>PASS só da fundação"]:::pend -.-> S3
+  F7["Mixer M2 fluido Concrete<br/>código sem gate"]:::pend -.-> S2
+  F8["Sawmill e demais famílias<br/>fila do plano mestre"]:::pend -.-> S1

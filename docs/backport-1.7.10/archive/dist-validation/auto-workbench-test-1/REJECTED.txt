@@ -1,0 +1,10 @@
+REJECTED — DO NOT TEST OR PROMOTE
+
+Artifact: ImmersiveEngineering-auto-workbench-test-1.jar
+Tag: auto-workbench-test-1
+Commit: e2ee445391e7144f5add0996ebe712110cf6cc8a
+SHA-256: 94547AA9A48BE6EE0A3E5C6B39F317973AAE14E0B9EC0FF4AA6CAADB1BB8DFAB
+
+Reason: isolated Forge 1.7 client runtime found ModelFormatException in autoWorkbench.obj because a parser-visible group mixed quad and triangle faces.
+
+Replacement candidate: ../auto-workbench-test-1-r2/ImmersiveEngineering-auto-workbench-test-1-r2.jar

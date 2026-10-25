@@ -1,0 +1,14 @@
+Auto Workbench Test 1
+
+JAR: ImmersiveEngineering-auto-workbench-test-1.jar
+SHA-256: 94547AA9A48BE6EE0A3E5C6B39F317973AAE14E0B9EC0FF4AA6CAADB1BB8DFAB
+Size: 3806297 bytes
+
+Git tag: auto-workbench-test-1
+Tag object: 935863c937c4fd97e98e894aa334d44f88270d33
+Git commit: e2ee445391e7144f5add0996ebe712110cf6cc8a
+Baseline tag: garden-cloche-test-2
+Baseline SHA-256: 51CF081E5A7C9E92DC9EDE65021BA2BEFBDD17971A070D7F26F8C83839C4AC2E
+
+Build command: gradlew clean build --no-daemon
+Final tagged build: PASS

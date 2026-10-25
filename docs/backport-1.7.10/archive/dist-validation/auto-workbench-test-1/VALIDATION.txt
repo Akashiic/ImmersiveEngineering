@@ -1,0 +1,73 @@
+AUTO WORKBENCH TEST 1 — FINAL TAGGED VALIDATION
+Date: 2026-09-10
+
+Source tag: auto-workbench-test-1
+Source commit: e2ee445391e7144f5add0996ebe712110cf6cc8a
+Working tree at build: clean
+Git describe at build: auto-workbench-test-1
+
+Final build:
+- gradlew clean build --no-daemon
+- BUILD SUCCESSFUL in 4m47s
+- 23 actionable tasks; 22 executed
+- compileJava PASS
+- reobfJar PASS
+- checkstyleMain PASS
+- check PASS
+- build PASS
+
+Final JAR:
+- ImmersiveEngineering-auto-workbench-test-1.jar
+- 3,806,297 bytes
+- SHA-256 94547AA9A48BE6EE0A3E5C6B39F317973AAE14E0B9EC0FF4AA6CAADB1BB8DFAB
+- 1,405 archive entries
+- 747 class entries
+- 747/747 class major 52 (Java 8)
+- duplicate ZIP entries: 0
+
+Identity/registry:
+- modid ImmersiveEngineering
+- internal VERSION 0.7.9
+- mcmod version 1.7.10-0.7.9
+- description Forbidden Series Edition
+- Auto Workbench multiblock meta 14; previous Metal Press remains 13
+- Redstone Engineering meta 3; previous sheet-metal metas remain 0–2
+- Auto Workbench GUI ID 14; Garden Cloche remains 13
+
+Baseline artifact delta vs Garden Cloche Test 2:
+- added entries: 25
+- removed entries: 0
+- changed entries: 14
+- no unexpected package/library tree added
+
+Dedicated-side boundary:
+- baseline common/api client-ref candidates: 55
+- final candidate common/api client-ref candidates: 55
+- new common/api client-ref classes: 0
+- Auto Workbench common-side client refs: 0
+
+Public ABI gate:
+- baseline public members removed from audited integration classes: 0
+
+Independent Akashic jar_gate.py: PASS
+
+Asset gate — source resource equals final JAR entry: 8/8 PASS
+- autoWorkbench.obj: 8E811D7556D7F13CF9120E648169C96143186AC57F904F6FD16487D516114B55
+- autoWorkbenchAnimated.obj: 68B20FBDEF15804F488621C9CBFE6CE2BFF5922D2726E8464E6A48F5A6705C09
+- autoWorkbenchMirrored.obj: 60E494D2C863B18B9A1A6ECA5CD339D3FF38D6545C45C123F015D4BA6C5DE8D4
+- Redstone Engineering texture: B2C18643E7235D85530DA40BBD4575BFBBCBD217F9BB8DAEAE1A5853E9597DE4
+- Auto Workbench base texture: 1FC3BCC0D64AEC325749B1A77D4CAB367764B587C7D420DCF2554745AEE1A90C
+- Blueprint texture: 2A4BC2B90935D6D10E1545E6705ED516BB9BD8BDA2D4D087C7226BC41A743121
+- GUI: CDACD4D500DA31E86349E440A9089EA562AFAA93AF6C591DD87D2645AD6D24FB
+- recipe-button sheet: A608EF5CFC5A1AB44C5A1A2465879405145EFE40A96EEA645C4E6565A430EA06
+
+Mathematical gates:
+- facing/mirror renderer transform: PASS
+- manual formed-model bounds/translation: PASS
+- manual conveyor orientation: PASS
+- structure coordinates, all 8 facing×mirror combinations: PASS
+- 18 unique parts in every combination: PASS
+- master pos 13 / energy pos 9 / redstone pos 1: PASS
+- mirrored/non-mirrored output coordinate: PASS
+
+Status: A0–A5 PASS. A6 runtime Test 1 is READY but NOT YET APPROVED.

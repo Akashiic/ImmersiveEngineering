@@ -1,0 +1,24 @@
+AUTO WORKBENCH A6 COLLECTOR SELF-TEST
+Date: 2026-09-17
+
+Sandbox positive gate: PASS
+- exact R3 JAR copied into temporary pack
+- marker creation PASS
+- SHA-256 validation PASS
+- label sanitization PASS
+- 2 synthetic logs captured
+- filtered log assertions PASS
+- 1 synthetic crash copied
+- manifest creation PASS
+- marker cleanup PASS
+
+Real Forbidden Series negative gate: PASS
+- currently installed candidate: auto-workbench-test-1-r2
+- collector exited non-zero before session start
+- no A6 marker was created
+- production modpack was not modified
+
+R3 expected SHA-256:
+B91A12EBC1D424915CB8E3DE5F3267D5699FA564BA605FAFDD9635E61CFB0A12
+
+A6 must not begin until the user manually installs exactly one R3 IE JAR.

@@ -1,0 +1,18 @@
+flowchart TD
+  classDef go fill:#d4edda,stroke:#2e7d32,color:#111
+  classDef stop fill:#f8d7da,stroke:#c62828,color:#111
+  classDef act fill:#fff3cd,stroke:#ef6c00,color:#111
+
+  S(["Quero retomar o IE 1.7.10"]) --> Q1{"O que quero fazer?"}
+  Q1 -- "Testar o que existe" --> J1["Instalar EXATAMENTE 1 jar<br/>auto-workbench-test-1-r3 · SHA B91A12EB…0A12"]:::act
+  J1 --> J2["python tools/collect_auto_workbench_a6_evidence.py --start --label auto-workbench-test-1-r3"]:::act
+  J2 --> J3["Executar T0 a T18 de docs/AUTO_WORKBENCH_TEST_1.md"]:::act
+  J3 --> J4["Fechar o jogo e rodar --collect"]:::act
+  J4 --> J5{"Logs e jogo concordam?"}
+  J5 -- "sim" --> J6["A6 PASS → A8 aprovação"]:::go
+  J5 -- "não" --> J7["registrar defeito → A7 correção → R4"]:::stop
+  Q1 -- "Continuar desenvolvendo" --> Q2{"Qual linha?"}
+  Q2 -- "Auto Workbench" --> B1["branch feature/auto-workbench · tag R3<br/>não mover tags existentes"]:::act
+  Q2 -- "Alloy Kiln ou Mixer" --> B2["branch feature/mixer contém Alloy<br/>mas carrega o Auto Workbench R2 REJEITADO"]:::stop
+  Q2 -- "Integrar tudo" --> B3["ver 09-integracao-proposta<br/>cherry-picks aplicam limpo · build não executado"]:::act
+  Q1 -- "Publicar um release" --> P1["bloqueado: licença sem permissão<br/>G10 performance e G11 abertos"]:::stop

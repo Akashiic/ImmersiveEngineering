@@ -1,0 +1,13 @@
+STATUS: APPROVED FOR CONTROLLED TEST
+Commit: 415ad44c
+Tag: garden-cloche-test-1
+Baseline: 0c803472 / 0.7.9-forbidden-baseline
+SHA-256: E03A71CAE6D2BEE8B85D710C7980C520641C4C8BB87C7F4DF0492779ED50B480
+Build: clean build + reobfJar + checkstyleMain + check = PASS
+Dedicated server minimal smoke: core candidate reached Done and graceful save/stop = PASS; final hammer/manual-fill delta then passed clean build + common-side bytecode audit.
+Java bytecode: 722/722 classes major 52 = PASS
+ZIP: 1370 unique entries, no duplicates/corruption = PASS
+Baseline JAR delta: 31 added, 0 removed, 12 expected changed = PASS
+Common-side new classes: zero client/LWJGL references = PASS
+OBJ: 147 faces, valid indices, base/glass/farmland groups = PASS
+Not release-approved: in-world visual/full-modpack/AgriCraft/Magical Crops testing remains.

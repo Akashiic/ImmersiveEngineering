@@ -1,0 +1,9 @@
+tag	object_type	target_commit	date_iso_-03	tagger_or_author	subject
+0.7.9-forbidden-baseline	tag	0c803472	2026-09-09 10:05:32 -0300	Akashic	Recovered and audited Forbidden Series 0.7.9 baseline
+garden-cloche-test-1	commit	415ad44c	2026-09-09 12:49:44 -0300	Akashic	Backport Garden Cloche core for 1.7.10
+garden-cloche-test-2	tag	ad5e6201	2026-09-09 16:47:29 -0300	Akashic	Garden Cloche Test 2: texture, MFR, Magical Crops and AgriCraft validation candidate
+auto-workbench-test-1	tag	e2ee4453	2026-09-10 11:39:34 -0300	Akashic	Auto Workbench Test 1 candidate
+auto-workbench-test-1-r2	tag	97cea596	2026-09-10 21:31:51 -0300	Akashic	Auto Workbench Test 1 R2 - Forge 1.7 OBJ runtime fix
+alloy-kiln-test-1	tag	a1376474	2026-09-12 01:57:06 -0300	Akashic	Alloy Kiln Test 1 - K4 build/artifact/client-smoke candidate
+garden-cloche-multiplayer-test-1	tag	ac69028c	2026-09-16 23:09:29 -0300	Akashic	Garden Cloche multiplayer hardening Test 1
+auto-workbench-test-1-r3	tag	5d467a61	2026-09-17 01:22:10 -0300	Akashic	Auto Workbench Test 1 R3 - persistence and GUI energy sync hardening

@@ -1,0 +1,22 @@
+diff --git a/tools/audit_garden_cloche_multiplayer.py b/tools/audit_garden_cloche_multiplayer.py
+index e32fe209..6d76cd7b 100644
+--- a/tools/audit_garden_cloche_multiplayer.py
++++ b/tools/audit_garden_cloche_multiplayer.py
+@@ -2,7 +2,7 @@ import math
+ import struct
+ from pathlib import Path
+ 
+-ROOT = Path(r"C:\Users\User\Desktop\Codex\immersiveengineering-backport\work\garden-cloche-multiplayer")
++ROOT = Path(__file__).resolve().parent.parent
+ 
+ def signed_short(value):
+     value &= 0xffff
+@@ -62,7 +62,7 @@ assert "worldObj.isRemote" in tile
+ print("MULTIPLAYER_STATIC_SYNC_GATE=PASS")
+ 
+ # S31PacketWindowProperty in Forge 1.7.10 carries property ID and value as signed shorts.
+-packet = Path(r"C:\Users\User\Desktop\Codex\immersiveengineering-backport\work\ImmersiveEngineering-Forbidden-Backport\build\rfg\minecraft-src\java\net\minecraft\network\play\server\S31PacketWindowProperty.java")
++packet = ROOT / "build/rfg/minecraft-src/java/net/minecraft/network/play/server/S31PacketWindowProperty.java"
+ packet_text = packet.read_text(encoding="utf-8")
+ assert "data.writeShort(this.field_149184_b);" in packet_text
+ assert "data.writeShort(this.field_149185_c);" in packet_text

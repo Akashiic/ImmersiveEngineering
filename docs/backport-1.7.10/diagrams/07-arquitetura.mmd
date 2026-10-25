@@ -1,0 +1,32 @@
+flowchart TB
+  subgraph L5["Backports de recursos"]
+    direction LR
+    GC["Garden Cloche"]
+    AW["Auto Workbench"]
+    AK["Alloy Kiln"]
+    MX["Mixer em fundação"]
+    NX["Sawmill e próximas famílias"]
+  end
+  subgraph L4["Camada de adaptadores de integração"]
+    direction LR
+    V["Vanilla"]
+    H["IE Hemp"]
+    MC["Magical Crops BETA 5"]
+    AC["AgriCraft evernife-v1"]
+    MFR["MFR Fertile Soil"]
+  end
+  subgraph L3["Fachada de compatibilidade legacy"]
+    direction LR
+    REG["registry · metas congeladas"]
+    NBT["NBT versionado"]
+    EN["energia RF"]
+    FL["fluidos"]
+    NET["rede C2S com fila no servidor"]
+  end
+  subgraph L2["IE 1.7.10 endurecido"]
+    BASE["0.7.9 recuperado + correções legacy auditadas"]
+  end
+  subgraph L1["Build e testes"]
+    BLD["RetroFuturaGradle · Forge 10.13.4.1614 · MCP stable_12 · saída Java 8"]
+  end
+  L5 --> L4 --> L3 --> L2 --> L1

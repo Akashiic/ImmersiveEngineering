@@ -1,0 +1,62 @@
+AUTO WORKBENCH TEST 1 R3 — VALIDATION
+
+STATUS: A5.6 PASS; A6 gameplay pending.
+
+IDENTITY
+Tag: auto-workbench-test-1-r3
+Commit: 5d467a612605c1201a13bde52b54e3550477ac05
+JAR: ImmersiveEngineering-auto-workbench-test-1-r3.jar
+Size: 3,806,758 bytes
+SHA-256: B91A12EBC1D424915CB8E3DE5F3267D5699FA564BA605FAFDD9635E61CFB0A12
+
+CLEAN BUILD
+BUILD SUCCESSFUL in 2m 55s.
+23 actionable tasks: 22 executed, 1 up-to-date.
+compileJava/processResources/jar/reobfJar/sourcesJar/checkstyle/check/build passed.
+
+ARTIFACT
+1,405 entries.
+747 classes.
+747/747 class major 52 (Java 8).
+0 duplicate ZIP entries.
+R3 artifact audit: 21/21 PASS.
+R2 -> R3 BINARY DELTA
+Entries: 1,405 -> 1,405.
+Added: 0.
+Removed: 0.
+Changed class files: 4.
+Only TileEntityAutoWorkbench / ContainerAutoWorkbench families changed.
+Nested classes have identical logical javap bytecode; differences are source debug/line metadata.
+Removed public/protected ABI: 0.
+Common/API client refs: 55 -> 55; new refs: 0.
+All 8 Auto Workbench/Redstone Engineering assets byte-identical to R2.
+
+R3 STATE HARDENING
+Process progress/RF now marks the master chunk dirty whenever at least one process advances.
+GUI energy now synchronizes only to viewers through ICrafting property 0.
+Energy capacity 32,000 fits the signed-short SMP progress property.
+State-sync source audit: 16/16 PASS.
+
+MINIMAL CLIENT SMOKE
+Forge/FML 1.7.10 initialized.
+FML successfully loaded exactly 4 minimal-runtime mods.
+Block/item/revolver atlases were rebuilt.
+ModelFormatException count: 0.
+No Auto Workbench renderer/classloading exception occurred.
+KNOWN BASELINE NOISE
+Minimal client reports missing revolver_rose, metal2_skycrateDispenser and revolver_tesla textures.
+All three were already absent from the approved Garden Cloche baseline and are not R3 regressions.
+
+PRODUCTION SAFETY
+This gate did not copy R3 into the Technic modpack.
+The currently installed R2 is rejected and must be manually replaced before A6.
+Never keep R2 and R3 simultaneously.
+
+NEXT GATE
+A6 is the real gameplay matrix T0–T18.
+Use AUTO_WORKBENCH_TEST_1_R3.md and AUTO-WORKBENCH-A6-EVIDENCE-PROTOCOL.md.
+A6 is not PASS until gameplay observations and captured logs are reviewed together.
+A6 EVIDENCE TOOLING
+Fail-fast start gate verified against the real pack: R2 installed -> non-zero exit -> no marker created.
+Sandbox positive collector gate verified with exact R3: start/hash/filter/tail/crash/manifest/marker-cleanup PASS.
+See A6-COLLECTOR-SELFTEST.txt and the updated AUTO-WORKBENCH-A6-EVIDENCE-PROTOCOL.md.

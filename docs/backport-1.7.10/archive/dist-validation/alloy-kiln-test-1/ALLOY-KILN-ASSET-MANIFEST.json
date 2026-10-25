@@ -1,0 +1,223 @@
+{
+  "files": {
+    "gui/alloy_smelter.png": {
+      "output_sha256": "7534080900240414A4CBC10EF152D8B482C06901841EEB187847C4C8A3F59853",
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\gui\\alloy_smelter.png",
+      "source_sha256": "7534080900240414A4CBC10EF152D8B482C06901841EEB187847C4C8A3F59853",
+      "transform": "identity"
+    },
+    "stoneDecoration2_alloyBrick.png": {
+      "output_sha256": "C6E20BEAE2CC950BB0446BD9CCD15B2AA32BD512AFC2B4196979CD97432F437D",
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\stone_decoration\\alloybrick.png",
+      "source_sha256": "C6E20BEAE2CC950BB0446BD9CCD15B2AA32BD512AFC2B4196979CD97432F437D",
+      "transform": "identity"
+    },
+    "stoneDevice2_alloySmelter_bottom_00.png": {
+      "output_sha256": "C0F2FE1909DC07F3766D67E6415F8316ACBADB5259B9BF0AE354D9807F57C7C1",
+      "quadrant": [
+        0,
+        0
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_bottom.png",
+      "source_sha256": "92248D07FFF1C8DF7ED2F3CA600D894205B96B5C41C4EB5E52F83B891752B1FA",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_bottom_01.png": {
+      "output_sha256": "4A0642F1D401D46E49B115A6F8879DFF4C1F4FF1815BE52E9BE9BD68A3F725F5",
+      "quadrant": [
+        0,
+        1
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_bottom.png",
+      "source_sha256": "92248D07FFF1C8DF7ED2F3CA600D894205B96B5C41C4EB5E52F83B891752B1FA",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_bottom_10.png": {
+      "output_sha256": "39AA6D35B6FE050183394794C880DD962F90588F775BC7383415E96004230E62",
+      "quadrant": [
+        1,
+        0
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_bottom.png",
+      "source_sha256": "92248D07FFF1C8DF7ED2F3CA600D894205B96B5C41C4EB5E52F83B891752B1FA",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_bottom_11.png": {
+      "output_sha256": "C3AAAFB01DD4FC4383DA49BC26EFBA3677BD3340D85AFC4697B30A3D53CA4BA3",
+      "quadrant": [
+        1,
+        1
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_bottom.png",
+      "source_sha256": "92248D07FFF1C8DF7ED2F3CA600D894205B96B5C41C4EB5E52F83B891752B1FA",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_front_off_00.png": {
+      "output_sha256": "A9577C1805FFFBEDAACFDD087A86BFD2D45B7648E28909F21A23BBE7CFCB5F3E",
+      "quadrant": [
+        0,
+        0
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_off.png",
+      "source_sha256": "53A2950915649D41E7B78E76211D07B994EEAECE74F9402A5DB2CAE40508C26E",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_front_off_01.png": {
+      "output_sha256": "6A43CB7FD41024D58D1340E32C478F85D88189F84AA9481FF59110A1B1A24DB1",
+      "quadrant": [
+        0,
+        1
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_off.png",
+      "source_sha256": "53A2950915649D41E7B78E76211D07B994EEAECE74F9402A5DB2CAE40508C26E",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_front_off_10.png": {
+      "output_sha256": "36E626586CB2B8904BE757DA3201D0875C4E56C2AF615B93CE5A6E69D5B4E750",
+      "quadrant": [
+        1,
+        0
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_off.png",
+      "source_sha256": "53A2950915649D41E7B78E76211D07B994EEAECE74F9402A5DB2CAE40508C26E",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_front_off_11.png": {
+      "output_sha256": "0BF74E181EA20E69A46C0FF9BE5B0AE2DB16F929285B9B1B22F9CFBAEC5D80F8",
+      "quadrant": [
+        1,
+        1
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_off.png",
+      "source_sha256": "53A2950915649D41E7B78E76211D07B994EEAECE74F9402A5DB2CAE40508C26E",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_front_on_00.png": {
+      "output_sha256": "A9577C1805FFFBEDAACFDD087A86BFD2D45B7648E28909F21A23BBE7CFCB5F3E",
+      "quadrant": [
+        0,
+        0
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_on.png",
+      "source_sha256": "85DE2CEABD09EC0B29888E6B269F459DEA80BA93D5A9246A0EA5E9D94A89C22F",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_front_on_01.png": {
+      "output_sha256": "2526E881D0D87403480043C33B66CF44D6FD06533D46EAC3E5445BE372275878",
+      "quadrant": [
+        0,
+        1
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_on.png",
+      "source_sha256": "85DE2CEABD09EC0B29888E6B269F459DEA80BA93D5A9246A0EA5E9D94A89C22F",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_front_on_10.png": {
+      "output_sha256": "36E626586CB2B8904BE757DA3201D0875C4E56C2AF615B93CE5A6E69D5B4E750",
+      "quadrant": [
+        1,
+        0
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_on.png",
+      "source_sha256": "85DE2CEABD09EC0B29888E6B269F459DEA80BA93D5A9246A0EA5E9D94A89C22F",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_front_on_11.png": {
+      "output_sha256": "C298A28F44388679DE4E8B031B2797FB29A20AE99BD6AB72382CFE3FA1932CEA",
+      "quadrant": [
+        1,
+        1
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_on.png",
+      "source_sha256": "85DE2CEABD09EC0B29888E6B269F459DEA80BA93D5A9246A0EA5E9D94A89C22F",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_side_00.png": {
+      "output_sha256": "1EACAEAEBEC216E42DBF871D3D1F22E4D8E8CDCD36308585A0AD9EA6A6C4F7D1",
+      "quadrant": [
+        0,
+        0
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_side.png",
+      "source_sha256": "84F368B42D9E9C7D7896908824CC7553D21099DEB8B7CC368EBAB57CE5B3EC7B",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_side_01.png": {
+      "output_sha256": "4B75A618DA57A5AC83CB103389F633D84ABF7023BDF3C7847784239AF9C22C5D",
+      "quadrant": [
+        0,
+        1
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_side.png",
+      "source_sha256": "84F368B42D9E9C7D7896908824CC7553D21099DEB8B7CC368EBAB57CE5B3EC7B",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_side_10.png": {
+      "output_sha256": "E297492006BC7C54C439B29E00425C863093D4E46975FC6910D901521C8D2FD4",
+      "quadrant": [
+        1,
+        0
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_side.png",
+      "source_sha256": "84F368B42D9E9C7D7896908824CC7553D21099DEB8B7CC368EBAB57CE5B3EC7B",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_side_11.png": {
+      "output_sha256": "7B0733A018C624611D4CB3DA154BF0988DAFBB1135CB03EEFD8CF517C80CCDE9",
+      "quadrant": [
+        1,
+        1
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_side.png",
+      "source_sha256": "84F368B42D9E9C7D7896908824CC7553D21099DEB8B7CC368EBAB57CE5B3EC7B",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_top_00.png": {
+      "output_sha256": "99B4FD819EF146A5E13108B0C1B941FC452E2EEB5073AF615BD8D96CA10C29E2",
+      "quadrant": [
+        0,
+        0
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_top.png",
+      "source_sha256": "25D214520F97BB6502A288D1097A35FF4C8475672CB827864FD079E7952C0648",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_top_01.png": {
+      "output_sha256": "B0F44DD7EB238538BC9B92793EC0C0B17EE0979A2CEA64F5DC6070981B6C1E40",
+      "quadrant": [
+        0,
+        1
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_top.png",
+      "source_sha256": "25D214520F97BB6502A288D1097A35FF4C8475672CB827864FD079E7952C0648",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_top_10.png": {
+      "output_sha256": "4088BB2F1081BAB1194753178B6E1040E00B480F92964067F9619FD42CB24148",
+      "quadrant": [
+        1,
+        0
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_top.png",
+      "source_sha256": "25D214520F97BB6502A288D1097A35FF4C8475672CB827864FD079E7952C0648",
+      "transform": "crop16"
+    },
+    "stoneDevice2_alloySmelter_top_11.png": {
+      "output_sha256": "6659BE56C70B5D18B164F51D194BF91FFF6065DCD9C0819C808B5B634FD0E53F",
+      "quadrant": [
+        1,
+        1
+      ],
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\multiblocks\\alloy_smelter_top.png",
+      "source_sha256": "25D214520F97BB6502A288D1097A35FF4C8475672CB827864FD079E7952C0648",
+      "transform": "crop16"
+    },
+    "stoneDevice_insulatorGlass.png": {
+      "output_sha256": "8C326CF9CB60A2361617BB14C434CF6DE5A4008970DA84E708273489B30AA118",
+      "source": "src\\main\\resources\\assets\\immersiveengineering\\textures\\block\\stone_decoration\\insulating_glass.png",
+      "source_sha256": "8C326CF9CB60A2361617BB14C434CF6DE5A4008970DA84E708273489B30AA118",
+      "transform": "identity-registry-preserving"
+    }
+  },
+  "source_commit": "75a27f03e4243544243567e8d5c38d336f4f10f4"
+}

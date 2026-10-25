@@ -1,0 +1,7 @@
+ImmersiveEngineering-garden-cloche-multiplayer-test-1.jar
+SHA-256: 17F6F3D507C7E16BEE595C62C1AE19ED41407B854B32590A8C0B1557222FC0FB
+Size: 3701436 bytes
+Git tag: garden-cloche-multiplayer-test-1
+Git commit: ac69028c8d0558f7e4435cab33f0cd6745c344c0
+Baseline tag: garden-cloche-test-2
+Baseline SHA-256: 51CF081E5A7C9E92DC9EDE65021BA2BEFBDD17971A070D7F26F8C83839C4AC2E

@@ -1,0 +1,10 @@
+﻿build.gradle
+changelog.md
+src/main/java/blusunrize/immersiveengineering/ImmersiveEngineering.java
+src/main/java/blusunrize/immersiveengineering/api/energy/ImmersiveNetHandler.java
+src/main/java/blusunrize/immersiveengineering/common/Config.java
+src/main/java/blusunrize/immersiveengineering/common/EventHandler.java
+src/main/java/blusunrize/immersiveengineering/common/blocks/metal/TileEntityArcFurnace.java
+src/main/java/blusunrize/immersiveengineering/common/blocks/metal/TileEntityFluidPipe.java
+src/main/java/blusunrize/immersiveengineering/common/util/compat/EE3Helper.java
+src/main/java/blusunrize/immersiveengineering/common/util/compat/IC2Helper.java

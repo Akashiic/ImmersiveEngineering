@@ -1,0 +1,25 @@
+flowchart TD
+  classDef pass fill:#d4edda,stroke:#2e7d32,color:#111
+  classDef fail fill:#f8d7da,stroke:#c62828,color:#111
+  classDef pend fill:#fff3cd,stroke:#ef6c00,stroke-width:3px,color:#111
+  classDef block fill:#eceff1,stroke:#90a4ae,color:#555,stroke-dasharray:4 3
+
+  A0["A0 arqueologia de fonte e assets<br/>PASS"]:::pass --> A1["A1 registry · meta · TileEntity · GUI-ID<br/>PASS"]:::pass
+  A1 --> A2["A2 arquitetura legacy · NBT · transação de processo<br/>PASS"]:::pass
+  A2 --> A3["A3 implementação · compile · auditoria estática<br/>PASS"]:::pass
+  A3 --> A4["A4 GUI · render · assets · lado dedicado<br/>PASS"]:::pass
+  A4 --> A5["A5 artefato do tag auto-workbench-test-1<br/>PASS estático"]:::pass
+  A5 --> A51{"A5.1 smoke de cliente isolado<br/>ModelFormatException no OBJ"}
+  A51 -- "FALHOU: grupo com 289 quads + 4 triângulos" --> REJ1["auto-workbench-test-1<br/>REJEITADO · tag imutável"]:::fail
+  REJ1 --> FIX1["quadify: triângulo A B C vira quad A B C C"]
+  FIX1 --> A52["A5.2 R2 · build limpo · 1.405 entradas<br/>PASS"]:::pass
+  A52 --> A53["A5.3 smoke no modpack real<br/>8,7 M de linhas · 0 erros de parser<br/>PASS"]:::pass
+  A53 --> A54["A5.4 regressão reprodutível 20/20<br/>PASS"]:::pass
+  A54 --> A55{"A5.5 revisão adversarial de estado"}
+  A55 -- "markDirty ausente + RF da GUI sem canal de sync" --> REJ2["auto-workbench-test-1-r2<br/>REJEITADO em 17/09 · tag imutável"]:::fail
+  REJ2 --> FIX2["R3: markDirty por tick ativo<br/>+ propriedade 0 em ICrafting"]
+  FIX2 --> A56["A5.6 R3 · build limpo 2m55s<br/>artefato 21/21 · smoke 4 mods<br/>PASS"]:::pass
+  A56 --> A6{{"A6 gameplay T0–T18 no Forbidden Series<br/>PENDENTE · sem evidência registrada<br/>VOCÊ ESTÁ AQUI"}}:::pend
+  A6 -- "PASS + logs revisados" --> A8["A8 aprovação e congelamento"]:::block
+  A6 -- "FAIL ou conflito logs × jogo" --> A7["A7 correção adversarial · Test 2"]:::block
+  A7 --> A6
